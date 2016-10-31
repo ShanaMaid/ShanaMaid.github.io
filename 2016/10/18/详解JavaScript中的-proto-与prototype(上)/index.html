@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>详解JavaScript中的__proto__与prototype（上） | ShanaKnights-ShanaMaid</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="先看一段代码12345Function instanceof Object // true Object instanceof Function // true Function instanceof Function //true Object instanceof Object // true Number instanceof Number //false">
+<meta property="og:type" content="article">
+<meta property="og:title" content="详解JavaScript中的__proto__与prototype（上）">
+<meta property="og:url" content="http://ShanaMaid.github.io/2016/10/18/详解JavaScript中的-proto-与prototype(上)/index.html">
+<meta property="og:site_name" content="ShanaKnights-ShanaMaid">
+<meta property="og:description" content="先看一段代码12345Function instanceof Object // true Object instanceof Function // true Function instanceof Function //true Object instanceof Object // true Number instanceof Number //false">
+<meta property="og:image" content="http://ShanaMaid.github.io/2016/10/18/详解JavaScript中的-proto-与prototype(上)/1.png">
+<meta property="og:image" content="http://ShanaMaid.github.io/2016/10/18/详解JavaScript中的-proto-与prototype(上)/3.png">
+<meta property="og:image" content="http://ShanaMaid.github.io/2016/10/18/详解JavaScript中的-proto-与prototype(上)/2.jpg">
+<meta property="og:updated_time" content="2016-10-31T13:52:47.785Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="详解JavaScript中的__proto__与prototype（上）">
+<meta name="twitter:description" content="先看一段代码12345Function instanceof Object // true Object instanceof Function // true Function instanceof Function //true Object instanceof Object // true Number instanceof Number //false">
+<meta name="twitter:image" content="http://ShanaMaid.github.io/2016/10/18/详解JavaScript中的-proto-与prototype(上)/1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="ShanaKnights-ShanaMaid" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">ShanaKnights-ShanaMaid</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">死宅万岁，bilibili ( ゜- ゜)つロ 乾杯~</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About Me</a>
+        
+          <a class="main-nav-link" href="https://github.com/ShanaMaid">Github</a>
+        
+          <a class="main-nav-link" href="http://blog.csdn.net/shanamaid">CSDNBlog</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ShanaMaid.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-详解JavaScript中的-proto-与prototype(上)" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/10/18/详解JavaScript中的-proto-与prototype(上)/" class="article-date">
+  <time datetime="2016-10-18T11:58:39.000Z" itemprop="datePublished">2016-10-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/学习笔记/">学习笔记</a>►<a class="article-category-link" href="/categories/学习笔记/JavaScript/">JavaScript</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      详解JavaScript中的__proto__与prototype（上）
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>先看一段代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Function instanceof Object // true </div><div class="line">Object instanceof Function // true </div><div class="line">Function instanceof Function //true </div><div class="line">Object instanceof Object // true </div><div class="line">Number instanceof Number //false</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>再来看一段<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">var obj = &#123; a : 1 &#125;; </div><div class="line">console.log(obj.__proto__ === Object.prototype); // true </div><div class="line"></div><div class="line">var str = new String(&apos;123&apos;); </div><div class="line">console.log(str.__proto__ === String.prototype); // true </div><div class="line"></div><div class="line"></div><div class="line">function Point()&#123;&#125;; </div><div class="line">var Circle = Object.create(Point); </div><div class="line">console.log(Circle.__proto__ === Point); // true </div><div class="line">console.log(Circle.__proto__ === Point.prototype); // false </div><div class="line"></div><div class="line">var p = new Point(); </div><div class="line">console.log(Point.__proto__); // function() </div><div class="line">console.log(Point.prototype); // Point &#123;&#125; </div><div class="line">console.log(p.__proto__); // Point &#123;&#125; </div><div class="line">console.log(p.prototype); // undefined</div></pre></td></tr></table></figure></p>
+<p>很明显，__proto__与prototype看起来似乎很相似，但是实际上是不同的。<br>先了解一下各自是什么，再进一步探讨。</p>
+<h3 id="prototype-显示原型"><a href="#prototype-显示原型" class="headerlink" title="prototype 显示原型"></a>prototype 显示原型</h3><p>每一个函数在创建之后都会拥有一个名为prototype的属性，这个属性指向函数的原型对象。(通过Function.prototype.bind方法构造出来的函数是个例外，它没有prototype属性。)</p>
+<h3 id="proto-隐式原型"><a href="#proto-隐式原型" class="headerlink" title="__proto__ 隐式原型"></a>__proto__ 隐式原型</h3><p>JavaScript中任意对象都有一个内置属性[[prototype]]，在ES5之前没有标准的方法访问这个内置属性，但是大多数浏览器都支持通过<strong>proto</strong>来访问。ES5中有了对于这个内置属性标准的Get方法Object.getPrototypeOf().<br>Note: Object.prototype 这个对象是个例外，它的__proto__值为null </p>
+<h3 id="二者关系"><a href="#二者关系" class="headerlink" title="二者关系"></a><span id="two_rel">二者关系</span></h3><p>隐式原型指向创建这个对象的函数(constructor)的prototype<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function test()&#123;&#125;;</div><div class="line">var a = new test();</div><div class="line">console.log(a.__proto__ === test.prototype) ;// true</div></pre></td></tr></table></figure></p>
+<h3 id="梳理"><a href="#梳理" class="headerlink" title="梳理"></a>梳理</h3><p>JavaScript里万物皆对象，方法（Function）是一种特殊的对象。<br>由上述的定义可知，任意对象都有都有__proto__,而prototype只有函数创建之后自己才有,通过该函数创建的对象是没有的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function test()&#123;&#125;;</div><div class="line">var a = new test();</div><div class="line">console.log(test.prototype); // test&#123;&#125;</div><div class="line">console.log(a.prototype); // undefined</div></pre></td></tr></table></figure></p>
+<p>而Object.prototype这个特殊的对象的__proto__位于原型链金字塔的顶端,为null，如下图<br><img src="/2016/10/18/详解JavaScript中的-proto-与prototype(上)/1.png" alt="图形化原型链" title="图形化原型链"><br>这里值得一提的是JavaScript的原型链中原型对象prototype之间是通过__proto__联系起来的<br><img src="/2016/10/18/详解JavaScript中的-proto-与prototype(上)/3.png" alt="__proto__" title="__proto__"><br>同时原型对象prototype中都有个预定义的constructor属性，用来引用它的函数对象。这是一种循环引用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">person.prototype.constructor === person //true</div><div class="line">Function.prototype.constructor === Function //true</div><div class="line">Object.prototype.constructor === Object //true</div></pre></td></tr></table></figure>
+<h4 id="这一点在本文后面的图中也有显示，Click"><a href="#这一点在本文后面的图中也有显示，Click" class="headerlink" title="这一点在本文后面的图中也有显示，Click"></a>这一点在本文后面的图中也有显示，<a href="#last_pic">Click</a></h4><h3 id="有两点需要注意："><a href="#有两点需要注意：" class="headerlink" title="有两点需要注意："></a>有两点需要注意：</h3><blockquote>
+<p>（1）注意Object.constructor===Function；//true 本身Object就是Function函数构造出来的<br>（2）如何查找一个对象的constructor，就是在该对象的原型链上寻找碰到的第一个constructor属性所指向的对象</p>
+</blockquote>
+<p>再看上面一截代码中的部分<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function Point()&#123;&#125;; </div><div class="line">var Circle = Object.create(Point); </div><div class="line">console.log(Circle.__proto__ === Point); // true</div></pre></td></tr></table></figure></p>
+<p>Object.create(),这是ES5中新增的方法，在这之前这被称为原型式继承,我们可以理解为 new Object(),这样我们就很好理解结果true了，实际上，上述代码可以等价理解为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function Point()&#123;&#125;;</div><div class="line">var Circle = new Point();</div><div class="line">console.log(Circle.__proto__ === Point); // true</div></pre></td></tr></table></figure></p>
+<p>等价的原因在上面<a href="#two_rel"><strong>二者关系</strong></a>有提到。<br>也可以从constructor来理解<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">console.log(Circle.constructor); //function Point()</div><div class="line">console.log(Circle.constructor.prototype ===  Circle.__prototype) // true</div></pre></td></tr></table></figure></p>
+<h3 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h3><p>instanceof 运算符用来测试一个对象在其原型链中是否存在一个构造函数的 prototype 属性。</p>
+<h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">object instanceof constructor</div></pre></td></tr></table></figure>
+<h4 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h4><p>object<br>    要检测的对象.</p>
+<p>constructor<br>    某个构造函数</p>
+<h4 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h4><p>instanceof 运算符用来检测 constructor.prototype 是否存在于参数 object 的原型链上。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//设 L instanceof R </div><div class="line">//通过判断</div><div class="line"> L.__proto__.__proto__ ..... === R.prototype ？</div><div class="line">//最终返回true or false</div></pre></td></tr></table></figure>
+<p>也就是沿着L的__proto__一直寻找到原型链末端，直到等于R.prototype为止,如果一直到Object.prototyoe都没找到，则返回false。就此，我们结合下面这幅图再剖析一下文章开头部分的代码段就很容易理解了<br><span id="last_pic"></span><br><img src="/2016/10/18/详解JavaScript中的-proto-与prototype(上)/2.jpg" alt="__proto__与prototype" title="__proto__与prototype"></p>
+<h3 id="参照知乎知乎–js中proto和prototype的区别和关系？整理得出，加入部分个人见解，有错之处望各位大牛斧正"><a href="#参照知乎知乎–js中proto和prototype的区别和关系？整理得出，加入部分个人见解，有错之处望各位大牛斧正" class="headerlink" title="参照知乎知乎–js中proto和prototype的区别和关系？整理得出，加入部分个人见解，有错之处望各位大牛斧正"></a>参照知乎<a href="http://www.zhihu.com/question/34183746" target="_blank" rel="external">知乎–js中<strong>proto</strong>和prototype的区别和关系？</a>整理得出，加入部分个人见解，有错之处望各位大牛斧正</h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://ShanaMaid.github.io/2016/10/18/详解JavaScript中的-proto-与prototype(上)/" data-id="ciuy6ob8d000vp4u0ygrqomcn" class="article-share-link">Share</a>
+      
+        <a href="http://ShanaMaid.github.io/2016/10/18/详解JavaScript中的-proto-与prototype(上)/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/10/31/剑侠情缘3网络版贴吧爬虫开发日记/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          剑侠情缘3网络版贴吧爬虫开发日记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/10/18/利用Php爬虫备份自己的CSDN博客/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">利用Php爬虫备份自己的CSDN博客</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+<div class="ds-thread" data-thread-key="post-详解JavaScript中的-proto-与prototype(上)" data-title="详解JavaScript中的__proto__与prototype（上）" data-url="http://ShanaMaid.github.io/2016/10/18/详解JavaScript中的-proto-与prototype(上)/"></div>
+
+
+<!-- 多说评论框 start -->
+	
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"shanaknight"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+
+
+
+
+
+
+
+
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//shanamaid.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                                
+<script id="dsq-count-scr" src="//shanakinghts.disqus.com/count.js" async></script>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/ArticleList/index.html">文章|站点|工具推荐</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/学习笔记/">学习笔记</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/学习笔记/JavaScript/">JavaScript</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/实战开发/">实战开发</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/实战开发/PHP/">PHP</a></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spider/">Spider</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hack/">hack</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/PHP/" style="font-size: 20px;">PHP</a> <a href="/tags/Spider/" style="font-size: 10px;">Spider</a> <a href="/tags/hack/" style="font-size: 20px;">hack</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/10/31/剑侠情缘3网络版贴吧爬虫开发日记/">剑侠情缘3网络版贴吧爬虫开发日记</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/18/详解JavaScript中的-proto-与prototype(上)/">详解JavaScript中的__proto__与prototype（上）</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/18/利用Php爬虫备份自己的CSDN博客/">利用Php爬虫备份自己的CSDN博客</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/16/PHP实战：利用Curl刷CSDN积分 /">PHP实战：利用Curl刷CSDN积分</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情连接</h3>
+    <div class="widget tagcloud">
+     	<a href = "https://blog.chionlab.moe/">Chion Tang</a>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 ShanaMaid<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+<script src="http://s11.cnzz.com/z_stat.php?id=1260644675&web_id=1260644675" language="JavaScript" ></script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About Me</a>
+  
+    <a href="https://github.com/ShanaMaid" class="mobile-nav-link">Github</a>
+  
+    <a href="http://blog.csdn.net/shanamaid" class="mobile-nav-link">CSDNBlog</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'ShanaKnights';
+  
+  var disqus_url = 'http://ShanaMaid.github.io/2016/10/18/详解JavaScript中的-proto-与prototype(上)/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+
+</body>
+</html>
