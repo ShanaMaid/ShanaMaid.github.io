@@ -5,19 +5,16 @@
   
   <title>利用Php爬虫备份自己的CSDN博客 | ShanaKnights-ShanaMaid</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="自己写备份博客的原因
-最近逛自己博客的时候发现左边经常有个小广告，十分恶心，看着很烦。同时自己最近也准备自己搭一个博客，所以就想着把自己CSDN博客上的文章备份下来。">
+  <meta name="description" content="自己写备份博客的原因最近逛自己博客的时候发现左边经常有个小广告，十分恶心，看着很烦。同时自己最近也准备自己搭一个博客，所以就想着把自己CSDN博客上的文章备份下来。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="利用Php爬虫备份自己的CSDN博客">
 <meta property="og:url" content="http://ShanaMaid.github.io/2016/10/18/利用Php爬虫备份自己的CSDN博客/index.html">
 <meta property="og:site_name" content="ShanaKnights-ShanaMaid">
-<meta property="og:description" content="自己写备份博客的原因
-最近逛自己博客的时候发现左边经常有个小广告，十分恶心，看着很烦。同时自己最近也准备自己搭一个博客，所以就想着把自己CSDN博客上的文章备份下来。">
-<meta property="og:updated_time" content="2016-10-31T13:52:47.784Z">
+<meta property="og:description" content="自己写备份博客的原因最近逛自己博客的时候发现左边经常有个小广告，十分恶心，看着很烦。同时自己最近也准备自己搭一个博客，所以就想着把自己CSDN博客上的文章备份下来。">
+<meta property="og:updated_time" content="2016-11-25T12:26:16.054Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="利用Php爬虫备份自己的CSDN博客">
-<meta name="twitter:description" content="自己写备份博客的原因
-最近逛自己博客的时候发现左边经常有个小广告，十分恶心，看着很烦。同时自己最近也准备自己搭一个博客，所以就想着把自己CSDN博客上的文章备份下来。">
+<meta name="twitter:description" content="自己写备份博客的原因最近逛自己博客的时候发现左边经常有个小广告，十分恶心，看着很烦。同时自己最近也准备自己搭一个博客，所以就想着把自己CSDN博客上的文章备份下来。">
   
     <link rel="alternate" href="/atom.xml" title="ShanaKnights-ShanaMaid" type="application/atom+xml">
   
@@ -102,22 +99,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote>
-<h3 id="自己写备份博客的原因"><a href="#自己写备份博客的原因" class="headerlink" title="自己写备份博客的原因"></a>自己写备份博客的原因</h3><blockquote>
-<p>最近逛自己博客的时候发现左边经常有个小广告，十分恶心，看着很烦。同时自己最近也准备自己搭一个博客，所以就想着把自己CSDN博客上的文章备份下来。<a id="more"></a>本着偷懒至上的原则⁄(⁄ ⁄•⁄㉨⁄•⁄ ⁄)⁄ ，先去百度了一下有木有现成的博客爬虫软件。发现有个叫豆约翰的软件，当时的心情是很激动的有木有φ(゜▽゜*)♪，然而打开的一瞬间居然要收费，还是按月收费。尼玛，程序员的本性简直不能忍。So，自己写了一个github开源项目CSDNSpider，接下来讲解一下思路吧。</p>
-</blockquote>
+        <h2 id="自己写备份博客的原因"><a href="#自己写备份博客的原因" class="headerlink" title="自己写备份博客的原因"></a>自己写备份博客的原因</h2><p>最近逛自己博客的时候发现左边经常有个小广告，十分恶心，看着很烦。同时自己最近也准备自己搭一个博客，所以就想着把自己CSDN博客上的文章备份下来。<a id="more"></a>本着偷懒至上的原则⁄(⁄ ⁄•⁄㉨⁄•⁄ ⁄)⁄ ，先去百度了一下有木有现成的博客爬虫软件。发现有个叫豆约翰的软件，当时的心情是很激动的有木有φ(゜▽゜*)♪，然而打开的一瞬间居然要收费，还是按月收费。尼玛，程序员的本性简直不能忍。So，自己写了一个github开源项目CSDNSpider，接下来讲解一下思路吧。</p>
 <p>项目地址：<a href="https://github.com/ShanaMaid/CSDNSpider" target="_blank" rel="external">CSDNSpider</a> </p>
-<h3 id="Php爬虫那些事儿"><a href="#Php爬虫那些事儿" class="headerlink" title="Php爬虫那些事儿"></a>Php爬虫那些事儿</h3><blockquote>
-<h4 id="爬虫需要了解的函数"><a href="#爬虫需要了解的函数" class="headerlink" title="爬虫需要了解的函数"></a>爬虫需要了解的函数</h4><ul>
+<h2 id="Php爬虫那些事儿"><a href="#Php爬虫那些事儿" class="headerlink" title="Php爬虫那些事儿"></a>Php爬虫那些事儿</h2><h3 id="爬虫需要了解的函数"><a href="#爬虫需要了解的函数" class="headerlink" title="爬虫需要了解的函数"></a>爬虫需要了解的函数</h3><ul>
 <li>fopen，用于打开需要爬虫的url，获得一个流</li>
 <li>stream_get_contents，用于将fopen获得的流处理成字符串</li>
 <li>preg_match，用于正则表达式匹配</li>
 <li>curl，这里用作图片的下载</li>
 <li>preg_replace，用于替换符合正则表达式的内容<br>当然还有最最重要的 <strong>正则表达式</strong>，详情可以点击<a href="http://www.runoob.com/regexp/regexp-syntax.html" target="_blank" rel="external">教程</a><br>这里函数的作用就只进行简单说明了，各位先更深入了解可以去官网查看文档。</li>
 </ul>
-</blockquote>
-<h3 id="整个爬虫的思路"><a href="#整个爬虫的思路" class="headerlink" title="整个爬虫的思路"></a>整个爬虫的思路</h3><blockquote>
-<p>关于爬虫首先我们要理清楚我们要做的是什么，需要构造那些函数？<br>整理后我们可以得到以下函数，当然因人而异，可能你会有其它不同的看法</p>
+<h3 id="整个爬虫的思路"><a href="#整个爬虫的思路" class="headerlink" title="整个爬虫的思路"></a>整个爬虫的思路</h3><p>关于爬虫首先我们要理清楚我们要做的是什么，需要构造那些函数？<br>整理后我们可以得到以下函数，当然因人而异，可能你会有其它不同的看法</p>
 <ul>
 <li>SpiderGo，爬虫主函数</li>
 <li>getWebContent，用于获得网站的主要内容</li>
@@ -129,65 +120,47 @@
 <li>downloadImg，下载图片</li>
 </ul>
 <p>还有些函数就不多做说明了，其实大致文章爬虫主题上就是这些部分，根据不同个网站的需要进行增删部分辅助性的函数</p>
-</blockquote>
-<h3 id="爬虫的一些基本常识"><a href="#爬虫的一些基本常识" class="headerlink" title="爬虫的一些基本常识"></a>爬虫的一些基本常识</h3><blockquote>
-<p>爬虫中所谓的翻页、查看文章详情内容等这些点击操作其实都是通过url实现的，所以爬虫的核心点在我看来就是url+正则表达式，就拿我CSDN博客来举例子<br>打开我的CSDN个人博客页面，url栏是这样显示的：<a href="http://blog.csdn.net/shanamaid" target="_blank" rel="external">http://blog.csdn.net/shanamaid</a><br>我们可以看到url的格式为，“<a href="http://blog.csdn.net/”+用户名" target="_blank" rel="external">http://blog.csdn.net/”+用户名</a><br>那么我们要如何通过url实现翻页呢？<br>我们先翻第二页看看，url栏是这样显示的:<a href="http://blog.csdn.net/ShanaMaid/article/list/2" target="_blank" rel="external">http://blog.csdn.net/ShanaMaid/article/list/2</a><br>So,我们得到结论，文章翻页的url格式是这样的:<br><a href="http://blog.csdn.net/用户名/article/list/页数" target="_blank" rel="external">http://blog.csdn.net/用户名/article/list/页数</a><br>再来，我们把这个url打开会得到什么东西呢？<br><a href="http://blog.csdn.net/ShanaMaid/article/list/1" target="_blank" rel="external">http://blog.csdn.net/ShanaMaid/article/list/1</a><br>很显然，<br><a href="http://blog.csdn.net/ShanaMaid/article/list/1" target="_blank" rel="external">http://blog.csdn.net/ShanaMaid/article/list/1</a><br>打开的页面和<br><a href="http://blog.csdn.net/shanamaid" target="_blank" rel="external">http://blog.csdn.net/shanamaid</a><br>是一样的，也就是说，这两个链接是等价的，但是为了统一url格式，我们在写爬虫的时候肯定用的是<br><a href="http://blog.csdn.net/ShanaMaid/article/list/1" target="_blank" rel="external">http://blog.csdn.net/ShanaMaid/article/list/1</a><br>打开页面而不是<br><a href="http://blog.csdn.net/shanamaid。" target="_blank" rel="external">http://blog.csdn.net/shanamaid。</a><br><br><br>接下来我们打开文章详情页面看看，<a href="http://blog.csdn.net/shanamaid/article/details/52441330" target="_blank" rel="external">http://blog.csdn.net/shanamaid/article/details/52441330</a><br>分析得到文章详情页面得到:<a href="http://blog.csdn.net/用户名/article/details/文章ID编号" target="_blank" rel="external">http://blog.csdn.net/用户名/article/details/文章ID编号</a><br><br><br>我们再分析一下文章列表页面发现</p>
-</blockquote>
-</blockquote>
+<h2 id="爬虫的一些基本常识"><a href="#爬虫的一些基本常识" class="headerlink" title="爬虫的一些基本常识"></a>爬虫的一些基本常识</h2><p>爬虫中所谓的翻页、查看文章详情内容等这些点击操作其实都是通过url实现的，所以爬虫的核心点在我看来就是url+正则表达式，就拿我CSDN博客来举例子<br>打开我的CSDN个人博客页面，url栏是这样显示的：<a href="http://blog.csdn.net/shanamaid" target="_blank" rel="external">http://blog.csdn.net/shanamaid</a><br>我们可以看到url的格式为:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">“http://blog.csdn.net/”+用户名</div></pre></td></tr></table></figure></p>
+<p>那么我们要如何通过url实现翻页呢？<br>我们先翻第二页看看，url栏是这样显示的:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://blog.csdn.net/ShanaMaid/article/list/2</div></pre></td></tr></table></figure></p>
+<p>So,我们得到结论，文章翻页的url格式是这样的:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://blog.csdn.net/用户名/article/list/页数</div></pre></td></tr></table></figure></p>
+<p>再来，我们把这个url打开会得到什么东西呢？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://blog.csdn.net/ShanaMaid/article/list/1</div></pre></td></tr></table></figure></p>
+<p>很显然，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://blog.csdn.net/ShanaMaid/article/list/1</div></pre></td></tr></table></figure></p>
+<p>打开的页面和<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://blog.csdn.net/shanamaid</div></pre></td></tr></table></figure></p>
+<p>是一样的，也就是说，这两个链接是等价的，但是为了统一url格式，我们在写爬虫的时候肯定用的是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://blog.csdn.net/ShanaMaid/article/list/1</div></pre></td></tr></table></figure></p>
+<p>打开页面而不是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://blog.csdn.net/shanamaid。</div></pre></td></tr></table></figure></p>
+<p>接下来我们打开文章详情页面看看，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://blog.csdn.net/shanamaid/article/details/52441330</div></pre></td></tr></table></figure></p>
+<p>分析得到文章详情页面得到:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://blog.csdn.net/用户名/article/details/文章ID编号</div></pre></td></tr></table></figure></p>
+<p>我们再分析一下文章列表页面发现</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;span class=&quot;link_title&quot;&gt;&lt;a href=&quot;/shanamaid/article/details/52441330&quot;&gt;</div><div class="line">        &lt;font color=&quot;red&quot;&gt;[置顶]&lt;/font&gt;</div><div class="line">        ReactJS学习之一篇博客教你入门ReactJS            </div><div class="line">        &lt;/a&gt;&lt;/span&gt;</div></pre></td></tr></table></figure>
-<blockquote>
 <p>发现我们需要的文章的题目和链接都在class=”link_title”的span里面，所以我们可以用一个正则表达式把它提取出来<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;span class=&quot;link_title&quot;&gt;[\w\W]*?&lt;\/span&gt;</div></pre></td></tr></table></figure></p>
 <p>然后再用</p>
-</blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;\/?[^&gt;]+&gt;</div></pre></td></tr></table></figure>
-<blockquote>
 <p>可以去掉标签得到题目   [置顶]ReactJS学习之一篇博客教你入门ReactJS<br>用</p>
-</blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[0-9]&#123;5,&#125;</div></pre></td></tr></table></figure>
-<blockquote>
 <p>可以提取出文章标号，得到52441330<br>即</p>
-</blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">//获取文章列表</div><div class="line">function getArticleList($page,$username)&#123;</div><div class="line">	$url = &apos;http://blog.csdn.net/&apos;.$username.&apos;/article/list/&apos;.$page;</div><div class="line">	$content = getWebContent($url);</div><div class="line">	$tag = &apos;/&lt;span class=&quot;link_title&quot;&gt;[\w\W]*?&lt;\/span&gt;/&apos;;</div><div class="line">	$tag_name =  &apos;/&lt;\/?[^&gt;]+&gt;/&apos;;//去除html标签</div><div class="line">	$tag_url  =   &apos;/[0-9]&#123;5,&#125;/&apos;;//提取编号</div><div class="line">	preg_match_all($tag, $content, $result);//提取出包含有文章题目和编号的内容</div><div class="line">	for ($i=0; $i &lt; sizeof($result[0]); $i++)&#123;</div><div class="line">		preg_match($tag_url,$result[0][$i],$number);//提出出文章题目编号</div><div class="line">		$result[0][$i]=preg_replace($tag_name,&apos;&apos;,$result[0][$i]);//提取出文章题目</div><div class="line">		$result[1][$i]=$number[0];</div><div class="line">	&#125;</div><div class="line">	return $result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
 <p>同理，我们观看文章详情页面发现都在id=”article_content”的div里面，同时这个块后面一行内容为</p>
-</blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!-- Baidu Button BEGIN --&gt;</div></pre></td></tr></table></figure>
-<blockquote>
 <p>所以我们可以这样写正则表达式</p>
-</blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;article_content&quot; class=&quot;article_content&quot;&gt;[\w\W]*&lt;\/div&gt;[\w\W]*&lt;!-- B</div></pre></td></tr></table></figure>
-<blockquote>
 <p>则提取文章内容的函数应该这样写</p>
-</blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">// 获取文章内容</div><div class="line">function getArticleContent($number,$username)&#123;</div><div class="line">	$url = &quot;http://blog.csdn.net/&quot;.$username.&quot;/article/details/&quot;.$number;</div><div class="line">	$content = getWebContent($url);</div><div class="line">	$tag = &apos;/&lt;div id=&quot;article_content&quot; class=&quot;article_content&quot;&gt;[\w\W]*&lt;\/div&gt;[\w\W]*&lt;!-- B/&apos;; //匹配正文内容</div><div class="line">	preg_match($tag,$content,$main);//提出正文内容</div><div class="line">	return $main[0];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
 <p>再看看总页数，观察后可以很容易写出下列函数</p>
-</blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">//获取文章总页数</div><div class="line">function getPageNumber($content)&#123;</div><div class="line">	$tag = &apos;/共[0-9]+页/&apos;;</div><div class="line">	$tagNumber = &apos;/[0-9]+/&apos;;</div><div class="line">	preg_match($tag, $content,$result);</div><div class="line">	preg_match($tagNumber, $result[0],$sumPage);</div><div class="line">	return $sumPage[0];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
 <p>同样我们继续观察img的格式，可以得出正则表达式</p>
-</blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http:\/\/img.blog.csdn.net\/.*?\/Center</div></pre></td></tr></table></figure>
-<blockquote>
 <p>提取图片的函数为</p>
-</blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//提取-文章内容中的图片</div><div class="line">function getImage($content)&#123;</div><div class="line">	$tag = &apos;/http:\/\/img.blog.csdn.net\/.*?\/Center/&apos;; </div><div class="line">	preg_match_all($tag, $content, $result);//筛选出图片</div><div class="line">	return $result[0];//图片链接数组</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
 <p>然后是对提取出的图片的链接进行下载</p>
-</blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">//下载图片</div><div class="line">function downloadImg($url,$id,$imgName)&#123;</div><div class="line">	if(!is_dir(&quot;Img\\&quot;.$id))</div><div class="line">	&#123;</div><div class="line">	  mkdir(&quot;Img\\&quot;.$id);</div><div class="line">	&#125;</div><div class="line">	for ($i=0; $i &lt;sizeof($url) ; $i++) &#123; </div><div class="line">		$curl = curl_init();</div><div class="line">		curl_setopt($curl,CURLOPT_URL, $url[$i]);</div><div class="line">		curl_setopt ($curl, CURLOPT_HEADER, false);</div><div class="line">		curl_setopt ($curl, CURLOPT_RETURNTRANSFER, true);</div><div class="line">		$result = curl_exec($curl);</div><div class="line">		curl_close($curl);</div><div class="line">		file_put_contents($imgName[$i],$result);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
 <p>由于下载了图片，为了能够离线观看文章，所以还得把文章中img的src中的链接替换为本地连接，可以用下面函数</p>
-</blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//替换-文章内容中的图片链接为本地</div><div class="line">function replaceImgUrl($content,$local_url)&#123;</div><div class="line">	$tag = &apos;/http:\/\/img.blog.csdn.net\/.*?\/Center/&apos;; </div><div class="line">	$tag_array = array();</div><div class="line">	for ($i=0; $i &lt; sizeof($local_url) ; $i++) &#123; </div><div class="line">		$tag_array[$i] = $tag;</div><div class="line">	&#125;</div><div class="line">	$count = 1;</div><div class="line">	$st = preg_replace($tag_array, $local_url, $content,$count);</div><div class="line">	return $st;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
 <p>整个爬虫大概就是这样了，最后再提示一遍，完整的文件在我的github上面<br><a href="https://github.com/ShanaMaid/CSDNSpider" target="_blank" rel="external">CSDNSpider</a></p>
-</blockquote>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://ShanaMaid.github.io/2016/10/18/利用Php爬虫备份自己的CSDN博客/" data-id="civulb9ph0002b8u0ya7ghylr" class="article-share-link">Share</a>
+      <a data-url="http://ShanaMaid.github.io/2016/10/18/利用Php爬虫备份自己的CSDN博客/" data-id="civxsfsq20001ccu07chji573" class="article-share-link">Share</a>
       
         <a href="http://ShanaMaid.github.io/2016/10/18/利用Php爬虫备份自己的CSDN博客/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -286,7 +259,7 @@ s.setAttribute('data-timestamp', +new Date());
     <h3 class="widget-title">分类</h3>
     <div class="widget">
       <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/ArticleList/index.html">文章|站点|工具推荐</a></li></ul>
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/学习笔记/">学习笔记</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/学习笔记/JavaScript/">JavaScript</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/实战开发/">实战开发</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/实战开发/PHP/">PHP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/实战开发/web/">web</a></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/学习笔记/">学习笔记</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/学习笔记/JavaScript/">JavaScript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/学习笔记/web/">web</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/实战开发/">实战开发</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/实战开发/PHP/">PHP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/实战开发/web/">web</a></li></ul></li></ul>
     </div>
   </div>
 
@@ -296,7 +269,7 @@ s.setAttribute('data-timestamp', +new Date());
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Nodejs/" style="font-size: 10px;">Nodejs</a> <a href="/tags/PHP/" style="font-size: 20px;">PHP</a> <a href="/tags/Spider/" style="font-size: 10px;">Spider</a> <a href="/tags/ejs/" style="font-size: 10px;">ejs</a> <a href="/tags/express/" style="font-size: 10px;">express</a> <a href="/tags/hack/" style="font-size: 15px;">hack</a> <a href="/tags/requirejs/" style="font-size: 10px;">requirejs</a>
+      <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JavaScript/" style="font-size: 13.33px;">JavaScript</a> <a href="/tags/Nodejs/" style="font-size: 10px;">Nodejs</a> <a href="/tags/PHP/" style="font-size: 20px;">PHP</a> <a href="/tags/Spider/" style="font-size: 10px;">Spider</a> <a href="/tags/ejs/" style="font-size: 10px;">ejs</a> <a href="/tags/express/" style="font-size: 10px;">express</a> <a href="/tags/hack/" style="font-size: 16.67px;">hack</a> <a href="/tags/requirejs/" style="font-size: 10px;">requirejs</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
     </div>
   </div>
 
@@ -318,6 +291,10 @@ s.setAttribute('data-timestamp', +new Date());
       <ul>
         
           <li>
+            <a href="/2016/11/25/web前端面试问题总结/">web前端面试问题总结</a>
+          </li>
+        
+          <li>
             <a href="/2016/11/23/独立开发日记-剑网3那些事儿/">独立开发日记-剑网3那些事儿</a>
           </li>
         
@@ -331,10 +308,6 @@ s.setAttribute('data-timestamp', +new Date());
         
           <li>
             <a href="/2016/10/18/利用Php爬虫备份自己的CSDN博客/">利用Php爬虫备份自己的CSDN博客</a>
-          </li>
-        
-          <li>
-            <a href="/2016/10/16/PHP实战：利用Curl刷CSDN积分 /">PHP实战：利用Curl刷CSDN积分</a>
           </li>
         
       </ul>

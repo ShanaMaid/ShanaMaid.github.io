@@ -5,21 +5,18 @@
   
   <title>PHP实战：利用Curl刷CSDN积分 | ShanaKnights-ShanaMaid</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这篇博客的由来
-偶尔有一次机会点开了CSDN排行第一的博主的博客，看到了他的一篇文章!">
+  <meta name="description" content="这篇博客的由来偶尔有一次机会点开了CSDN排行第一的博主的博客，看到了他的一篇文章!">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PHP实战：利用Curl刷CSDN积分">
 <meta property="og:url" content="http://ShanaMaid.github.io/2016/10/16/PHP实战：利用Curl刷CSDN积分 /index.html">
 <meta property="og:site_name" content="ShanaKnights-ShanaMaid">
-<meta property="og:description" content="这篇博客的由来
-偶尔有一次机会点开了CSDN排行第一的博主的博客，看到了他的一篇文章!">
+<meta property="og:description" content="这篇博客的由来偶尔有一次机会点开了CSDN排行第一的博主的博客，看到了他的一篇文章!">
 <meta property="og:image" content="http://img.blog.csdn.net/20160920124901518">
 <meta property="og:image" content="http://img.blog.csdn.net/20160920124918643">
-<meta property="og:updated_time" content="2016-10-31T13:52:47.784Z">
+<meta property="og:updated_time" content="2016-11-25T12:21:02.958Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PHP实战：利用Curl刷CSDN积分">
-<meta name="twitter:description" content="这篇博客的由来
-偶尔有一次机会点开了CSDN排行第一的博主的博客，看到了他的一篇文章!">
+<meta name="twitter:description" content="这篇博客的由来偶尔有一次机会点开了CSDN排行第一的博主的博客，看到了他的一篇文章!">
 <meta name="twitter:image" content="http://img.blog.csdn.net/20160920124901518">
   
     <link rel="alternate" href="/atom.xml" title="ShanaKnights-ShanaMaid" type="application/atom+xml">
@@ -105,35 +102,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="这篇博客的由来"><a href="#这篇博客的由来" class="headerlink" title="这篇博客的由来"></a>这篇博客的由来</h3><blockquote>
-<p>偶尔有一次机会点开了CSDN排行第一的博主的博客，看到了他的一篇文章!<a id="more"></a><a href="http://img.blog.csdn.net/20160920123920368" target="_blank" rel="external">message</a><br><br>当时看到这篇文章第一想法是跪拜的，前辈不愧是前辈，不愧是CSDN排名第一。<br><br>看到前辈后面说这个漏洞已经被封了，但是我又有点心痒难耐，想了想琢磨了一下发现似乎可以在文章访问量上动手脚，测试发现CSDN对文章访问计数是一个IP地址短时间只能访问一次。于是乎想了想能不能从从http报头上动手脚？所以就有了这篇博客~~~</p>
-</blockquote>
-<h3 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h3><blockquote>
-<p>本博客只是为了证明CSDN确实有这个漏洞，由于博主已经被CSDN客服爸爸发了黄牌警告。代码方面就不会全部公布了，只是提供一个思路，同时也希望CSDN客服爸爸尽快修复这个漏洞。<br>再次强调！博主真不是故意的，测试脚本的时候挂服务器上后就去玩游戏了，忘记关了，后来被CSDN客服爸爸黄牌警告才想起。。。。。好在CSDN客服爸爸宽宏大量，原谅了我。我只是单纯想向前辈致敬，结果玩成这样了。。。。<br><img src="http://img.blog.csdn.net/20160920124901518" alt="这里写图片描述"><img src="http://img.blog.csdn.net/20160920124918643" alt="这里写图片描述"></p>
-</blockquote>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><blockquote>
-<p>首先利用爬虫把自己每篇文章的url给扫描下来，然后利用Php中的curl往里面填入伪造的IP地址</p>
-</blockquote>
+        <h3 id="这篇博客的由来"><a href="#这篇博客的由来" class="headerlink" title="这篇博客的由来"></a>这篇博客的由来</h3><p>偶尔有一次机会点开了CSDN排行第一的博主的博客，看到了他的一篇文章!<a id="more"></a><a href="http://img.blog.csdn.net/20160920123920368" target="_blank" rel="external">message</a><br><br>当时看到这篇文章第一想法是跪拜的，前辈不愧是前辈，不愧是CSDN排名第一。<br><br>看到前辈后面说这个漏洞已经被封了，但是我又有点心痒难耐，想了想琢磨了一下发现似乎可以在文章访问量上动手脚，测试发现CSDN对文章访问计数是一个IP地址短时间只能访问一次。于是乎想了想能不能从从http报头上动手脚？所以就有了这篇博客~~~</p>
+<h2 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h2><p>本博客只是为了证明CSDN确实有这个漏洞，由于博主已经被CSDN客服爸爸发了黄牌警告。代码方面就不会全部公布了，只是提供一个思路，同时也希望CSDN客服爸爸尽快修复这个漏洞。<br>再次强调！博主真不是故意的，测试脚本的时候挂服务器上后就去玩游戏了，忘记关了，后来被CSDN客服爸爸黄牌警告才想起。。。。。好在CSDN客服爸爸宽宏大量，原谅了我。我只是单纯想向前辈致敬，结果玩成这样了。。。。<br><img src="http://img.blog.csdn.net/20160920124901518" alt="这里写图片描述"><img src="http://img.blog.csdn.net/20160920124918643" alt="这里写图片描述"></p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>首先利用爬虫把自己每篇文章的url给扫描下来，然后利用Php中的curl往里面填入伪造的IP地址</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ip = $_GET[&apos;ip&apos;] ? $_GET[&apos;ip&apos;] : &apos;1.1.1.1&apos;;</div><div class="line">$ipArr = explode(&quot;.&quot;,$ip);</div><div class="line">$ipArr[3]=rand(1,255);</div><div class="line">$ipArr[2]=rand(1,255);</div><div class="line">$ipArr[1]=rand(1,255);</div><div class="line">$ipArr[0]=rand(1,255);</div><div class="line">$ip = implode(&quot;.&quot;, $ipArr);</div><div class="line">$headers[&apos;CLIENT-IP&apos;] = $ip;</div><div class="line">$headers[&apos;X-FORWARDED-FOR&apos;] = $ip;</div></pre></td></tr></table></figure>
-<blockquote>
 <p>伪造的用户代理</p>
-</blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$user_agent = &apos;Safari Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_1) AppleWebKit/537.73.11 (KHTML, like Gecko) Version/7.0.1 Safari/5&apos;;</div><div class="line">curl_setopt($ch, CURLOPT_USERAGENT, $user_agent);</div></pre></td></tr></table></figure>
-<blockquote>
 <p>伪造的来路，百度爸爸躺枪</p>
-</blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl_setopt($ch, CURLOPT_REFERER, &quot;http://www.baidu.com/&quot;);   //构造来路</div></pre></td></tr></table></figure>
-<blockquote>
 <p>核心思想主要就是这些，有点底子的人也知道剩下的该怎么做了吧？(呸呸呸！！各位别瞎搞，技术分享而已，让大家知道有这么个东西就行了。)然后把伪造的信息发过去再访问页面就蒙混过关了~</p>
-</blockquote>
-<h3 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h3><blockquote>
-<p>再次强调！此篇文章为技术分享性质，同时让大家知道有这么个东西即可，切勿以此为恶！<br>同时希望CSDN越办越好，同时尽快修复这个BUG吧！</p>
-</blockquote>
+<h2 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h2><p>再次强调！此篇文章为技术分享性质，同时让大家知道有这么个东西即可，切勿以此为恶！<br>同时希望CSDN越办越好，同时尽快修复这个BUG吧！</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://ShanaMaid.github.io/2016/10/16/PHP实战：利用Curl刷CSDN积分 /" data-id="civulb9pn0003b8u0q8hdobvf" class="article-share-link">Share</a>
+      <a data-url="http://ShanaMaid.github.io/2016/10/16/PHP实战：利用Curl刷CSDN积分 /" data-id="civxsfsqb0003ccu0vqs1ai4p" class="article-share-link">Share</a>
       
         <a href="http://ShanaMaid.github.io/2016/10/16/PHP实战：利用Curl刷CSDN积分 /#disqus_thread" class="article-comment-link">留言</a>
       
@@ -227,7 +210,7 @@ s.setAttribute('data-timestamp', +new Date());
     <h3 class="widget-title">分类</h3>
     <div class="widget">
       <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/ArticleList/index.html">文章|站点|工具推荐</a></li></ul>
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/学习笔记/">学习笔记</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/学习笔记/JavaScript/">JavaScript</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/实战开发/">实战开发</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/实战开发/PHP/">PHP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/实战开发/web/">web</a></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/学习笔记/">学习笔记</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/学习笔记/JavaScript/">JavaScript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/学习笔记/web/">web</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/实战开发/">实战开发</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/实战开发/PHP/">PHP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/实战开发/web/">web</a></li></ul></li></ul>
     </div>
   </div>
 
@@ -237,7 +220,7 @@ s.setAttribute('data-timestamp', +new Date());
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Nodejs/" style="font-size: 10px;">Nodejs</a> <a href="/tags/PHP/" style="font-size: 20px;">PHP</a> <a href="/tags/Spider/" style="font-size: 10px;">Spider</a> <a href="/tags/ejs/" style="font-size: 10px;">ejs</a> <a href="/tags/express/" style="font-size: 10px;">express</a> <a href="/tags/hack/" style="font-size: 15px;">hack</a> <a href="/tags/requirejs/" style="font-size: 10px;">requirejs</a>
+      <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JavaScript/" style="font-size: 13.33px;">JavaScript</a> <a href="/tags/Nodejs/" style="font-size: 10px;">Nodejs</a> <a href="/tags/PHP/" style="font-size: 20px;">PHP</a> <a href="/tags/Spider/" style="font-size: 10px;">Spider</a> <a href="/tags/ejs/" style="font-size: 10px;">ejs</a> <a href="/tags/express/" style="font-size: 10px;">express</a> <a href="/tags/hack/" style="font-size: 16.67px;">hack</a> <a href="/tags/requirejs/" style="font-size: 10px;">requirejs</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
     </div>
   </div>
 
@@ -259,6 +242,10 @@ s.setAttribute('data-timestamp', +new Date());
       <ul>
         
           <li>
+            <a href="/2016/11/25/web前端面试问题总结/">web前端面试问题总结</a>
+          </li>
+        
+          <li>
             <a href="/2016/11/23/独立开发日记-剑网3那些事儿/">独立开发日记-剑网3那些事儿</a>
           </li>
         
@@ -272,10 +259,6 @@ s.setAttribute('data-timestamp', +new Date());
         
           <li>
             <a href="/2016/10/18/利用Php爬虫备份自己的CSDN博客/">利用Php爬虫备份自己的CSDN博客</a>
-          </li>
-        
-          <li>
-            <a href="/2016/10/16/PHP实战：利用Curl刷CSDN积分 /">PHP实战：利用Curl刷CSDN积分</a>
           </li>
         
       </ul>
