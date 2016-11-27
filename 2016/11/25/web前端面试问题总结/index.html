@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://ShanaMaid.github.io/2016/11/25/web前端面试问题总结/index.html">
 <meta property="og:site_name" content="ShanaKnights-ShanaMaid">
 <meta property="og:description" content="面试2016年11月25日，参加2次百度远程电话面试，面试后深感自己web基础不够深，面试中暴漏出许多做项目中遗漏的问题，同时由于自身过于紧张，很多问题都没回答完全甚至有些明明知道答案却不知道考官问的问题指的是什么。特此写下笔记总结，鞭策提醒自己。">
-<meta property="og:updated_time" content="2016-11-26T10:35:56.686Z">
+<meta property="og:updated_time" content="2016-11-27T12:22:26.858Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="web前端面试问题总结">
 <meta name="twitter:description" content="面试2016年11月25日，参加2次百度远程电话面试，面试后深感自己web基础不够深，面试中暴漏出许多做项目中遗漏的问题，同时由于自身过于紧张，很多问题都没回答完全甚至有些明明知道答案却不知道考官问的问题指的是什么。特此写下笔记总结，鞭策提醒自己。">
@@ -132,6 +132,41 @@
 <li>.toString() 转字符串，以都<code>,</code>隔开，与无参数的.join()相同</li>
 <li>.toSource() 只有 Gecko 核心的浏览器（比如 Firefox）支持该方法,<a href="http://www.w3school.com.cn/jsref/jsref_tosource_array.asp" target="_blank" rel="external">说明</a></li>
 </ul>
+<h3 id="ajax的优缺点"><a href="#ajax的优缺点" class="headerlink" title="ajax的优缺点"></a>ajax的优缺点</h3><p>优点：</p>
+<ul>
+<li>无刷新页面，给用户体验好</li>
+<li>异步与服务器通信，不打断用户操作，具有更迅速的响应能力</li>
+<li>前端和后端负载平衡，AJAX可以把以前一些服务器负担的工作转嫁到客户端，利用客户端闲置的能力来处理，减轻服务器和带宽的负担，节约空间和宽带租用成本。并且减轻服务器的负担，AJAX的原则是“按需取数据”，可以最大程度的减少冗余请求和响应对服务器造成的负担，提升站点性能。</li>
+<li>基于标准被广泛支持</li>
+<li>界面与应用分离，Ajax使WEB中的界面与应用分离(也可以说是数据与呈现分离)，有利于分工合作、减少非技术人员对页面的修改造成的WEB应用程序错误、提高效率、也更加适用于现在的发布系统。</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>AJAX干掉了Back和History功能，即对浏览器机制的破坏。</li>
+<li>存在安全隐患问题，开发者会暴露一定数据和服务器逻辑，还有Ajax也难以避免一些已知的安全弱点，诸如跨站点脚步攻击、SQL注入攻击和基于Credentials的安全漏洞等等</li>
+<li>SEO不友好</li>
+<li>违背URL和资源定位的初衷</li>
+<li>编写复杂、容易出错 ；冗余代码比较多</li>
+</ul>
+<h3 id="ajax工作原理"><a href="#ajax工作原理" class="headerlink" title="ajax工作原理"></a>ajax工作原理</h3><ul>
+<li>第一步：创建ajax对象（XMLHttpRequest/ActiveXObject(Microsoft.XMLHttp)）</li>
+<li>第二步：判断数据传输方式(GET/POST)</li>
+<li>第三步：打开链接 open()</li>
+<li>第四步：发送 send()<br>当ajax对象完成第四步（onreadystatechange）数据接收完成，判断http响应状态（status）200-300之间或者304（缓存）执行回调函数<br>注意：检测XMLHttpRequest对象的readyState属性，该属性表示请求／响应过程的当前活动阶段，属性值如下：</li>
+<li>0：未初始化。尚未调用open()方法</li>
+<li>1：启动。已经调用open()方法，但尚未调用send()方法</li>
+<li>2：发送。已经调用send()方法，但尚未接收到响应</li>
+<li>3：接收。已经接收到部分响应数据</li>
+<li>4:   完成。已经接收到全部响应数据，而且已经可以在客户端使用了（如果写原生的js ajax请求需要等到 readyState==4的时候再做处理）其他的js库已经做好处理了</li>
+</ul>
+<h3 id="严格模式的优缺点"><a href="#严格模式的优缺点" class="headerlink" title="严格模式的优缺点"></a>严格模式的优缺点</h3><p>严格模式————js文件第一行写”use strict”，让js解释器以更严格的方式检查代码<br>优点：</p>
+<ul>
+<li>消除一些语法不合理的地方</li>
+<li>提高编译效率和运行速度</li>
+<li>为新版本做铺垫<br>缺点：</li>
+<li>如果js文件一部分用，一部分没用，可能导致无效，浪费字节</li>
+<li>IE6、7、8、9不支持阉割模式</li>
+</ul>
 <h3 id="DOM操作有哪些？"><a href="#DOM操作有哪些？" class="headerlink" title="DOM操作有哪些？"></a>DOM操作有哪些？</h3><h4 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h4><ul>
 <li>createDocumentFragment()    //创建一个DOM片段</li>
 <li>createElement()   //创建一个具体的元素</li>
@@ -158,6 +193,28 @@
 <li>Array.isArray()</li>
 <li>arr.constructor == Array</li>
 </ul>
+<h3 id="JS值类型和引用类型"><a href="#JS值类型和引用类型" class="headerlink" title="JS值类型和引用类型"></a>JS值类型和引用类型</h3><ul>
+<li>数字、字符串、布尔都是值类型，存放在栈中</li>
+<li>对象、函数、数组等都是引用类型，存放在堆中<br>Notice:</li>
+<li>栈，系统自动分配释放</li>
+<li>堆，程序员手动分配释放</li>
+</ul>
+<h3 id="变量声明提升"><a href="#变量声明提升" class="headerlink" title="变量声明提升"></a>变量声明提升</h3><p>javascript的变量声明具有hoisting机制，JavaScript引擎在执行的时候，会把所有变量的声明都提升到当前作用域的最前面。<br>优先级顺序：</p>
+<ul>
+<li>1、语言内置：所有的作用域中都有 this 和 arguments 关键字</li>
+<li>2、形式参数：函数的参数在函数作用域中都是有效的</li>
+<li>3、函数声明：形如function foo() {}</li>
+<li>4、变量声明：形如var bar;</li>
+</ul>
+<h3 id="document-load-与-document-DOMContentLoaded-区别"><a href="#document-load-与-document-DOMContentLoaded-区别" class="headerlink" title="document load 与 document DOMContentLoaded 区别"></a>document load 与 document DOMContentLoaded 区别</h3><p>DOM文档加载步骤：</p>
+<ul>
+<li>1、解析HTML结构。</li>
+<li>2、加载外部脚本和样式表文件。</li>
+<li>3、解析并执行脚本代码。</li>
+<li>4、DOM树构建完成。//DOMContentLoaded</li>
+<li>5、加载图片等外部文件。</li>
+<li>6、页面加载完毕。//load<br>在第4步，会触发DOMContentLoaded事件。在第6步，触发load事件。<br><a href="http://www.jianshu.com/p/d851db5f2f30" target="_blank" rel="external">事件DOMContentLoaded和load的区别</a></li>
+</ul>
 <h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><h3 id="书写高效CSS"><a href="#书写高效CSS" class="headerlink" title="书写高效CSS"></a>书写高效CSS</h3><ul>
 <li>多利用padding、margin、font等缩写属性</li>
 <li>颜色进制代码可以用缩写 #fffff可以缩写为#fff</li>
@@ -178,7 +235,7 @@
 <li>不携带cookie，节省带宽，尤其是上行带宽一般比下行慢</li>
 <li>对各种数据类型进行划分存储，通过子域名进行分流，提高网页加载速度</li>
 </ul>
-<h2 id="最后更新时间2016年11月26日"><a href="#最后更新时间2016年11月26日" class="headerlink" title="最后更新时间2016年11月26日"></a>最后更新时间2016年11月26日</h2>
+<h2 id="最后更新时间2016年11月27日"><a href="#最后更新时间2016年11月27日" class="headerlink" title="最后更新时间2016年11月27日"></a>最后更新时间2016年11月27日</h2>
       
     </div>
     <footer class="article-footer">
