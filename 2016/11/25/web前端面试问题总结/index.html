@@ -1,0 +1,879 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="面试,JavaScript,CSS,HTML," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="面试2016年11月25日，参加2次百度远程电话面试，面试后深感自己web基础不够深，面试中暴漏出许多做项目中遗漏的问题，同时由于自身过于紧张，很多问题都没回答完全甚至有些明明知道答案却不知道考官问的问题指的是什么。特此写下笔记总结，鞭策提醒自己。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="web前端面试问题总结">
+<meta property="og:url" content="http://ShanaMaid.github.io/2016/11/25/web前端面试问题总结/index.html">
+<meta property="og:site_name" content="ShanaKnights">
+<meta property="og:description" content="面试2016年11月25日，参加2次百度远程电话面试，面试后深感自己web基础不够深，面试中暴漏出许多做项目中遗漏的问题，同时由于自身过于紧张，很多问题都没回答完全甚至有些明明知道答案却不知道考官问的问题指的是什么。特此写下笔记总结，鞭策提醒自己。">
+<meta property="og:updated_time" content="2016-11-27T12:22:26.858Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="web前端面试问题总结">
+<meta name="twitter:description" content="面试2016年11月25日，参加2次百度远程电话面试，面试后深感自己web基础不够深，面试中暴漏出许多做项目中遗漏的问题，同时由于自身过于紧张，很多问题都没回答完全甚至有些明明知道答案却不知道考官问的问题指的是什么。特此写下笔记总结，鞭策提醒自己。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://ShanaMaid.github.io/2016/11/25/web前端面试问题总结/"/>
+
+
+
+
+
+  <title> web前端面试问题总结 | ShanaKnights </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">ShanaKnights</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">死宅万岁，bilibili ( ゜- ゜)つロ 乾杯~</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://ShanaMaid.github.io/2016/11/25/web前端面试问题总结/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="ShanaMaid">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/20333903?v=3&s=460">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="ShanaKnights">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="ShanaKnights" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                web前端面试问题总结
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-25T20:27:04+08:00">
+                2016-11-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/web/" itemprop="url" rel="index">
+                    <span itemprop="name">web</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2016/11/25/web前端面试问题总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/25/web前端面试问题总结/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="面试"><a href="#面试" class="headerlink" title="面试"></a>面试</h2><p>2016年11月25日，参加2次百度远程电话面试，面试后深感自己web基础不够深，面试中暴漏出许多做项目中遗漏的问题，同时由于自身过于紧张，很多问题都没回答完全甚至有些明明知道答案却不知道考官问的问题指的是什么。特此写下笔记总结，鞭策提醒自己。</p>
+<a id="more"></a>
+<h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><h3 id="HTML5中新增的语义化元素有哪些？"><a href="#HTML5中新增的语义化元素有哪些？" class="headerlink" title="HTML5中新增的语义化元素有哪些？"></a>HTML5中新增的语义化元素有哪些？</h3><ul>
+<li>article 定义文章</li>
+<li>header 页眉</li>
+<li>footer 页脚</li>
+<li>nav 定义导航链接</li>
+<li>section 定义文档中的节（section、区段）。比如章节、页眉、页脚或文档中的其他部分</li>
+</ul>
+<h3 id="XHTML与HTML的区别"><a href="#XHTML与HTML的区别" class="headerlink" title="XHTML与HTML的区别"></a>XHTML与HTML的区别</h3><p>HTML是一种基于web的网页设计语言，XHTML是一个基于XML的置标语言，类似HTML的XML，是一种过渡技术，对代码的书写要求更为严谨，主要是以下几点</p>
+<ul>
+<li>XML要求标签正确嵌套</li>
+<li>所有元素必须正确关闭</li>
+<li>标签区分大小写</li>
+<li>属性值要使用双引号</li>
+<li>id的属性值去替代name属性值</li>
+<li>特殊字符需要进行处理</li>
+<li>必须要有根元素</li>
+</ul>
+<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><h3 id="数组的操作方法有哪些？各自什么作用？"><a href="#数组的操作方法有哪些？各自什么作用？" class="headerlink" title="数组的操作方法有哪些？各自什么作用？"></a>数组的操作方法有哪些？各自什么作用？</h3><ul>
+<li>.join() 数组转字符串，无参数的时候默认以<code>,</code>进行分隔。</li>
+<li>.reverse() 数组颠倒排序  </li>
+<li>.sort()  数组排序，默认字母顺序排，自定排序需传入排序函数</li>
+<li>.concat() 数组拼接，可跟多个参数，参数可以数组，也可以是值</li>
+<li>.slice() 返回数组片段</li>
+<li>.splice() 删除数组片段，第一个参数代表起始下标；第二参数代表删除个数，忽略则代表全删；第三、四…………个代表从删除位置开始要插入的内容</li>
+<li>.push() 数组末尾加入指定参数，返回值为数组长度</li>
+<li>.pop() 删除数组末尾元素，返回删除数值</li>
+<li>.unshift() 数组首部加入指定参数，返回数组长度</li>
+<li>.shift() 删除头部元素，返回删除的数值</li>
+<li>.toString() 转字符串，以都<code>,</code>隔开，与无参数的.join()相同</li>
+<li>.toSource() 只有 Gecko 核心的浏览器（比如 Firefox）支持该方法,<a href="http://www.w3school.com.cn/jsref/jsref_tosource_array.asp" target="_blank" rel="external">说明</a></li>
+</ul>
+<h3 id="ajax的优缺点"><a href="#ajax的优缺点" class="headerlink" title="ajax的优缺点"></a>ajax的优缺点</h3><p>优点：</p>
+<ul>
+<li>无刷新页面，给用户体验好</li>
+<li>异步与服务器通信，不打断用户操作，具有更迅速的响应能力</li>
+<li>前端和后端负载平衡，AJAX可以把以前一些服务器负担的工作转嫁到客户端，利用客户端闲置的能力来处理，减轻服务器和带宽的负担，节约空间和宽带租用成本。并且减轻服务器的负担，AJAX的原则是“按需取数据”，可以最大程度的减少冗余请求和响应对服务器造成的负担，提升站点性能。</li>
+<li>基于标准被广泛支持</li>
+<li>界面与应用分离，Ajax使WEB中的界面与应用分离(也可以说是数据与呈现分离)，有利于分工合作、减少非技术人员对页面的修改造成的WEB应用程序错误、提高效率、也更加适用于现在的发布系统。</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>AJAX干掉了Back和History功能，即对浏览器机制的破坏。</li>
+<li>存在安全隐患问题，开发者会暴露一定数据和服务器逻辑，还有Ajax也难以避免一些已知的安全弱点，诸如跨站点脚步攻击、SQL注入攻击和基于Credentials的安全漏洞等等</li>
+<li>SEO不友好</li>
+<li>违背URL和资源定位的初衷</li>
+<li>编写复杂、容易出错 ；冗余代码比较多</li>
+</ul>
+<h3 id="ajax工作原理"><a href="#ajax工作原理" class="headerlink" title="ajax工作原理"></a>ajax工作原理</h3><ul>
+<li>第一步：创建ajax对象（XMLHttpRequest/ActiveXObject(Microsoft.XMLHttp)）</li>
+<li>第二步：判断数据传输方式(GET/POST)</li>
+<li>第三步：打开链接 open()</li>
+<li>第四步：发送 send()<br>当ajax对象完成第四步（onreadystatechange）数据接收完成，判断http响应状态（status）200-300之间或者304（缓存）执行回调函数<br>注意：检测XMLHttpRequest对象的readyState属性，该属性表示请求／响应过程的当前活动阶段，属性值如下：</li>
+<li>0：未初始化。尚未调用open()方法</li>
+<li>1：启动。已经调用open()方法，但尚未调用send()方法</li>
+<li>2：发送。已经调用send()方法，但尚未接收到响应</li>
+<li>3：接收。已经接收到部分响应数据</li>
+<li>4:   完成。已经接收到全部响应数据，而且已经可以在客户端使用了（如果写原生的js ajax请求需要等到 readyState==4的时候再做处理）其他的js库已经做好处理了</li>
+</ul>
+<h3 id="严格模式的优缺点"><a href="#严格模式的优缺点" class="headerlink" title="严格模式的优缺点"></a>严格模式的优缺点</h3><p>严格模式————js文件第一行写”use strict”，让js解释器以更严格的方式检查代码<br>优点：</p>
+<ul>
+<li>消除一些语法不合理的地方</li>
+<li>提高编译效率和运行速度</li>
+<li>为新版本做铺垫<br>缺点：</li>
+<li>如果js文件一部分用，一部分没用，可能导致无效，浪费字节</li>
+<li>IE6、7、8、9不支持阉割模式</li>
+</ul>
+<h3 id="DOM操作有哪些？"><a href="#DOM操作有哪些？" class="headerlink" title="DOM操作有哪些？"></a>DOM操作有哪些？</h3><h4 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h4><ul>
+<li>createDocumentFragment()    //创建一个DOM片段</li>
+<li>createElement()   //创建一个具体的元素</li>
+<li>createTextNode()   //创建一个文本节点</li>
+</ul>
+<h4 id="添加、移除、替换、插入"><a href="#添加、移除、替换、插入" class="headerlink" title="添加、移除、替换、插入"></a>添加、移除、替换、插入</h4><ul>
+<li>appendChild()</li>
+<li>removeChild()</li>
+<li>replaceChild()</li>
+<li>insertBefore() //在已有的子节点前插入一个新的子节点</li>
+</ul>
+<h4 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h4><ul>
+<li>getElementsByTagName()    //通过标签名称</li>
+<li>getElementsByName()    //通过元素的Name属性的值(IE容错能力较强，会得到一个数组，其中包括id等于name值的)</li>
+<li>getElementById()    //通过元素Id，唯一性</li>
+</ul>
+<h3 id="JS组成"><a href="#JS组成" class="headerlink" title="JS组成"></a>JS组成</h3><ul>
+<li>核心（ECMAScript） 描述了该语言的语法和基本对象</li>
+<li>文档对象模型(DOM)描述了处理网页内容的方法和接口</li>
+<li>浏览器对象模型(BOM)描述了与浏览器进行交互的方法和接口</li>
+</ul>
+<h3 id="判断数组"><a href="#判断数组" class="headerlink" title="判断数组"></a>判断数组</h3><ul>
+<li>arr instanceof Array</li>
+<li>Array.isArray()</li>
+<li>arr.constructor == Array</li>
+</ul>
+<h3 id="JS值类型和引用类型"><a href="#JS值类型和引用类型" class="headerlink" title="JS值类型和引用类型"></a>JS值类型和引用类型</h3><ul>
+<li>数字、字符串、布尔都是值类型，存放在栈中</li>
+<li>对象、函数、数组等都是引用类型，存放在堆中<br>Notice:</li>
+<li>栈，系统自动分配释放</li>
+<li>堆，程序员手动分配释放</li>
+</ul>
+<h3 id="变量声明提升"><a href="#变量声明提升" class="headerlink" title="变量声明提升"></a>变量声明提升</h3><p>javascript的变量声明具有hoisting机制，JavaScript引擎在执行的时候，会把所有变量的声明都提升到当前作用域的最前面。<br>优先级顺序：</p>
+<ul>
+<li>1、语言内置：所有的作用域中都有 this 和 arguments 关键字</li>
+<li>2、形式参数：函数的参数在函数作用域中都是有效的</li>
+<li>3、函数声明：形如function foo() {}</li>
+<li>4、变量声明：形如var bar;</li>
+</ul>
+<h3 id="document-load-与-document-DOMContentLoaded-区别"><a href="#document-load-与-document-DOMContentLoaded-区别" class="headerlink" title="document load 与 document DOMContentLoaded 区别"></a>document load 与 document DOMContentLoaded 区别</h3><p>DOM文档加载步骤：</p>
+<ul>
+<li>1、解析HTML结构。</li>
+<li>2、加载外部脚本和样式表文件。</li>
+<li>3、解析并执行脚本代码。</li>
+<li>4、DOM树构建完成。//DOMContentLoaded</li>
+<li>5、加载图片等外部文件。</li>
+<li>6、页面加载完毕。//load<br>在第4步，会触发DOMContentLoaded事件。在第6步，触发load事件。<br><a href="http://www.jianshu.com/p/d851db5f2f30" target="_blank" rel="external">事件DOMContentLoaded和load的区别</a></li>
+</ul>
+<h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><h3 id="书写高效CSS"><a href="#书写高效CSS" class="headerlink" title="书写高效CSS"></a>书写高效CSS</h3><ul>
+<li>多利用padding、margin、font等缩写属性</li>
+<li>颜色进制代码可以用缩写 #fffff可以缩写为#fff</li>
+<li>css选择器解析式从右向左，注意合理利用选择器</li>
+</ul>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="GET与POST的区别"><a href="#GET与POST的区别" class="headerlink" title="GET与POST的区别"></a>GET与POST的区别</h3><ul>
+<li><a href="http://www.cnblogs.com/hyddd/archive/2009/03/31/1426026.html" target="_blank" rel="external">浅谈HTTP中Get与Post的区别</a>，说的很清楚<br>简要总结大概就是：</li>
+<li>GET请求可以被缓存，POST不能</li>
+<li>GET请求保留在浏览器的历史记录中,POST不能</li>
+<li>GET请求有长度限制，POST没有</li>
+</ul>
+<h3 id="跨域访问"><a href="#跨域访问" class="headerlink" title="跨域访问"></a>跨域访问</h3><ul>
+<li><a href="http://blog.csdn.net/joyhen/article/details/21631833" target="_blank" rel="external">前端解决跨域问题的8种方案（最新最全）</a></li>
+</ul>
+<h3 id="多域名提供资源"><a href="#多域名提供资源" class="headerlink" title="多域名提供资源"></a>多域名提供资源</h3><ul>
+<li>CDN缓存更方便</li>
+<li>突破浏览器并发限制，一般浏览器每个域名不超过6个</li>
+<li>不携带cookie，节省带宽，尤其是上行带宽一般比下行慢</li>
+<li>对各种数据类型进行划分存储，通过子域名进行分流，提高网页加载速度</li>
+</ul>
+<h2 id="最后更新时间2016年11月27日"><a href="#最后更新时间2016年11月27日" class="headerlink" title="最后更新时间2016年11月27日"></a>最后更新时间2016年11月27日</h2>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/pay.jpg" alt="ShanaMaid Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/面试/" rel="tag"># 面试</a>
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/CSS/" rel="tag"># CSS</a>
+          
+            <a href="/tags/HTML/" rel="tag"># HTML</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/23/独立开发日记-剑网3那些事儿/" rel="next" title="独立开发日记-剑网3那些事儿">
+                <i class="fa fa-chevron-left"></i> 独立开发日记-剑网3那些事儿
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/11/25/web前端面试问题总结/"
+           data-title="web前端面试问题总结" data-url="http://ShanaMaid.github.io/2016/11/25/web前端面试问题总结/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars0.githubusercontent.com/u/20333903?v=3&s=460"
+               alt="ShanaMaid" />
+          <p class="site-author-name" itemprop="name">ShanaMaid</p>
+          <p class="site-description motion-element" itemprop="description">前端狗</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://blog.chionlab.moe/" title="Chion Tang" target="_blank">Chion Tang</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://uestcmao.github.io/" title="uestcmao" target="_blank">uestcmao</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#面试"><span class="nav-number">1.</span> <span class="nav-text">面试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML"><span class="nav-number">2.</span> <span class="nav-text">HTML</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML5中新增的语义化元素有哪些？"><span class="nav-number">2.1.</span> <span class="nav-text">HTML5中新增的语义化元素有哪些？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XHTML与HTML的区别"><span class="nav-number">2.2.</span> <span class="nav-text">XHTML与HTML的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript"><span class="nav-number">3.</span> <span class="nav-text">JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数组的操作方法有哪些？各自什么作用？"><span class="nav-number">3.1.</span> <span class="nav-text">数组的操作方法有哪些？各自什么作用？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ajax的优缺点"><span class="nav-number">3.2.</span> <span class="nav-text">ajax的优缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ajax工作原理"><span class="nav-number">3.3.</span> <span class="nav-text">ajax工作原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#严格模式的优缺点"><span class="nav-number">3.4.</span> <span class="nav-text">严格模式的优缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DOM操作有哪些？"><span class="nav-number">3.5.</span> <span class="nav-text">DOM操作有哪些？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建"><span class="nav-number">3.5.1.</span> <span class="nav-text">创建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加、移除、替换、插入"><span class="nav-number">3.5.2.</span> <span class="nav-text">添加、移除、替换、插入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查找"><span class="nav-number">3.5.3.</span> <span class="nav-text">查找</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JS组成"><span class="nav-number">3.6.</span> <span class="nav-text">JS组成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#判断数组"><span class="nav-number">3.7.</span> <span class="nav-text">判断数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JS值类型和引用类型"><span class="nav-number">3.8.</span> <span class="nav-text">JS值类型和引用类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量声明提升"><span class="nav-number">3.9.</span> <span class="nav-text">变量声明提升</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#document-load-与-document-DOMContentLoaded-区别"><span class="nav-number">3.10.</span> <span class="nav-text">document load 与 document DOMContentLoaded 区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS"><span class="nav-number">4.</span> <span class="nav-text">CSS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#书写高效CSS"><span class="nav-number">4.1.</span> <span class="nav-text">书写高效CSS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">5.</span> <span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GET与POST的区别"><span class="nav-number">5.1.</span> <span class="nav-text">GET与POST的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#跨域访问"><span class="nav-number">5.2.</span> <span class="nav-text">跨域访问</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多域名提供资源"><span class="nav-number">5.3.</span> <span class="nav-text">多域名提供资源</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最后更新时间2016年11月27日"><span class="nav-number">6.</span> <span class="nav-text">最后更新时间2016年11月27日</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ShanaMaid</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"shanaknight"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260644675'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1260644675%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+</body>
+</html>

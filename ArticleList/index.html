@@ -1,0 +1,548 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="一些非常有用的文章、站点、工具，在这里分享给大家！最后更新时间2016年11月21日
+Web开发学习指南WEB开发新人指南web前端面试宝典1web前端面试宝典2
+JavaScriptjs中proto和prototype的区别和关系？jQuery源码分析系列看了这个才发现jQuery源代码不是那么晦涩JS中先有Object还是先有Function？JavaScript 秘密花园[摘译]js内存泄漏">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ArticleList">
+<meta property="og:url" content="http://ShanaMaid.github.io/ArticleList/index.html">
+<meta property="og:site_name" content="ShanaKnights">
+<meta property="og:description" content="一些非常有用的文章、站点、工具，在这里分享给大家！最后更新时间2016年11月21日
+Web开发学习指南WEB开发新人指南web前端面试宝典1web前端面试宝典2
+JavaScriptjs中proto和prototype的区别和关系？jQuery源码分析系列看了这个才发现jQuery源代码不是那么晦涩JS中先有Object还是先有Function？JavaScript 秘密花园[摘译]js内存泄漏">
+<meta property="og:updated_time" content="2016-11-23T05:26:26.432Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ArticleList">
+<meta name="twitter:description" content="一些非常有用的文章、站点、工具，在这里分享给大家！最后更新时间2016年11月21日
+Web开发学习指南WEB开发新人指南web前端面试宝典1web前端面试宝典2
+JavaScriptjs中proto和prototype的区别和关系？jQuery源码分析系列看了这个才发现jQuery源代码不是那么晦涩JS中先有Object还是先有Function？JavaScript 秘密花园[摘译]js内存泄漏">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://ShanaMaid.github.io/ArticleList/"/>
+
+
+
+
+
+  <title>
+  
+
+  
+    ArticleList | ShanaKnights
+  
+</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left  ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">ShanaKnights</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">死宅万岁，bilibili ( ゜- ゜)つロ 乾杯~</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+  <header class="post-header">
+
+	<h2 class="post-title" itemprop="name headline">ArticleList</h2>
+
+
+
+</header>
+
+    
+    
+      <p>一些非常有用的文章、站点、工具，在这里分享给大家！最后更新时间2016年11月21日</p>
+<h1 id="Web开发学习指南"><a href="#Web开发学习指南" class="headerlink" title="Web开发学习指南"></a>Web开发学习指南</h1><p><a href="https://segmentfault.com/a/1190000003063481" target="_blank" rel="external">WEB开发新人指南</a><br><a href="https://github.com/markyun/My-blog/tree/master/Front-end-Developer-Questions" target="_blank" rel="external">web前端面试宝典1</a><br><a href="https://github.com/h5bp/Front-end-Developer-Interview-Questions/tree/master/Translations/Chinese#fun-questions" target="_blank" rel="external">web前端面试宝典2</a></p>
+<h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><p><a href="http://www.zhihu.com/question/34183746/answer/58068402" target="_blank" rel="external">js中<strong>proto</strong>和prototype的区别和关系？</a><br><a href="http://www.cnblogs.com/aaronjs/p/3279314.html" target="_blank" rel="external">jQuery源码分析系列</a><br><a href="http://www.tashan10.com/kan-liao-zhe-ge-cai-fa-xian-jqueryyuan-dai-ma-bu-shi-na-yao-hui-se/" target="_blank" rel="external">看了这个才发现jQuery源代码不是那么晦涩</a><br><a href="http://www.zhihu.com/question/35442532" target="_blank" rel="external">JS中先有Object还是先有Function？</a><br><a href="http://bonsaiden.github.io/JavaScript-Garden/zh/" target="_blank" rel="external">JavaScript 秘密花园</a><br><a href="https://segmentfault.com/a/1190000004896090" target="_blank" rel="external">[摘译]js内存泄漏常见的四种情况</a><br><a href="http://www.ruanyifeng.com/blog/2014/03/undefined-vs-null.html" target="_blank" rel="external">undefined与null的区别</a><br><a href="http://openwares.net/js/javascript_declaration_hoisting.html" target="_blank" rel="external">javascript变量声明提升(hoisting)</a><br><a href="http://www.ruanyifeng.com/blog/2013/10/event_loop.html" target="_blank" rel="external">什么是 Event Loop？</a><br><a href="http://www.jb51.net/article/41656.htm" target="_blank" rel="external">js中的this关键字详解</a><br><a href="http://www.jianshu.com/p/518d424d4994" target="_blank" rel="external">掌握jQuery插件开发，这篇文章就够了</a><br><a href="http://www.cnblogs.com/gaobing/p/5799555.html" target="_blank" rel="external">JavaScript 五种(构造方式)继承</a><br><a href=""></a><br><a href=""></a><br><a href=""></a><br><a href=""></a></p>
+<h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h1><p><a href="http://www.css88.com/book/css/" target="_blank" rel="external">CSS3参考手册 - 最新最全的CSS参考手册</a><br><a href="http://www.zhangxinxu.com/wordpress/2016/08/regular-expression-in-css-selector/" target="_blank" rel="external">简单聊聊CSS选择器中的正则表达式</a><br><a href="http://blog.csdn.net/baiding1123/article/details/51970059" target="_blank" rel="external">关于CSS需要知道的10件事</a><br><a href="https://segmentfault.com/a/1190000005856540" target="_blank" rel="external">CSS中的负边距</a><br><a href="http://css.gxi.ren/" target="_blank" rel="external">追心CSS3渐变颜色代码表,CSS颜色代码</a></p>
+<h1 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h1><p><a href="http://www.jianshu.com/p/42e11515c10f#" target="_blank" rel="external">入门Webpack，看这篇就够了</a><br><a href="http://blog.csdn.net/kaitiren/article/details/38513715" target="_blank" rel="external">README.md教程</a><br><a href="http://gildas-lormeau.github.io/zip.js/" target="_blank" rel="external">zip.js</a></p>
+<h1 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h1><p><a href="http://old.75team.com/weekly/" target="_blank" rel="external">奇舞周刊</a></p>
+
+    
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="ArticleList/index.html"
+           data-title="ArticleList" data-url="http://ShanaMaid.github.io/ArticleList/index.html">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars0.githubusercontent.com/u/20333903?v=3&s=460"
+               alt="ShanaMaid" />
+          <p class="site-author-name" itemprop="name">ShanaMaid</p>
+          <p class="site-description motion-element" itemprop="description">前端狗</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://blog.chionlab.moe/" title="Chion Tang" target="_blank">Chion Tang</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://uestcmao.github.io/" title="uestcmao" target="_blank">uestcmao</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ShanaMaid</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"shanaknight"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260644675'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1260644675%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+</body>
+</html>

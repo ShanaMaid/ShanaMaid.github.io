@@ -1,0 +1,802 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="hack,PHP,Spider," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="自己写备份博客的原因最近逛自己博客的时候发现左边经常有个小广告，十分恶心，看着很烦。同时自己最近也准备自己搭一个博客，所以就想着把自己CSDN博客上的文章备份下来。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用Php爬虫备份自己的CSDN博客">
+<meta property="og:url" content="http://ShanaMaid.github.io/2016/10/18/利用Php爬虫备份自己的CSDN博客/index.html">
+<meta property="og:site_name" content="ShanaKnights">
+<meta property="og:description" content="自己写备份博客的原因最近逛自己博客的时候发现左边经常有个小广告，十分恶心，看着很烦。同时自己最近也准备自己搭一个博客，所以就想着把自己CSDN博客上的文章备份下来。">
+<meta property="og:updated_time" content="2016-11-25T12:26:16.054Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="利用Php爬虫备份自己的CSDN博客">
+<meta name="twitter:description" content="自己写备份博客的原因最近逛自己博客的时候发现左边经常有个小广告，十分恶心，看着很烦。同时自己最近也准备自己搭一个博客，所以就想着把自己CSDN博客上的文章备份下来。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://ShanaMaid.github.io/2016/10/18/利用Php爬虫备份自己的CSDN博客/"/>
+
+
+
+
+
+  <title> 利用Php爬虫备份自己的CSDN博客 | ShanaKnights </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">ShanaKnights</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">死宅万岁，bilibili ( ゜- ゜)つロ 乾杯~</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://ShanaMaid.github.io/2016/10/18/利用Php爬虫备份自己的CSDN博客/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="ShanaMaid">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/20333903?v=3&s=460">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="ShanaKnights">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="ShanaKnights" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                利用Php爬虫备份自己的CSDN博客
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-18T14:15:46+08:00">
+                2016-10-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/实战开发/" itemprop="url" rel="index">
+                    <span itemprop="name">实战开发</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/实战开发/PHP/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2016/10/18/利用Php爬虫备份自己的CSDN博客/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/18/利用Php爬虫备份自己的CSDN博客/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="自己写备份博客的原因"><a href="#自己写备份博客的原因" class="headerlink" title="自己写备份博客的原因"></a>自己写备份博客的原因</h2><p>最近逛自己博客的时候发现左边经常有个小广告，十分恶心，看着很烦。同时自己最近也准备自己搭一个博客，所以就想着把自己CSDN博客上的文章备份下来。<a id="more"></a>本着偷懒至上的原则⁄(⁄ ⁄•⁄㉨⁄•⁄ ⁄)⁄ ，先去百度了一下有木有现成的博客爬虫软件。发现有个叫豆约翰的软件，当时的心情是很激动的有木有φ(゜▽゜*)♪，然而打开的一瞬间居然要收费，还是按月收费。尼玛，程序员的本性简直不能忍。So，自己写了一个github开源项目CSDNSpider，接下来讲解一下思路吧。</p>
+<p>项目地址：<a href="https://github.com/ShanaMaid/CSDNSpider" target="_blank" rel="external">CSDNSpider</a> </p>
+<h2 id="Php爬虫那些事儿"><a href="#Php爬虫那些事儿" class="headerlink" title="Php爬虫那些事儿"></a>Php爬虫那些事儿</h2><h3 id="爬虫需要了解的函数"><a href="#爬虫需要了解的函数" class="headerlink" title="爬虫需要了解的函数"></a>爬虫需要了解的函数</h3><ul>
+<li>fopen，用于打开需要爬虫的url，获得一个流</li>
+<li>stream_get_contents，用于将fopen获得的流处理成字符串</li>
+<li>preg_match，用于正则表达式匹配</li>
+<li>curl，这里用作图片的下载</li>
+<li>preg_replace，用于替换符合正则表达式的内容<br>当然还有最最重要的 <strong>正则表达式</strong>，详情可以点击<a href="http://www.runoob.com/regexp/regexp-syntax.html" target="_blank" rel="external">教程</a><br>这里函数的作用就只进行简单说明了，各位先更深入了解可以去官网查看文档。</li>
+</ul>
+<h3 id="整个爬虫的思路"><a href="#整个爬虫的思路" class="headerlink" title="整个爬虫的思路"></a>整个爬虫的思路</h3><p>关于爬虫首先我们要理清楚我们要做的是什么，需要构造那些函数？<br>整理后我们可以得到以下函数，当然因人而异，可能你会有其它不同的看法</p>
+<ul>
+<li>SpiderGo，爬虫主函数</li>
+<li>getWebContent，用于获得网站的主要内容</li>
+<li>getPageNumber，用于获得网站文章页面的总页数</li>
+<li>getArticleList，用于获文章列表包括文章的链接和题目</li>
+<li>getArticleContent，用于获得文章的内容</li>
+<li>getImage，获取文章中图片的链接</li>
+<li>replaceImgUrl，替换文章中的图片连接为本地连接</li>
+<li>downloadImg，下载图片</li>
+</ul>
+<p>还有些函数就不多做说明了，其实大致文章爬虫主题上就是这些部分，根据不同个网站的需要进行增删部分辅助性的函数</p>
+<h2 id="爬虫的一些基本常识"><a href="#爬虫的一些基本常识" class="headerlink" title="爬虫的一些基本常识"></a>爬虫的一些基本常识</h2><p>爬虫中所谓的翻页、查看文章详情内容等这些点击操作其实都是通过url实现的，所以爬虫的核心点在我看来就是url+正则表达式，就拿我CSDN博客来举例子<br>打开我的CSDN个人博客页面，url栏是这样显示的：<a href="http://blog.csdn.net/shanamaid" target="_blank" rel="external">http://blog.csdn.net/shanamaid</a><br>我们可以看到url的格式为:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">“http://blog.csdn.net/”+用户名</div></pre></td></tr></table></figure></p>
+<p>那么我们要如何通过url实现翻页呢？<br>我们先翻第二页看看，url栏是这样显示的:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://blog.csdn.net/ShanaMaid/article/list/2</div></pre></td></tr></table></figure></p>
+<p>So,我们得到结论，文章翻页的url格式是这样的:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://blog.csdn.net/用户名/article/list/页数</div></pre></td></tr></table></figure></p>
+<p>再来，我们把这个url打开会得到什么东西呢？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://blog.csdn.net/ShanaMaid/article/list/1</div></pre></td></tr></table></figure></p>
+<p>很显然，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://blog.csdn.net/ShanaMaid/article/list/1</div></pre></td></tr></table></figure></p>
+<p>打开的页面和<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://blog.csdn.net/shanamaid</div></pre></td></tr></table></figure></p>
+<p>是一样的，也就是说，这两个链接是等价的，但是为了统一url格式，我们在写爬虫的时候肯定用的是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://blog.csdn.net/ShanaMaid/article/list/1</div></pre></td></tr></table></figure></p>
+<p>打开页面而不是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://blog.csdn.net/shanamaid。</div></pre></td></tr></table></figure></p>
+<p>接下来我们打开文章详情页面看看，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://blog.csdn.net/shanamaid/article/details/52441330</div></pre></td></tr></table></figure></p>
+<p>分析得到文章详情页面得到:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://blog.csdn.net/用户名/article/details/文章ID编号</div></pre></td></tr></table></figure></p>
+<p>我们再分析一下文章列表页面发现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;span class=&quot;link_title&quot;&gt;&lt;a href=&quot;/shanamaid/article/details/52441330&quot;&gt;</div><div class="line">        &lt;font color=&quot;red&quot;&gt;[置顶]&lt;/font&gt;</div><div class="line">        ReactJS学习之一篇博客教你入门ReactJS            </div><div class="line">        &lt;/a&gt;&lt;/span&gt;</div></pre></td></tr></table></figure>
+<p>发现我们需要的文章的题目和链接都在class=”link_title”的span里面，所以我们可以用一个正则表达式把它提取出来<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;span class=&quot;link_title&quot;&gt;[\w\W]*?&lt;\/span&gt;</div></pre></td></tr></table></figure></p>
+<p>然后再用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;\/?[^&gt;]+&gt;</div></pre></td></tr></table></figure>
+<p>可以去掉标签得到题目   [置顶]ReactJS学习之一篇博客教你入门ReactJS<br>用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[0-9]&#123;5,&#125;</div></pre></td></tr></table></figure>
+<p>可以提取出文章标号，得到52441330<br>即</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">//获取文章列表</div><div class="line">function getArticleList($page,$username)&#123;</div><div class="line">	$url = &apos;http://blog.csdn.net/&apos;.$username.&apos;/article/list/&apos;.$page;</div><div class="line">	$content = getWebContent($url);</div><div class="line">	$tag = &apos;/&lt;span class=&quot;link_title&quot;&gt;[\w\W]*?&lt;\/span&gt;/&apos;;</div><div class="line">	$tag_name =  &apos;/&lt;\/?[^&gt;]+&gt;/&apos;;//去除html标签</div><div class="line">	$tag_url  =   &apos;/[0-9]&#123;5,&#125;/&apos;;//提取编号</div><div class="line">	preg_match_all($tag, $content, $result);//提取出包含有文章题目和编号的内容</div><div class="line">	for ($i=0; $i &lt; sizeof($result[0]); $i++)&#123;</div><div class="line">		preg_match($tag_url,$result[0][$i],$number);//提出出文章题目编号</div><div class="line">		$result[0][$i]=preg_replace($tag_name,&apos;&apos;,$result[0][$i]);//提取出文章题目</div><div class="line">		$result[1][$i]=$number[0];</div><div class="line">	&#125;</div><div class="line">	return $result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>同理，我们观看文章详情页面发现都在id=”article_content”的div里面，同时这个块后面一行内容为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!-- Baidu Button BEGIN --&gt;</div></pre></td></tr></table></figure>
+<p>所以我们可以这样写正则表达式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;article_content&quot; class=&quot;article_content&quot;&gt;[\w\W]*&lt;\/div&gt;[\w\W]*&lt;!-- B</div></pre></td></tr></table></figure>
+<p>则提取文章内容的函数应该这样写</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">// 获取文章内容</div><div class="line">function getArticleContent($number,$username)&#123;</div><div class="line">	$url = &quot;http://blog.csdn.net/&quot;.$username.&quot;/article/details/&quot;.$number;</div><div class="line">	$content = getWebContent($url);</div><div class="line">	$tag = &apos;/&lt;div id=&quot;article_content&quot; class=&quot;article_content&quot;&gt;[\w\W]*&lt;\/div&gt;[\w\W]*&lt;!-- B/&apos;; //匹配正文内容</div><div class="line">	preg_match($tag,$content,$main);//提出正文内容</div><div class="line">	return $main[0];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>再看看总页数，观察后可以很容易写出下列函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">//获取文章总页数</div><div class="line">function getPageNumber($content)&#123;</div><div class="line">	$tag = &apos;/共[0-9]+页/&apos;;</div><div class="line">	$tagNumber = &apos;/[0-9]+/&apos;;</div><div class="line">	preg_match($tag, $content,$result);</div><div class="line">	preg_match($tagNumber, $result[0],$sumPage);</div><div class="line">	return $sumPage[0];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>同样我们继续观察img的格式，可以得出正则表达式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http:\/\/img.blog.csdn.net\/.*?\/Center</div></pre></td></tr></table></figure>
+<p>提取图片的函数为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//提取-文章内容中的图片</div><div class="line">function getImage($content)&#123;</div><div class="line">	$tag = &apos;/http:\/\/img.blog.csdn.net\/.*?\/Center/&apos;; </div><div class="line">	preg_match_all($tag, $content, $result);//筛选出图片</div><div class="line">	return $result[0];//图片链接数组</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>然后是对提取出的图片的链接进行下载</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">//下载图片</div><div class="line">function downloadImg($url,$id,$imgName)&#123;</div><div class="line">	if(!is_dir(&quot;Img\\&quot;.$id))</div><div class="line">	&#123;</div><div class="line">	  mkdir(&quot;Img\\&quot;.$id);</div><div class="line">	&#125;</div><div class="line">	for ($i=0; $i &lt;sizeof($url) ; $i++) &#123; </div><div class="line">		$curl = curl_init();</div><div class="line">		curl_setopt($curl,CURLOPT_URL, $url[$i]);</div><div class="line">		curl_setopt ($curl, CURLOPT_HEADER, false);</div><div class="line">		curl_setopt ($curl, CURLOPT_RETURNTRANSFER, true);</div><div class="line">		$result = curl_exec($curl);</div><div class="line">		curl_close($curl);</div><div class="line">		file_put_contents($imgName[$i],$result);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>由于下载了图片，为了能够离线观看文章，所以还得把文章中img的src中的链接替换为本地连接，可以用下面函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//替换-文章内容中的图片链接为本地</div><div class="line">function replaceImgUrl($content,$local_url)&#123;</div><div class="line">	$tag = &apos;/http:\/\/img.blog.csdn.net\/.*?\/Center/&apos;; </div><div class="line">	$tag_array = array();</div><div class="line">	for ($i=0; $i &lt; sizeof($local_url) ; $i++) &#123; </div><div class="line">		$tag_array[$i] = $tag;</div><div class="line">	&#125;</div><div class="line">	$count = 1;</div><div class="line">	$st = preg_replace($tag_array, $local_url, $content,$count);</div><div class="line">	return $st;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>整个爬虫大概就是这样了，最后再提示一遍，完整的文件在我的github上面<br><a href="https://github.com/ShanaMaid/CSDNSpider" target="_blank" rel="external">CSDNSpider</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/pay.jpg" alt="ShanaMaid Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/hack/" rel="tag"># hack</a>
+          
+            <a href="/tags/PHP/" rel="tag"># PHP</a>
+          
+            <a href="/tags/Spider/" rel="tag"># Spider</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/16/PHP实战：利用Curl刷CSDN积分 /" rel="next" title="PHP实战：利用Curl刷CSDN积分">
+                <i class="fa fa-chevron-left"></i> PHP实战：利用Curl刷CSDN积分
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/18/详解JavaScript中的-proto-与prototype(上)/" rel="prev" title="详解JavaScript中的__proto__与prototype（上）">
+                详解JavaScript中的__proto__与prototype（上） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/10/18/利用Php爬虫备份自己的CSDN博客/"
+           data-title="利用Php爬虫备份自己的CSDN博客" data-url="http://ShanaMaid.github.io/2016/10/18/利用Php爬虫备份自己的CSDN博客/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars0.githubusercontent.com/u/20333903?v=3&s=460"
+               alt="ShanaMaid" />
+          <p class="site-author-name" itemprop="name">ShanaMaid</p>
+          <p class="site-description motion-element" itemprop="description">前端狗</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://blog.chionlab.moe/" title="Chion Tang" target="_blank">Chion Tang</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://uestcmao.github.io/" title="uestcmao" target="_blank">uestcmao</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#自己写备份博客的原因"><span class="nav-number">1.</span> <span class="nav-text">自己写备份博客的原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Php爬虫那些事儿"><span class="nav-number">2.</span> <span class="nav-text">Php爬虫那些事儿</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#爬虫需要了解的函数"><span class="nav-number">2.1.</span> <span class="nav-text">爬虫需要了解的函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#整个爬虫的思路"><span class="nav-number">2.2.</span> <span class="nav-text">整个爬虫的思路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#爬虫的一些基本常识"><span class="nav-number">3.</span> <span class="nav-text">爬虫的一些基本常识</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ShanaMaid</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"shanaknight"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260644675'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1260644675%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+</body>
+</html>

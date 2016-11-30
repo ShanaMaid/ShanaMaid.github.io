@@ -1,0 +1,762 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="PHP,Nodejs,express,ejs,requirejs," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="起因该项目前身其实于JX3Spider，由于贴吧的帖子出现具有不定时性，项目最初设置的8小时推送一次在时间上存在太大的间隔，如果缩短推送时间会导致Github出现很多无意义的commit，于是萌生了将该项目进行扩展，由简单的爬虫收录文件扩展为网站，并且提供在线评论、热门文章推送、今日更新、文章检索等功能，后续功能继续推中进。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="独立开发日记-剑网3那些事儿">
+<meta property="og:url" content="http://ShanaMaid.github.io/2016/11/23/独立开发日记-剑网3那些事儿/index.html">
+<meta property="og:site_name" content="ShanaKnights">
+<meta property="og:description" content="起因该项目前身其实于JX3Spider，由于贴吧的帖子出现具有不定时性，项目最初设置的8小时推送一次在时间上存在太大的间隔，如果缩短推送时间会导致Github出现很多无意义的commit，于是萌生了将该项目进行扩展，由简单的爬虫收录文件扩展为网站，并且提供在线评论、热门文章推送、今日更新、文章检索等功能，后续功能继续推中进。">
+<meta property="og:updated_time" content="2016-11-23T07:14:32.592Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="独立开发日记-剑网3那些事儿">
+<meta name="twitter:description" content="起因该项目前身其实于JX3Spider，由于贴吧的帖子出现具有不定时性，项目最初设置的8小时推送一次在时间上存在太大的间隔，如果缩短推送时间会导致Github出现很多无意义的commit，于是萌生了将该项目进行扩展，由简单的爬虫收录文件扩展为网站，并且提供在线评论、热门文章推送、今日更新、文章检索等功能，后续功能继续推中进。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://ShanaMaid.github.io/2016/11/23/独立开发日记-剑网3那些事儿/"/>
+
+
+
+
+
+  <title> 独立开发日记-剑网3那些事儿 | ShanaKnights </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">ShanaKnights</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">死宅万岁，bilibili ( ゜- ゜)つロ 乾杯~</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://ShanaMaid.github.io/2016/11/23/独立开发日记-剑网3那些事儿/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="ShanaMaid">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/20333903?v=3&s=460">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="ShanaKnights">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="ShanaKnights" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                独立开发日记-剑网3那些事儿
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-23T14:37:25+08:00">
+                2016-11-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/实战开发/" itemprop="url" rel="index">
+                    <span itemprop="name">实战开发</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/实战开发/web/" itemprop="url" rel="index">
+                    <span itemprop="name">web</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2016/11/23/独立开发日记-剑网3那些事儿/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/23/独立开发日记-剑网3那些事儿/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>该项目前身其实于JX3Spider，由于贴吧的帖子出现具有不定时性，项目最初设置的8小时推送一次在时间上存在太大的间隔，如果缩短推送时间会导致Github出现很多无意义的commit，于是萌生了将该项目进行扩展，由简单的爬虫收录文件扩展为网站，并且提供在线评论、热门文章推送、今日更新、文章检索等功能，后续功能继续推中进。</p>
+<a id="more"></a>
+<h2 id="前端技术栈"><a href="#前端技术栈" class="headerlink" title="前端技术栈"></a>前端技术栈</h2><p>Bootstrao + jquery + jqueryUI + H+</p>
+<p>界面沿用的H+ UI框架中的部分页面，主要是Bootstrap和jQuery UI，项目最初采用了requirejs进行模块依赖管理，由于单页面使用script的脚本文件排除jquery后，requirejs.mini大小差不多，考虑到性能问题保留了requrrejs配置文件的同时暂时移除了requirejs的使用。</p>
+<h2 id="后端技术栈"><a href="#后端技术栈" class="headerlink" title="后端技术栈"></a>后端技术栈</h2><p>Nodejs + Express　+ ejs + php + mysql</p>
+<p>初次接触express感觉非常轻量，官方API文档写得非常棒，用着也很方便，在模板引擎方面没有采用express自带的jade，选择的是ejs，与H+ UI搭配更方便。</p>
+<p>对JX3Spider的php爬虫文件进行了重构，性能优化，同时将信息记录的目标由json文件改成mysql数据库。</p>
+<p>同时由于服务器小水管、低配置的原因，mysql数据库与网站挂载的主机进行了分离，一定程度上提高网站的访问速度（虽然还是比较慢╮(╯▽╰)╭，毕竟廉价学生服务器）。</p>
+<h2 id="评论"><a href="#评论" class="headerlink" title="评论"></a>评论</h2><p>评论方面采用多说提供的接口，免去访问者注册的同时提供带有身份标志的评论，同时提供最热文章、最新评论，提供文章推荐的功能。</p>
+<h2 id="爬虫"><a href="#爬虫" class="headerlink" title="爬虫"></a>爬虫</h2><p>基本设置沿用<a href="http://blog.shanamaid.top/2016/10/31/剑侠情缘3网络版贴吧爬虫开发日记/" target="_blank" rel="external">剑侠情缘3网络版贴吧爬虫开发日记</a>,对爬虫进行了重构，增加边界情况考虑，避免无意义的爬虫！</p>
+<h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><p>形如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://www.jx3818.top/article/p/1883146654/</div></pre></td></tr></table></figure></p>
+<p>exoress中的映射方式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">router.get(&apos;/article/p/:id&apos;,function (req, res, next) &#123;</div><div class="line">    var id = req.params.id;</div><div class="line">    ...code...</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h2 id="网站：剑网三那些事儿"><a href="#网站：剑网三那些事儿" class="headerlink" title="网站：剑网三那些事儿"></a>网站：<a href="http://www.jx3818.top/" target="_blank" rel="external">剑网三那些事儿</a></h2><h2 id="版本更新维护记录：-JX3Spider"><a href="#版本更新维护记录：-JX3Spider" class="headerlink" title="版本更新维护记录： JX3Spider"></a>版本更新维护记录： <a href="https://github.com/ShanaMaid/JX3Spider" target="_blank" rel="external">JX3Spider</a></h2>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/pay.jpg" alt="ShanaMaid Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/PHP/" rel="tag"># PHP</a>
+          
+            <a href="/tags/Nodejs/" rel="tag"># Nodejs</a>
+          
+            <a href="/tags/express/" rel="tag"># express</a>
+          
+            <a href="/tags/ejs/" rel="tag"># ejs</a>
+          
+            <a href="/tags/requirejs/" rel="tag"># requirejs</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/31/剑侠情缘3网络版贴吧爬虫开发日记/" rel="next" title="剑侠情缘3网络版贴吧爬虫开发日记">
+                <i class="fa fa-chevron-left"></i> 剑侠情缘3网络版贴吧爬虫开发日记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/25/web前端面试问题总结/" rel="prev" title="web前端面试问题总结">
+                web前端面试问题总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/11/23/独立开发日记-剑网3那些事儿/"
+           data-title="独立开发日记-剑网3那些事儿" data-url="http://ShanaMaid.github.io/2016/11/23/独立开发日记-剑网3那些事儿/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars0.githubusercontent.com/u/20333903?v=3&s=460"
+               alt="ShanaMaid" />
+          <p class="site-author-name" itemprop="name">ShanaMaid</p>
+          <p class="site-description motion-element" itemprop="description">前端狗</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://blog.chionlab.moe/" title="Chion Tang" target="_blank">Chion Tang</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://uestcmao.github.io/" title="uestcmao" target="_blank">uestcmao</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#起因"><span class="nav-number">1.</span> <span class="nav-text">起因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前端技术栈"><span class="nav-number">2.</span> <span class="nav-text">前端技术栈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后端技术栈"><span class="nav-number">3.</span> <span class="nav-text">后端技术栈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#评论"><span class="nav-number">4.</span> <span class="nav-text">评论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#爬虫"><span class="nav-number">5.</span> <span class="nav-text">爬虫</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路由"><span class="nav-number">6.</span> <span class="nav-text">路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网站：剑网三那些事儿"><span class="nav-number">7.</span> <span class="nav-text">网站：剑网三那些事儿</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#版本更新维护记录：-JX3Spider"><span class="nav-number">8.</span> <span class="nav-text">版本更新维护记录： JX3Spider</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ShanaMaid</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"shanaknight"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260644675'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1260644675%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+</body>
+</html>

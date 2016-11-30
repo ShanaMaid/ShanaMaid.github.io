@@ -1,0 +1,768 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JavaScript," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="先看一段代码12345Function instanceof Object // true Object instanceof Function // true Function instanceof Function //true Object instanceof Object // true Number instanceof Number //false">
+<meta property="og:type" content="article">
+<meta property="og:title" content="详解JavaScript中的__proto__与prototype（上）">
+<meta property="og:url" content="http://ShanaMaid.github.io/2016/10/18/详解JavaScript中的-proto-与prototype(上)/index.html">
+<meta property="og:site_name" content="ShanaKnights">
+<meta property="og:description" content="先看一段代码12345Function instanceof Object // true Object instanceof Function // true Function instanceof Function //true Object instanceof Object // true Number instanceof Number //false">
+<meta property="og:image" content="http://ShanaMaid.github.io/2016/10/18/详解JavaScript中的-proto-与prototype(上)/1.png">
+<meta property="og:image" content="http://ShanaMaid.github.io/2016/10/18/详解JavaScript中的-proto-与prototype(上)/3.png">
+<meta property="og:image" content="http://ShanaMaid.github.io/2016/10/18/详解JavaScript中的-proto-与prototype(上)/2.jpg">
+<meta property="og:updated_time" content="2016-10-31T13:52:47.785Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="详解JavaScript中的__proto__与prototype（上）">
+<meta name="twitter:description" content="先看一段代码12345Function instanceof Object // true Object instanceof Function // true Function instanceof Function //true Object instanceof Object // true Number instanceof Number //false">
+<meta name="twitter:image" content="http://ShanaMaid.github.io/2016/10/18/详解JavaScript中的-proto-与prototype(上)/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://ShanaMaid.github.io/2016/10/18/详解JavaScript中的-proto-与prototype(上)/"/>
+
+
+
+
+
+  <title> 详解JavaScript中的__proto__与prototype（上） | ShanaKnights </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">ShanaKnights</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">死宅万岁，bilibili ( ゜- ゜)つロ 乾杯~</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://ShanaMaid.github.io/2016/10/18/详解JavaScript中的-proto-与prototype(上)/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="ShanaMaid">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/20333903?v=3&s=460">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="ShanaKnights">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="ShanaKnights" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                详解JavaScript中的__proto__与prototype（上）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-18T19:58:39+08:00">
+                2016-10-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2016/10/18/详解JavaScript中的-proto-与prototype(上)/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/18/详解JavaScript中的-proto-与prototype(上)/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>先看一段代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Function instanceof Object // true </div><div class="line">Object instanceof Function // true </div><div class="line">Function instanceof Function //true </div><div class="line">Object instanceof Object // true </div><div class="line">Number instanceof Number //false</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>再来看一段<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">var obj = &#123; a : 1 &#125;; </div><div class="line">console.log(obj.__proto__ === Object.prototype); // true </div><div class="line"></div><div class="line">var str = new String(&apos;123&apos;); </div><div class="line">console.log(str.__proto__ === String.prototype); // true </div><div class="line"></div><div class="line"></div><div class="line">function Point()&#123;&#125;; </div><div class="line">var Circle = Object.create(Point); </div><div class="line">console.log(Circle.__proto__ === Point); // true </div><div class="line">console.log(Circle.__proto__ === Point.prototype); // false </div><div class="line"></div><div class="line">var p = new Point(); </div><div class="line">console.log(Point.__proto__); // function() </div><div class="line">console.log(Point.prototype); // Point &#123;&#125; </div><div class="line">console.log(p.__proto__); // Point &#123;&#125; </div><div class="line">console.log(p.prototype); // undefined</div></pre></td></tr></table></figure></p>
+<p>很明显，__proto__与prototype看起来似乎很相似，但是实际上是不同的。<br>先了解一下各自是什么，再进一步探讨。</p>
+<h3 id="prototype-显示原型"><a href="#prototype-显示原型" class="headerlink" title="prototype 显示原型"></a>prototype 显示原型</h3><p>每一个函数在创建之后都会拥有一个名为prototype的属性，这个属性指向函数的原型对象。(通过Function.prototype.bind方法构造出来的函数是个例外，它没有prototype属性。)</p>
+<h3 id="proto-隐式原型"><a href="#proto-隐式原型" class="headerlink" title="__proto__ 隐式原型"></a>__proto__ 隐式原型</h3><p>JavaScript中任意对象都有一个内置属性[[prototype]]，在ES5之前没有标准的方法访问这个内置属性，但是大多数浏览器都支持通过<strong>proto</strong>来访问。ES5中有了对于这个内置属性标准的Get方法Object.getPrototypeOf().<br>Note: Object.prototype 这个对象是个例外，它的__proto__值为null </p>
+<h3 id="二者关系"><a href="#二者关系" class="headerlink" title="二者关系"></a><span id="two_rel">二者关系</span></h3><p>隐式原型指向创建这个对象的函数(constructor)的prototype<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function test()&#123;&#125;;</div><div class="line">var a = new test();</div><div class="line">console.log(a.__proto__ === test.prototype) ;// true</div></pre></td></tr></table></figure></p>
+<h3 id="梳理"><a href="#梳理" class="headerlink" title="梳理"></a>梳理</h3><p>JavaScript里万物皆对象，方法（Function）是一种特殊的对象。<br>由上述的定义可知，任意对象都有都有__proto__,而prototype只有函数创建之后自己才有,通过该函数创建的对象是没有的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function test()&#123;&#125;;</div><div class="line">var a = new test();</div><div class="line">console.log(test.prototype); // test&#123;&#125;</div><div class="line">console.log(a.prototype); // undefined</div></pre></td></tr></table></figure></p>
+<p>而Object.prototype这个特殊的对象的__proto__位于原型链金字塔的顶端,为null，如下图<br><img src="/2016/10/18/详解JavaScript中的-proto-与prototype(上)/1.png" alt="图形化原型链" title="图形化原型链"><br>这里值得一提的是JavaScript的原型链中原型对象prototype之间是通过__proto__联系起来的<br><img src="/2016/10/18/详解JavaScript中的-proto-与prototype(上)/3.png" alt="__proto__" title="__proto__"><br>同时原型对象prototype中都有个预定义的constructor属性，用来引用它的函数对象。这是一种循环引用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">person.prototype.constructor === person //true</div><div class="line">Function.prototype.constructor === Function //true</div><div class="line">Object.prototype.constructor === Object //true</div></pre></td></tr></table></figure>
+<h4 id="这一点在本文后面的图中也有显示，Click"><a href="#这一点在本文后面的图中也有显示，Click" class="headerlink" title="这一点在本文后面的图中也有显示，Click"></a>这一点在本文后面的图中也有显示，<a href="#last_pic">Click</a></h4><h3 id="有两点需要注意："><a href="#有两点需要注意：" class="headerlink" title="有两点需要注意："></a>有两点需要注意：</h3><blockquote>
+<p>（1）注意Object.constructor===Function；//true 本身Object就是Function函数构造出来的<br>（2）如何查找一个对象的constructor，就是在该对象的原型链上寻找碰到的第一个constructor属性所指向的对象</p>
+</blockquote>
+<p>再看上面一截代码中的部分<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function Point()&#123;&#125;; </div><div class="line">var Circle = Object.create(Point); </div><div class="line">console.log(Circle.__proto__ === Point); // true</div></pre></td></tr></table></figure></p>
+<p>Object.create(),这是ES5中新增的方法，在这之前这被称为原型式继承,我们可以理解为 new Object(),这样我们就很好理解结果true了，实际上，上述代码可以等价理解为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function Point()&#123;&#125;;</div><div class="line">var Circle = new Point();</div><div class="line">console.log(Circle.__proto__ === Point); // true</div></pre></td></tr></table></figure></p>
+<p>等价的原因在上面<a href="#two_rel"><strong>二者关系</strong></a>有提到。<br>也可以从constructor来理解<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">console.log(Circle.constructor); //function Point()</div><div class="line">console.log(Circle.constructor.prototype ===  Circle.__prototype) // true</div></pre></td></tr></table></figure></p>
+<h3 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h3><p>instanceof 运算符用来测试一个对象在其原型链中是否存在一个构造函数的 prototype 属性。</p>
+<h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">object instanceof constructor</div></pre></td></tr></table></figure>
+<h4 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h4><p>object<br>    要检测的对象.</p>
+<p>constructor<br>    某个构造函数</p>
+<h4 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h4><p>instanceof 运算符用来检测 constructor.prototype 是否存在于参数 object 的原型链上。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//设 L instanceof R </div><div class="line">//通过判断</div><div class="line"> L.__proto__.__proto__ ..... === R.prototype ？</div><div class="line">//最终返回true or false</div></pre></td></tr></table></figure>
+<p>也就是沿着L的__proto__一直寻找到原型链末端，直到等于R.prototype为止,如果一直到Object.prototyoe都没找到，则返回false。就此，我们结合下面这幅图再剖析一下文章开头部分的代码段就很容易理解了<br><span id="last_pic"></span><br><img src="/2016/10/18/详解JavaScript中的-proto-与prototype(上)/2.jpg" alt="__proto__与prototype" title="__proto__与prototype"></p>
+<h3 id="参照知乎知乎–js中proto和prototype的区别和关系？整理得出，加入部分个人见解，有错之处望各位大牛斧正"><a href="#参照知乎知乎–js中proto和prototype的区别和关系？整理得出，加入部分个人见解，有错之处望各位大牛斧正" class="headerlink" title="参照知乎知乎–js中proto和prototype的区别和关系？整理得出，加入部分个人见解，有错之处望各位大牛斧正"></a>参照知乎<a href="http://www.zhihu.com/question/34183746" target="_blank" rel="external">知乎–js中<strong>proto</strong>和prototype的区别和关系？</a>整理得出，加入部分个人见解，有错之处望各位大牛斧正</h3>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/pay.jpg" alt="ShanaMaid Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/18/利用Php爬虫备份自己的CSDN博客/" rel="next" title="利用Php爬虫备份自己的CSDN博客">
+                <i class="fa fa-chevron-left"></i> 利用Php爬虫备份自己的CSDN博客
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/31/剑侠情缘3网络版贴吧爬虫开发日记/" rel="prev" title="剑侠情缘3网络版贴吧爬虫开发日记">
+                剑侠情缘3网络版贴吧爬虫开发日记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/10/18/详解JavaScript中的-proto-与prototype(上)/"
+           data-title="详解JavaScript中的__proto__与prototype（上）" data-url="http://ShanaMaid.github.io/2016/10/18/详解JavaScript中的-proto-与prototype(上)/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars0.githubusercontent.com/u/20333903?v=3&s=460"
+               alt="ShanaMaid" />
+          <p class="site-author-name" itemprop="name">ShanaMaid</p>
+          <p class="site-description motion-element" itemprop="description">前端狗</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://blog.chionlab.moe/" title="Chion Tang" target="_blank">Chion Tang</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://uestcmao.github.io/" title="uestcmao" target="_blank">uestcmao</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#prototype-显示原型"><span class="nav-number">1.</span> <span class="nav-text">prototype 显示原型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#proto-隐式原型"><span class="nav-number">2.</span> <span class="nav-text">__proto__ 隐式原型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二者关系"><span class="nav-number">3.</span> <span class="nav-text">二者关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#梳理"><span class="nav-number">4.</span> <span class="nav-text">梳理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#这一点在本文后面的图中也有显示，Click"><span class="nav-number">4.1.</span> <span class="nav-text">这一点在本文后面的图中也有显示，Click</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#有两点需要注意："><span class="nav-number">5.</span> <span class="nav-text">有两点需要注意：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#instanceof"><span class="nav-number">6.</span> <span class="nav-text">instanceof</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#语法"><span class="nav-number">6.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参数"><span class="nav-number">6.2.</span> <span class="nav-text">参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#描述"><span class="nav-number">6.3.</span> <span class="nav-text">描述</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参照知乎知乎–js中proto和prototype的区别和关系？整理得出，加入部分个人见解，有错之处望各位大牛斧正"><span class="nav-number">7.</span> <span class="nav-text">参照知乎知乎–js中proto和prototype的区别和关系？整理得出，加入部分个人见解，有错之处望各位大牛斧正</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ShanaMaid</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"shanaknight"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260644675'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1260644675%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+</body>
+</html>
