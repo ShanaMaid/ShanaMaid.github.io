@@ -269,6 +269,186 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://ShanaMaid.github.io/2017/02/06/微信小程序2048开发记录/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="ShanaMaid">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/20333903?v=3&s=460">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="ShanaKnights">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="ShanaKnights" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/02/06/微信小程序2048开发记录/" itemprop="url">
+                  微信小程序2048开发记录
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-06T10:20:47+08:00">
+                2017-02-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/实战开发/" itemprop="url" rel="index">
+                    <span itemprop="name">实战开发</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/实战开发/web/" itemprop="url" rel="index">
+                    <span itemprop="name">web</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2017/02/06/微信小程序2048开发记录/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/06/微信小程序2048开发记录/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/02/06/微信小程序2048开发记录/" class="leancloud_visitors" data-flag-title="微信小程序2048开发记录">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>距离微信小程序的兴起已经过去一段较长时间了，之前一直想尝试着写一个小demo玩玩，但是由于学校的各种事情以及准备面试的事情一直耽误。趁着公司放年假这段时间完成了对2048的复写，主体功能已经基本实现，还有一些细节地方待优化。</p>
+<h2 id="对于微信小程序的介绍"><a href="#对于微信小程序的介绍" class="headerlink" title="对于微信小程序的介绍"></a>对于微信小程序的介绍</h2><h3 id="1-微信小程序结构分析"><a href="#1-微信小程序结构分析" class="headerlink" title="1 微信小程序结构分析"></a>1 微信小程序结构分析</h3><p>每个页面的基本构成依然是html、css、js，但是格式后缀上有些许变换，html与js不变，但是css=&gt;wxss。同时每个项目都有三个关键的文件， app.js、app.json、app.wxss。</p>
+<p>以下是官方对于这三个文件的介绍</p>
+<p>app.js是小程序的脚本代码。我们可以在这个文件中监听并处理小程序的生命周期函数、声明全局变量，调用框架提供的丰富的 API。</p>
+<p>app.wxss 是整个小程序的公共样式表。我们可以在页面组件的 class 属性上直接使用 app.wxss 中声明的样式规则。</p>
+<p>app.json 是对整个小程序的全局配置。我们可以在这个文件中配置小程序是由哪些页面组成，配置小程序的窗口背景色，配置导航条样式，配置默认标题。<em>注意该文件不可添加任何注释</em>。</p>
+<p>更多信息请阅读<a href="https://mp.weixin.qq.com/debug/wxadoc/dev/" target="_blank" rel="external">官方文档</a></p>
+<p>同时微信小程序采用数据绑定的方式，刷新视图中的数据使用.setData即可。</p>
+<h3 id="2-丰富的组件与API"><a href="#2-丰富的组件与API" class="headerlink" title="2 丰富的组件与API"></a>2 丰富的组件与API</h3><p>微信小程序开发中，官方提供了很多组件与API，足够应用大多数场景下的开发，比如手机应用中最常见的触点坐标的获取，bindtouchstart、bindtouchend、bindtouchmove等。</p>
+<h2 id="2048开发"><a href="#2048开发" class="headerlink" title="2048开发"></a>2048开发</h2><h3 id="1-项目介绍"><a href="#1-项目介绍" class="headerlink" title="1 项目介绍"></a>1 项目介绍</h3><p>项目成果图<br><img src="/2017/02/06/微信小程序2048开发记录/show.gif" alt="运行图" title="运行图"></p>
+<h3 id="2-开发过程"><a href="#2-开发过程" class="headerlink" title="2 开发过程"></a>2 开发过程</h3><p>2048作为一个非常简单的小程序，首先是利用长度为4X4=16的item一维数组来储存积分块的积分，若对应位置不存在积分则置’’。<br>核心主要是对积分块处理的算法，这里我使用的算法比较粗陋，一共是对四种手势的处理，这里以向上的手势作为例子讲解。<br>如下图所示，手势向上的时候，我们的目标是将所有积分块朝上移动，移动在图中黑线处，然后对列上相邻的等值积分块进行合并。<br><img src="/2017/02/06/微信小程序2048开发记录/1.png" alt="1.png" title=""><br>我处理方法是先将所有积分块朝上移动，在列上将所有方块紧密挨在一起，这一步成为整理积分块的位置。<br>然后再对等值相邻积分块进行合并，将合并后出现的空缺位进行置空。<br>再对所有积分块进行整理。<br>比如上图中，向上滑动后，先是对积分块进行整理，得到如下图<br><img src="/2017/02/06/微信小程序2048开发记录/2.png" alt="第一次整理积分块" title="第一次整理积分块"><br>然后积分块合并，合并后出现的置空位如图。<br><img src="/2017/02/06/微信小程序2048开发记录/3.png" alt="积分块合并" title="积分块合并"><br>再次进行积分块整理就得到了最终的结果。<br><img src="/2017/02/06/微信小程序2048开发记录/4.png" alt="最终结果" title="最终结果"></p>
+<h3 id="3-算法讲解"><a href="#3-算法讲解" class="headerlink" title="3 算法讲解"></a>3 算法讲解</h3><p>向上手势对积分块处理的代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">function up() &#123;</div><div class="line">  //整理积分块位置</div><div class="line">  for (let i = 4; i &lt; item.length; i++)</div><div class="line">    if (item[i] != &apos;&apos;)</div><div class="line">      for (let j = i - 4; j &gt;= 0; j -= 4)</div><div class="line">        item[j] == &apos;&apos; ? (item[j] = item[j + 4]) &amp;&amp; (item[j + 4] = &apos;&apos;) : -1</div><div class="line">  //合并积分块</div><div class="line">  for (let i = 0; i &lt; 4; i++)</div><div class="line">    for (let j = 0; j &lt; 4; j++) &#123;</div><div class="line">      if (item[i + j * 4] == &apos;&apos; || item[i + (j + 1) * 4] == &apos;&apos;)</div><div class="line">        break;</div><div class="line">      if (item[i + j * 4] == item[i + (j + 1) * 4]) &#123;</div><div class="line">        item[i + j * 4] += item[i + (j + 1) * 4]</div><div class="line">        item[i + (j + 1) * 4] = &apos;&apos;</div><div class="line">        j++</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  //再次整理积分块位置</div><div class="line">  for (let i = 4; i &lt; item.length; i++)</div><div class="line">    if (item[i] != &apos;&apos;)</div><div class="line">      for (let j = i - 4; j &gt;= 0; j -= 4)</div><div class="line">        item[j] == &apos;&apos; ? (item[j] = item[j + 4]) &amp;&amp; (item[j + 4] = &apos;&apos;) : -1</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>算法的整理思路就是对积分块进行遍历，如果出现不为空的积分块i，那么对i-4(因此遍历是从i=4，即第二行开始)，即积分块的上方的积分块进行冒泡，判定上方积分块是否为空，若为空，交换积分块，继续向上冒泡，直到冒泡到第一行。然后继续寻找下一个不为空的积分块，一直到遍历完整个数组。</p>
+<p>合并积分块方面，大概思路和整理积分块位置差不多，只不过不是判定积分块是否为空，而是判定相邻积分块是否值相等。</p>
+<h3 id="4-关于算法优化"><a href="#4-关于算法优化" class="headerlink" title="4 关于算法优化"></a>4 关于算法优化</h3><ul>
+<li>不为空积分块的位置可以用一个数组来存储，避免每次进行整个数组的遍历</li>
+<li>整理积分块位置和合并积分块同时进行，减少一次整理积分块的消耗的时间</li>
+</ul>
+<h2 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h2><p>github <a href="https://github.com/ShanaMaid/wx-2048" target="_blank" rel="external">wx-2048</a><br>欢迎各位看官star!</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://ShanaMaid.github.io/2016/12/05/我的web前端面试经历/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1453,7 +1633,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-count">8</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1470,7 +1650,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1527,8 +1707,8 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
