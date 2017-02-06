@@ -84,24 +84,21 @@
 
 
 
-<meta name="description" content="前言距离微信小程序的兴起已经过去一段较长时间了，之前一直想尝试着写一个小demo玩玩，但是由于学校的各种事情以及准备面试的事情一直耽误。趁着公司放年假这段时间完成了对2048的复写，主体功能已经基本实现，还有一些细节地方待优化。
-对于微信小程序的介绍1 微信小程序结构分析每个页面的基本构成依然是html、css、js，但是格式后缀上有些许变换，html与js不变，但是css=&amp;gt;wxss。同时">
+<meta name="description" content="前言距离微信小程序的兴起已经过去一段较长时间了，之前一直想尝试着写一个小demo玩玩，但是由于学校的各种事情以及准备面试的事情一直耽误。趁着公司放年假这段时间完成了对2048的复写，主体功能已经基本实现，还有一些细节地方待优化。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="微信小程序2048开发记录">
 <meta property="og:url" content="http://ShanaMaid.github.io/2017/02/06/微信小程序2048开发记录/index.html">
 <meta property="og:site_name" content="ShanaKnights">
-<meta property="og:description" content="前言距离微信小程序的兴起已经过去一段较长时间了，之前一直想尝试着写一个小demo玩玩，但是由于学校的各种事情以及准备面试的事情一直耽误。趁着公司放年假这段时间完成了对2048的复写，主体功能已经基本实现，还有一些细节地方待优化。
-对于微信小程序的介绍1 微信小程序结构分析每个页面的基本构成依然是html、css、js，但是格式后缀上有些许变换，html与js不变，但是css=&amp;gt;wxss。同时">
+<meta property="og:description" content="前言距离微信小程序的兴起已经过去一段较长时间了，之前一直想尝试着写一个小demo玩玩，但是由于学校的各种事情以及准备面试的事情一直耽误。趁着公司放年假这段时间完成了对2048的复写，主体功能已经基本实现，还有一些细节地方待优化。">
 <meta property="og:image" content="http://ShanaMaid.github.io/2017/02/06/微信小程序2048开发记录/show.gif">
 <meta property="og:image" content="http://ShanaMaid.github.io/2017/02/06/微信小程序2048开发记录/1.png">
 <meta property="og:image" content="http://ShanaMaid.github.io/2017/02/06/微信小程序2048开发记录/2.png">
 <meta property="og:image" content="http://ShanaMaid.github.io/2017/02/06/微信小程序2048开发记录/3.png">
 <meta property="og:image" content="http://ShanaMaid.github.io/2017/02/06/微信小程序2048开发记录/4.png">
-<meta property="og:updated_time" content="2017-02-06T03:32:02.440Z">
+<meta property="og:updated_time" content="2017-02-06T03:36:53.676Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微信小程序2048开发记录">
-<meta name="twitter:description" content="前言距离微信小程序的兴起已经过去一段较长时间了，之前一直想尝试着写一个小demo玩玩，但是由于学校的各种事情以及准备面试的事情一直耽误。趁着公司放年假这段时间完成了对2048的复写，主体功能已经基本实现，还有一些细节地方待优化。
-对于微信小程序的介绍1 微信小程序结构分析每个页面的基本构成依然是html、css、js，但是格式后缀上有些许变换，html与js不变，但是css=&amp;gt;wxss。同时">
+<meta name="twitter:description" content="前言距离微信小程序的兴起已经过去一段较长时间了，之前一直想尝试着写一个小demo玩玩，但是由于学校的各种事情以及准备面试的事情一直耽误。趁着公司放年假这段时间完成了对2048的复写，主体功能已经基本实现，还有一些细节地方待优化。">
 <meta name="twitter:image" content="http://ShanaMaid.github.io/2017/02/06/微信小程序2048开发记录/show.gif">
 
 
@@ -395,7 +392,7 @@
       
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>距离微信小程序的兴起已经过去一段较长时间了，之前一直想尝试着写一个小demo玩玩，但是由于学校的各种事情以及准备面试的事情一直耽误。趁着公司放年假这段时间完成了对2048的复写，主体功能已经基本实现，还有一些细节地方待优化。</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>距离微信小程序的兴起已经过去一段较长时间了，之前一直想尝试着写一个小demo玩玩，但是由于学校的各种事情以及准备面试的事情一直耽误。趁着公司放年假这段时间完成了对2048的复写，主体功能已经基本实现，还有一些细节地方待优化。<br><a id="more"></a></p>
 <h2 id="对于微信小程序的介绍"><a href="#对于微信小程序的介绍" class="headerlink" title="对于微信小程序的介绍"></a>对于微信小程序的介绍</h2><h3 id="1-微信小程序结构分析"><a href="#1-微信小程序结构分析" class="headerlink" title="1 微信小程序结构分析"></a>1 微信小程序结构分析</h3><p>每个页面的基本构成依然是html、css、js，但是格式后缀上有些许变换，html与js不变，但是css=&gt;wxss。同时每个项目都有三个关键的文件， app.js、app.json、app.wxss。</p>
 <p>以下是官方对于这三个文件的介绍</p>
 <p>app.js是小程序的脚本代码。我们可以在这个文件中监听并处理小程序的生命周期函数、声明全局变量，调用框架提供的丰富的 API。</p>
