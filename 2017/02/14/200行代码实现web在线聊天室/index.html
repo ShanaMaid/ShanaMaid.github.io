@@ -1,0 +1,897 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="express,nodejs,angular," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="项目介绍基于websocket的一个简单的聊天室技术栈 express+socket.io+animate.css+angular关于websocket不了解的点我,而socket.io是对websocket进行封装，提供通用接口。Github项目地址">
+<meta property="og:type" content="article">
+<meta property="og:title" content="200行代码实现web在线聊天室">
+<meta property="og:url" content="http://ShanaMaid.github.io/2017/02/14/200行代码实现web在线聊天室/index.html">
+<meta property="og:site_name" content="娜酱骑士团">
+<meta property="og:description" content="项目介绍基于websocket的一个简单的聊天室技术栈 express+socket.io+animate.css+angular关于websocket不了解的点我,而socket.io是对websocket进行封装，提供通用接口。Github项目地址">
+<meta property="og:image" content="http://ShanaMaid.github.io/2017/02/14/200行代码实现web在线聊天室/show.gif">
+<meta property="og:updated_time" content="2017-02-14T15:01:45.577Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="200行代码实现web在线聊天室">
+<meta name="twitter:description" content="项目介绍基于websocket的一个简单的聊天室技术栈 express+socket.io+animate.css+angular关于websocket不了解的点我,而socket.io是对websocket进行封装，提供通用接口。Github项目地址">
+<meta name="twitter:image" content="http://ShanaMaid.github.io/2017/02/14/200行代码实现web在线聊天室/show.gif">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://ShanaMaid.github.io/2017/02/14/200行代码实现web在线聊天室/"/>
+
+
+
+
+
+  <title> 200行代码实现web在线聊天室 | 娜酱骑士团 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">娜酱骑士团</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">死宅万岁，bilibili ( ゜- ゜)つロ 乾杯~</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-articlelist">
+          <a href="/ArticleList" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            文章推荐
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://ShanaMaid.github.io/2017/02/14/200行代码实现web在线聊天室/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="ShanaMaid">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/20333903?v=3&s=460">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="娜酱骑士团">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="娜酱骑士团" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                200行代码实现web在线聊天室
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-14T21:38:31+08:00">
+                2017-02-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/实战开发/" itemprop="url" rel="index">
+                    <span itemprop="name">实战开发</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/实战开发/web/" itemprop="url" rel="index">
+                    <span itemprop="name">web</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2017/02/14/200行代码实现web在线聊天室/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/14/200行代码实现web在线聊天室/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/02/14/200行代码实现web在线聊天室/" class="leancloud_visitors" data-flag-title="200行代码实现web在线聊天室">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h2><h3 id="基于websocket的一个简单的聊天室"><a href="#基于websocket的一个简单的聊天室" class="headerlink" title="基于websocket的一个简单的聊天室"></a>基于websocket的一个简单的聊天室</h3><p>技术栈 express+socket.io+animate.css+angular<br>关于websocket不了解的<a href="https://www.zhihu.com/question/20215561" target="_blank" rel="external">点我</a>,而socket.io是对websocket进行封装，提供通用接口。<br><a href="https://github.com/ShanaMaid/websocket-express-webchat" target="_blank" rel="external">Github项目地址</a><br><a id="more"></a></p>
+<h3 id="安装与使用"><a href="#安装与使用" class="headerlink" title="安装与使用"></a>安装与使用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/ShanaMaid/websocket-express-webchat.git  #下载项目</div><div class="line"></div><div class="line">npm install  #安装依赖</div><div class="line"></div><div class="line">node app.js  #启动服务</div><div class="line"></div><div class="line">访问  http://localhost/  #进入聊天室</div></pre></td></tr></table></figure>
+<h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><ul>
+<li>进入房间通知</li>
+<li>离开房间通知</li>
+<li>消息接收与发送</li>
+<li>在线列表</li>
+<li>服务器端信息备份</li>
+</ul>
+<h3 id="动态GIF"><a href="#动态GIF" class="headerlink" title="动态GIF"></a>动态GIF</h3><img src="/2017/02/14/200行代码实现web在线聊天室/show.gif" alt="聊天室" title="聊天室">
+<h3 id="在线聊天室Demo"><a href="#在线聊天室Demo" class="headerlink" title="在线聊天室Demo"></a>在线聊天室Demo</h3><p>手机与电脑均可访问，<a href="http://www.shanamaid.top:7777/" target="_blank" rel="external">点我进入在线版</a></p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>利用on绑定事件，emit触发绑定事件，服务器端与客户端进行交互<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">socket.on(eventName,callBack)  #绑定事件，eventName可以自定义</div><div class="line">socket.emit(eventName,data) #触发事件，发送data</div></pre></td></tr></table></figure></p>
+<p>更多关于socket.io的详细信息请移步官方文档,<a href="http://socket.io/docs/" target="_blank" rel="external">点我</a>。</p>
+<h3 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h3><p>首先添加我们需要使用的模块<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var express = require(&apos;express&apos;);</div><div class="line">var socket = require(&apos;socket.io&apos;);</div><div class="line">var fs = require(&apos;fs&apos;);</div></pre></td></tr></table></figure></p>
+<p>然后从配置文件config.json读取一些我们需要的关于聊天室的一些配置信息,<a href="#config-json配置文件">关于配置文件</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var history_num = config.history_num ; //服务器缓存的历史消息条数</div><div class="line">var port = config.sever_port;	//端口号</div><div class="line">var backup = config.backup; //是否开启备份</div><div class="line">var backup_filename = config.backup_filename; //备份文件名字</div></pre></td></tr></table></figure></p>
+<p>定义person与history两个数组，用于存储在线人员的名称与服务端缓存的消息条数(即用户第一次进入聊天室推送的历史消息条数)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var person = [];//记录在线情况</div><div class="line">var history = [];//需要缓存的消息</div></pre></td></tr></table></figure></p>
+<p>监听port端口号，创建一个socket对象io<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var app = express();</div><div class="line">var server = app.listen(port);</div><div class="line">var io = new socket(server);</div></pre></td></tr></table></figure></p>
+<p>编写connection事件,响应客户端的连接请求,返回客户端socket，编写客户端要emit的事件<br><code>…………………………</code>表示代码省略部分,完整代码点击<a href="https://github.com/ShanaMaid/websocket-express-webchat" target="_blank" rel="external">Github项目地址</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">io.on(&apos;connection&apos;,  (socket) =&gt; &#123;</div><div class="line">	…………………………  </div><div class="line">	socket.emit(&apos;history&apos;,history); #发送服务器记录的历史消息</div><div class="line">	io.sockets.emit(&apos;updatePerson&apos;, person); #进行广播,触发所有客户端的updatePerson事件，更新在线列表人员</div><div class="line">	………………………… </div><div class="line">	socket.on(&apos;sendMsg&apos;, (data) =&gt; &#123; #发送消息事件</div><div class="line">		…………………………</div><div class="line">		io.sockets.emit(&apos;news&apos;,obj); #进行广播,触发所有客户端的news事件，更新信息。</div><div class="line">	&#125;);</div><div class="line">	socket.on(&apos;setUserName&apos;,(data) =&gt; &#123; #设定用户名事件</div><div class="line">		…………………………</div><div class="line">		io.sockets.emit(&apos;updatePerson&apos;,person); #进行广播,触发所有客户端的updatePerson事件，更新在线列表人员</div><div class="line">		io.sockets.emit(&apos;news&apos;,&#123;content:user+&apos;进入房间&apos;,time:Now(),name:&apos;系统消息&apos;&#125;); #进行广播,触发所有客户端的news事件，通知进入房间</div><div class="line">		…………………………</div><div class="line">	&#125;);</div><div class="line"></div><div class="line">	socket.on(&apos;disconnect&apos;,  (socket) =&gt; &#123; #掉线事件</div><div class="line">		if(user!=&apos;&apos;) &#123;</div><div class="line">			io.sockets.emit(&apos;news&apos;, &#123;content: user + &apos;离开房间&apos;, time: Now(), name: &apos;系统消息&apos;&#125;); #进行广播,离开房间</div><div class="line">			person.splice(id,1);</div><div class="line">		&#125;</div><div class="line">		io.sockets.emit(&apos;updatePerson&apos;, person);</div><div class="line">	&#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<h3 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h3><p>变量初始化<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$scope.data = []; 	#接收-消息队列</div><div class="line">$scope.name = &apos;&apos;;       #用户名</div><div class="line">$scope.content = &apos;&apos;;    #发送信息内容</div><div class="line">$scope.personnum = 0;   #在线人数</div><div class="line">$scope.personlist = []; #在线人员列表</div><div class="line">$scope.flag = false;    #是否取名</div></pre></td></tr></table></figure></p>
+<p>创建客户端socket<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">const socket_url = &apos;http://localhost&apos;;</div><div class="line">var socket = io(socket_url);</div></pre></td></tr></table></figure></p>
+<p>完成服务器端的emit的事件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">socket.on(&apos;news&apos;, (data) =&gt; &#123;</div><div class="line">   ……………………</div><div class="line">&#125;);</div><div class="line"></div><div class="line">socket.on(&apos;history&apos;, (data) =&gt; &#123;</div><div class="line">    ……………………</div><div class="line">&#125;);</div><div class="line"></div><div class="line">socket.on(&apos;updatePerson&apos;, (data) =&gt; &#123;</div><div class="line">    ……………………</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<h3 id="config-json配置文件"><a href="#config-json配置文件" class="headerlink" title="config.json配置文件"></a>config.json配置文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;history_num&quot;:20,  #服务器缓存的历史信息条数</div><div class="line">  &quot;sever_port&quot;:80,	#服务器监听端口号</div><div class="line">  &quot;backup&quot;:true,    #是否开启服务端信息备份</div><div class="line">  &quot;backup_filename&quot;:&quot;./backup/example.json&quot;  #备份文件名字</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="聊天信息备份"><a href="#聊天信息备份" class="headerlink" title="聊天信息备份"></a>聊天信息备份</h3><p>聊天信息以json格式存储在example.json文件中！<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">function backupMsg(filename,obj) &#123;</div><div class="line">	var backup_file = fs.readFileSync(backup_filename);</div><div class="line">	var msg= backup_file!=&apos;&apos; ? JSON.parse(backup_file) : [];</div><div class="line">	msg.push(obj);</div><div class="line">	var str = &apos;[\n&apos;</div><div class="line">	msg.forEach((value,index) =&gt;&#123;</div><div class="line">		if (index!==0)&#123;</div><div class="line">			str+=&apos;,\n&apos;;</div><div class="line">		&#125;</div><div class="line">		str += &apos;  &#123;\n    &quot;name&quot;:&quot;&apos;+value.name+&apos;&quot;,\n    &quot;time&quot;:&quot;&apos;+value.time+&apos;&quot;,\n    &quot;content&quot;:&quot;&apos;+value.content+&apos;&quot;\n  &#125;&apos;</div><div class="line">	&#125; );</div><div class="line">	str += &apos;\n]&apos;;</div><div class="line">	fs.writeFile(filename, str, (err) =&gt; &#123;</div><div class="line">		if(err)</div><div class="line">			console.log(&quot;fail write :&quot; + arr +  &quot;   &quot;+Date() + &quot;\n error:&quot;+err);</div><div class="line">	&#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="备份信息示例"><a href="#备份信息示例" class="headerlink" title="备份信息示例"></a>备份信息示例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">[</div><div class="line">  &#123;</div><div class="line">    &quot;name&quot;:&quot;测试人员1&quot;,</div><div class="line">    &quot;time&quot;:&quot;2017-2-13  23:32:17&quot;,</div><div class="line">    &quot;content&quot;:&quot;一条简单的测试信息&quot;</div><div class="line">  &#125;,</div><div class="line">  &#123;</div><div class="line">    &quot;name&quot;:&quot;测试人2&quot;,</div><div class="line">    &quot;time&quot;:&quot;2017-2-13  23:33:42&quot;,</div><div class="line">    &quot;content&quot;:&quot;那你很棒哦&quot;</div><div class="line">  &#125;,</div><div class="line">  &#123;</div><div class="line">    &quot;name&quot;:&quot;测试人3&quot;,</div><div class="line">    &quot;time&quot;:&quot;2017-2-13  23:33:54&quot;,</div><div class="line">    &quot;content&quot;:&quot;肯定很棒哦&quot;</div><div class="line">  &#125;</div><div class="line">]</div></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>websocket实现了浏览器与服务器全双工通信。<br>举个栗子，原来是这样的<br>轮询机制：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">客户端:服务器，你有没有消息要给我啊？</div><div class="line">服务器：有。</div><div class="line">客户端:服务器，你有没有消息要给我啊？</div><div class="line">服务器：没有。</div><div class="line">——————————无限重复————————————</div><div class="line">客户端:服务器，你有没有消息要给我啊？</div><div class="line">服务器：没有。</div><div class="line">客户端:服务器，你有没有消息要给我啊？</div><div class="line">服务器：你烦不烦啊~</div></pre></td></tr></table></figure></p>
+<p>而现在的websocket：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">客户端:服务器，你有我的消息了记得call我。</div><div class="line">服务器：OK！</div><div class="line">——————————当有消息的时候————————</div><div class="line">服务器：有你的消息了，客户端。</div><div class="line">客户端：收到。</div></pre></td></tr></table></figure></p>
+<p><a href="https://github.com/ShanaMaid/websocket-express-webchat" target="_blank" rel="external">Github项目地址</a>,欢迎各位交流学习！</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/pay.jpg" alt="ShanaMaid Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/express/" rel="tag"># express</a>
+          
+            <a href="/tags/nodejs/" rel="tag"># nodejs</a>
+          
+            <a href="/tags/angular/" rel="tag"># angular</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/06/微信小程序2048开发记录/" rel="next" title="微信小程序2048开发记录">
+                <i class="fa fa-chevron-left"></i> 微信小程序2048开发记录
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/02/14/200行代码实现web在线聊天室/"
+           data-title="200行代码实现web在线聊天室" data-url="http://ShanaMaid.github.io/2017/02/14/200行代码实现web在线聊天室/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars0.githubusercontent.com/u/20333903?v=3&s=460"
+               alt="ShanaMaid" />
+          <p class="site-author-name" itemprop="name">ShanaMaid</p>
+          <p class="site-description motion-element" itemprop="description">前端狗</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://blog.chionlab.moe/" title="Chion Tang" target="_blank">Chion Tang</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://uestcmao.github.io/" title="uestcmao" target="_blank">uestcmao</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#项目介绍"><span class="nav-number">1.</span> <span class="nav-text">项目介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基于websocket的一个简单的聊天室"><span class="nav-number">1.1.</span> <span class="nav-text">基于websocket的一个简单的聊天室</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装与使用"><span class="nav-number">1.2.</span> <span class="nav-text">安装与使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#功能"><span class="nav-number">1.3.</span> <span class="nav-text">功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态GIF"><span class="nav-number">1.4.</span> <span class="nav-text">动态GIF</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在线聊天室Demo"><span class="nav-number">1.5.</span> <span class="nav-text">在线聊天室Demo</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现"><span class="nav-number">2.</span> <span class="nav-text">实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#思路"><span class="nav-number">2.1.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务端"><span class="nav-number">2.2.</span> <span class="nav-text">服务端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#客户端"><span class="nav-number">2.3.</span> <span class="nav-text">客户端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#config-json配置文件"><span class="nav-number">2.4.</span> <span class="nav-text">config.json配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#聊天信息备份"><span class="nav-number">2.5.</span> <span class="nav-text">聊天信息备份</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#备份信息示例"><span class="nav-number">2.6.</span> <span class="nav-text">备份信息示例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ShanaMaid</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"shanaknight"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("4FWJbd67YPU36gbAiyAnl0lF-gzGzoHsz", "ofw0GRIkU9iBeevMnzhbTPAf");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260644675'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1260644675%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+<script>(function(){var bp = document.createElement('script');var curProtocol = window.location.protocol.split(':')[0];if (curProtocol === 'https'){bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';}else{bp.src = 'http://push.zhanzhang.baidu.com/push.js';}var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp, s);})();</script>
+</body>
+</html>
