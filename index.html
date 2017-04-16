@@ -1,93 +1,11 @@
-<!doctype html>
-
-
-
-  
-
-
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  <meta charset="utf-8">
   
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="Hexo, NexT" />
-
-
-
-
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
-
-
-
-
-
-
-<meta name="description" content="前端狗">
+  <title>娜酱骑士团</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前端狗">
 <meta property="og:type" content="website">
 <meta property="og:title" content="娜酱骑士团">
 <meta property="og:url" content="http://ShanaMaid.github.io/index.html">
@@ -96,2305 +14,736 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="娜酱骑士团">
 <meta name="twitter:description" content="前端狗">
+  
+    <link rel="alternate" href="/atom.xml" title="娜酱骑士团" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/plugin/bganimation/bg.css">
+  
 
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
-    algolia: {
-      applicationID: 'N0EZBKJK5J',
-      apiKey: 'c562c46620d04651c72fb0751df111a9',
-      indexName: 'indexName',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-
-  <link rel="canonical" href="http://ShanaMaid.github.io/"/>
-
-
-
-
-
-  <title> 娜酱骑士团 </title>
 </head>
-<style type="text/css">
-  body{
-    cursor: url('/images/zhizhen.png'), default;
-  }
-</style>
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-react仿追书神器——哦豁阅读器" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/04/11/react仿追书神器——哦豁阅读器/" class="article-date">
+  <time class="post-time" datetime="2017-04-11T03:12:01.000Z" itemprop="datePublished">
+    <span class="post-month">4月</span><br/>
+    <span class="post-day">11</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/11/react仿追书神器——哦豁阅读器/">react仿追书神器——哦豁阅读器</a>
+    </h1>
   
 
-
-
-
-
-
-
-
-
-
-
-  <div style="display: none;">
-    <script src="//s95.cnzz.com/z_stat.php?id=1260644675&web_id=1260644675" language="JavaScript"></script>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/实战开发/">实战开发</a>,<a class="article-category-link" href="/categories/实战开发/React/">React</a>
   </div>
 
-
-
-
-
-
-  
-  
-    
-  
-
-  <div class="container sidebar-position-left 
-   page-home 
- ">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">娜酱骑士团</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-      
-        <h1 class="site-subtitle" itemprop="description">死宅万岁，bilibili ( ゜- ゜)つロ 乾杯~</h1>
-      
-  </div>
-
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-cv">
-          <a href="https://github.com/ShanaMaid/cv" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            个人简历
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-sponsor">
-          <a href="/sponsor" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-heart"></i> <br />
-            
-            投喂手册
-          </a>
-        </li>
-      
-
-      
-    </ul>
-  
-
-  
-</nav>
-
-
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-  <section id="posts" class="posts-expand">
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://ShanaMaid.github.io/2017/04/11/react仿追书神器——哦豁阅读器/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ShanaMaid">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/20333903?v=3&s=460">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="娜酱骑士团">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/11/react仿追书神器——哦豁阅读器/" itemprop="url">
-                  react仿追书神器——哦豁阅读器
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-11T11:12:01+08:00">
-                2017-04-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/实战开发/" itemprop="url" rel="index">
-                    <span itemprop="name">实战开发</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/实战开发/React/" itemprop="url" rel="index">
-                    <span itemprop="name">React</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/04/11/react仿追书神器——哦豁阅读器/" class="leancloud_visitors" data-flag-title="react仿追书神器——哦豁阅读器">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
       </header>
     
-
-
-    <div class="post-body" itemprop="articleBody">
-
+    <div class="article-entry" itemprop="articleBody">
       
-      
-
-      
-        
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>都知道追书神器从某个版本开始就不支持换源了，开始实行收费制度，虽然老版追书神器依然可以使用，但是指不定那天就挂掉了。再加上最近想熟悉一下<code>react</code>，所以本项目<code>哦豁阅读器</code>就诞生了。</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>都知道追书神器从某个版本开始就不支持换源了，开始实行收费制度，虽然老版追书神器依然可以使用，但是指不定那天就挂掉了。再加上最近想熟悉一下<code>react</code>，所以本项目<code>哦豁阅读器</code>就诞生了。</p>
 <p>Github项目地址:<a href="https://github.com/ShanaMaid/oho-reader">https://github.com/ShanaMaid/oho-reader</a></p>
 <p>欢迎<code>issue</code>，<code>pr</code>，<code>star</code> or <code>follow</code>！我将继续开源更多有趣的项目</p>
 <p>推荐一个之前用Vue全家桶写的 <a href="https://github.com/ShanaMaid/vue-163-music">网易云音乐PC端 web版本</a></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/04/11/react仿追书神器——哦豁阅读器/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+        
+          <p class="article-more-link">
+            <a href="/2017/04/11/react仿追书神器——哦豁阅读器/#more">Read More</a>
+          </p>
         
       
     </div>
+    <footer class="article-footer">
+      <a data-url="http://ShanaMaid.github.io/2017/04/11/react仿追书神器——哦豁阅读器/" data-id="cj1kgah2p0000pgk7n2t8bry8" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/express/">express</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
     </footer>
-  </article>
+  </div>
+  
+</article>
 
 
+
+
+  
+    <article id="post-vue仿163musicPC端" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/21/vue仿163musicPC端/" class="article-date">
+  <time class="post-time" datetime="2017-03-21T06:33:32.000Z" itemprop="datePublished">
+    <span class="post-month">3月</span><br/>
+    <span class="post-day">21</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://ShanaMaid.github.io/2017/03/21/vue仿163musicPC端/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ShanaMaid">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/20333903?v=3&s=460">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="娜酱骑士团">
-    </span>
-
     
-      <header class="post-header">
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/21/vue仿163musicPC端/">vue仿163musicPC端</a>
+    </h1>
+  
 
         
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/21/vue仿163musicPC端/" itemprop="url">
-                  vue仿163musicPC端
-                </a>
-              
-            
-          </h2>
-        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/实战开发/">实战开发</a>,<a class="article-category-link" href="/categories/实战开发/vue/">vue</a>
+  </div>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-21T14:33:32+08:00">
-                2017-03-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/实战开发/" itemprop="url" rel="index">
-                    <span itemprop="name">实战开发</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/实战开发/vue/" itemprop="url" rel="index">
-                    <span itemprop="name">vue</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/03/21/vue仿163musicPC端/" class="leancloud_visitors" data-flag-title="vue仿163musicPC端">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
       </header>
     
-
-
-    <div class="post-body" itemprop="articleBody">
-
+    <div class="article-entry" itemprop="articleBody">
       
-      
-
-      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>vue2越来越受欢迎，无奈现在在公司做的平台是以ng1.x为主，一直没有机会练手vue2，虽然写过一些小demo，但是与完整的项目相比较中间会少很多东西。于是趁在公司空闲的时候以及周末双休，自己用vue2复写了163musicPC端。相比较之掘金上大大写的很多都是纯静态页面vue2，实际开发中肯定会涉及到接口、数据渲染方面，本项目接口通过<code>http-proxy-middleware</code>， 一个http代理的中间件，进行http请求转发，实现跨域请求，直接复用网易爸爸的接口，在服务端对返回的JSON进行解构即可。<br>
         
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>vue2越来越受欢迎，无奈现在在公司做的平台是以ng1.x为主，一直没有机会练手vue2，虽然写过一些小demo，但是与完整的项目相比较中间会少很多东西。于是趁在公司空闲的时候以及周末双休，自己用vue2复写了163musicPC端。相比较之掘金上大大写的很多都是纯静态页面vue2，实际开发中肯定会涉及到接口、数据渲染方面，本项目接口通过<code>http-proxy-middleware</code>， 一个http代理的中间件，进行http请求转发，实现跨域请求，直接复用网易爸爸的接口，在服务端对返回的JSON进行解构即可。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/21/vue仿163musicPC端/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          <p class="article-more-link">
+            <a href="/2017/03/21/vue仿163musicPC端/#more">Read More</a>
+          </p>
         
       
     </div>
+    <footer class="article-footer">
+      <a data-url="http://ShanaMaid.github.io/2017/03/21/vue仿163musicPC端/" data-id="cj18oowav0004zsk79xegn4yu" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
     </footer>
-  </article>
+  </div>
+  
+</article>
 
 
+
+
+  
+    <article id="post-JavaScript数组的思考" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/13/JavaScript数组的思考/" class="article-date">
+  <time class="post-time" datetime="2017-03-13T02:33:53.000Z" itemprop="datePublished">
+    <span class="post-month">3月</span><br/>
+    <span class="post-day">13</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://ShanaMaid.github.io/2017/03/13/JavaScript数组的思考/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ShanaMaid">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/20333903?v=3&s=460">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="娜酱骑士团">
-    </span>
-
     
-      <header class="post-header">
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/13/JavaScript数组的思考/">JavaScript数组的思考</a>
+    </h1>
+  
 
         
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/13/JavaScript数组的思考/" itemprop="url">
-                  JavaScript数组的思考
-                </a>
-              
-            
-          </h2>
-        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/学习笔记/">学习笔记</a>,<a class="article-category-link" href="/categories/学习笔记/web/">web</a>,<a class="article-category-link" href="/categories/学习笔记/web/JavaScript/">JavaScript</a>
+  </div>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-13T10:33:53+08:00">
-                2017-03-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">学习笔记</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/web/" itemprop="url" rel="index">
-                    <span itemprop="name">web</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/web/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/03/13/JavaScript数组的思考/" class="leancloud_visitors" data-flag-title="JavaScript数组的思考">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
       </header>
     
-
-
-    <div class="post-body" itemprop="articleBody">
-
+    <div class="article-entry" itemprop="articleBody">
       
-      
-
-      
+        <p>昨晚睡觉前刷掘金看到一道面试题，由此引发了一系列的拓展与思考。</p>
         
-          <p>昨晚睡觉前刷掘金看到一道面试题，由此引发了一系列的拓展与思考。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/13/JavaScript数组的思考/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          <p class="article-more-link">
+            <a href="/2017/03/13/JavaScript数组的思考/#more">Read More</a>
+          </p>
         
       
     </div>
+    <footer class="article-footer">
+      <a data-url="http://ShanaMaid.github.io/2017/03/13/JavaScript数组的思考/" data-id="cj18oowcg000wzsk70s8uuntd" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
     </footer>
-  </article>
+  </div>
+  
+</article>
 
 
+
+
+  
+    <article id="post-vue仿PC端163music图片滚动组件" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/03/vue仿PC端163music图片滚动组件/" class="article-date">
+  <time class="post-time" datetime="2017-03-03T13:07:30.000Z" itemprop="datePublished">
+    <span class="post-month">3月</span><br/>
+    <span class="post-day">03</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://ShanaMaid.github.io/2017/03/03/vue仿PC端163music图片滚动组件/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ShanaMaid">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/20333903?v=3&s=460">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="娜酱骑士团">
-    </span>
-
     
-      <header class="post-header">
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/03/vue仿PC端163music图片滚动组件/">vue仿PC端163music图片滚动组件</a>
+    </h1>
+  
 
         
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/03/vue仿PC端163music图片滚动组件/" itemprop="url">
-                  vue仿PC端163music图片滚动组件
-                </a>
-              
-            
-          </h2>
-        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/实战开发/">实战开发</a>,<a class="article-category-link" href="/categories/实战开发/vue/">vue</a>
+  </div>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-03T21:07:30+08:00">
-                2017-03-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/实战开发/" itemprop="url" rel="index">
-                    <span itemprop="name">实战开发</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/实战开发/vue/" itemprop="url" rel="index">
-                    <span itemprop="name">vue</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/03/03/vue仿PC端163music图片滚动组件/" class="leancloud_visitors" data-flag-title="vue仿PC端163music图片滚动组件">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
       </header>
     
-
-
-    <div class="post-body" itemprop="articleBody">
-
+    <div class="article-entry" itemprop="articleBody">
       
-      
-
-      
-        
-          <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>这是一款模仿PC端网易云音乐的vue图片滚动插件</p>
+        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>这是一款模仿PC端网易云音乐的vue图片滚动插件</p>
 <p><a href="https://github.com/ShanaMaid/vue-image-scroll">Github项目地址-vue-image-scroll</a></p>
 <p><a href="http://blog.shanamaid.top/vue-image-scroll/example/">在线文档和demo</a></p>
 <p>欢迎各位dalao指点,star or PR!</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/03/vue仿PC端163music图片滚动组件/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+        
+          <p class="article-more-link">
+            <a href="/2017/03/03/vue仿PC端163music图片滚动组件/#more">Read More</a>
+          </p>
         
       
     </div>
+    <footer class="article-footer">
+      <a data-url="http://ShanaMaid.github.io/2017/03/03/vue仿PC端163music图片滚动组件/" data-id="cj18oowbj000czsk7yumzq8xn" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
     </footer>
-  </article>
+  </div>
+  
+</article>
 
 
+
+
+  
+    <article id="post-200行代码实现web在线聊天室" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/14/200行代码实现web在线聊天室/" class="article-date">
+  <time class="post-time" datetime="2017-02-14T13:38:31.000Z" itemprop="datePublished">
+    <span class="post-month">2月</span><br/>
+    <span class="post-day">14</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://ShanaMaid.github.io/2017/02/14/200行代码实现web在线聊天室/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ShanaMaid">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/20333903?v=3&s=460">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="娜酱骑士团">
-    </span>
-
     
-      <header class="post-header">
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/14/200行代码实现web在线聊天室/">200行代码实现web在线聊天室</a>
+    </h1>
+  
 
         
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/02/14/200行代码实现web在线聊天室/" itemprop="url">
-                  200行代码实现web在线聊天室
-                </a>
-              
-            
-          </h2>
-        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/实战开发/">实战开发</a>,<a class="article-category-link" href="/categories/实战开发/web/">web</a>
+  </div>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-14T21:38:31+08:00">
-                2017-02-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/实战开发/" itemprop="url" rel="index">
-                    <span itemprop="name">实战开发</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/实战开发/web/" itemprop="url" rel="index">
-                    <span itemprop="name">web</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/02/14/200行代码实现web在线聊天室/" class="leancloud_visitors" data-flag-title="200行代码实现web在线聊天室">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
       </header>
     
-
-
-    <div class="post-body" itemprop="articleBody">
-
+    <div class="article-entry" itemprop="articleBody">
       
-      
-
-      
+        <h2 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h2><h3 id="基于websocket的一个简单的聊天室"><a href="#基于websocket的一个简单的聊天室" class="headerlink" title="基于websocket的一个简单的聊天室"></a>基于websocket的一个简单的聊天室</h3><p>技术栈 express+socket.io+animate.css+angular<br>关于websocket不了解的<a href="https://www.zhihu.com/question/20215561">点我</a>,而socket.io是对websocket进行封装，提供通用接口。<br><a href="https://github.com/ShanaMaid/websocket-express-webchat">Github项目地址</a><br>
         
-          <h2 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h2><h3 id="基于websocket的一个简单的聊天室"><a href="#基于websocket的一个简单的聊天室" class="headerlink" title="基于websocket的一个简单的聊天室"></a>基于websocket的一个简单的聊天室</h3><p>技术栈 express+socket.io+animate.css+angular<br>关于websocket不了解的<a href="https://www.zhihu.com/question/20215561">点我</a>,而socket.io是对websocket进行封装，提供通用接口。<br><a href="https://github.com/ShanaMaid/websocket-express-webchat">Github项目地址</a><br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/02/14/200行代码实现web在线聊天室/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          <p class="article-more-link">
+            <a href="/2017/02/14/200行代码实现web在线聊天室/#more">Read More</a>
+          </p>
         
       
     </div>
+    <footer class="article-footer">
+      <a data-url="http://ShanaMaid.github.io/2017/02/14/200行代码实现web在线聊天室/" data-id="cj18oowah0002zsk791786u35" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angular/">angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/express/">express</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li></ul>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
     </footer>
-  </article>
+  </div>
+  
+</article>
 
 
+
+
+  
+    <article id="post-微信小程序2048开发记录" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/06/微信小程序2048开发记录/" class="article-date">
+  <time class="post-time" datetime="2017-02-06T02:20:47.000Z" itemprop="datePublished">
+    <span class="post-month">2月</span><br/>
+    <span class="post-day">06</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://ShanaMaid.github.io/2017/02/06/微信小程序2048开发记录/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ShanaMaid">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/20333903?v=3&s=460">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="娜酱骑士团">
-    </span>
-
     
-      <header class="post-header">
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/06/微信小程序2048开发记录/">微信小程序2048开发记录</a>
+    </h1>
+  
 
         
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/02/06/微信小程序2048开发记录/" itemprop="url">
-                  微信小程序2048开发记录
-                </a>
-              
-            
-          </h2>
-        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/实战开发/">实战开发</a>,<a class="article-category-link" href="/categories/实战开发/web/">web</a>
+  </div>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-06T10:20:47+08:00">
-                2017-02-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/实战开发/" itemprop="url" rel="index">
-                    <span itemprop="name">实战开发</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/实战开发/web/" itemprop="url" rel="index">
-                    <span itemprop="name">web</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/02/06/微信小程序2048开发记录/" class="leancloud_visitors" data-flag-title="微信小程序2048开发记录">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
       </header>
     
-
-
-    <div class="post-body" itemprop="articleBody">
-
+    <div class="article-entry" itemprop="articleBody">
       
-      
-
-      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>距离微信小程序的兴起已经过去一段较长时间了，之前一直想尝试着写一个小demo玩玩，但是由于学校的各种事情以及准备面试的事情一直耽误。趁着公司放年假这段时间完成了对2048的复写，主体功能已经基本实现，还有一些细节地方待优化。<br>
         
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>距离微信小程序的兴起已经过去一段较长时间了，之前一直想尝试着写一个小demo玩玩，但是由于学校的各种事情以及准备面试的事情一直耽误。趁着公司放年假这段时间完成了对2048的复写，主体功能已经基本实现，还有一些细节地方待优化。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/02/06/微信小程序2048开发记录/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          <p class="article-more-link">
+            <a href="/2017/02/06/微信小程序2048开发记录/#more">Read More</a>
+          </p>
         
       
     </div>
+    <footer class="article-footer">
+      <a data-url="http://ShanaMaid.github.io/2017/02/06/微信小程序2048开发记录/" data-id="cj18oowc1000kzsk7ii98hs1m" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/微信小程序/">微信小程序</a></li></ul>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
     </footer>
-  </article>
+  </div>
+  
+</article>
 
 
+
+
+  
+    <article id="post-我的web前端面试经历" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/05/我的web前端面试经历/" class="article-date">
+  <time class="post-time" datetime="2016-12-05T06:02:08.000Z" itemprop="datePublished">
+    <span class="post-month">12月</span><br/>
+    <span class="post-day">05</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://ShanaMaid.github.io/2016/12/05/我的web前端面试经历/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ShanaMaid">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/20333903?v=3&s=460">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="娜酱骑士团">
-    </span>
-
     
-      <header class="post-header">
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/05/我的web前端面试经历/">我的web前端面试经历————百度</a>
+    </h1>
+  
 
         
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/12/05/我的web前端面试经历/" itemprop="url">
-                  我的web前端面试经历————百度
-                </a>
-              
-            
-          </h2>
-        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/杂谈/">杂谈</a>
+  </div>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-05T14:02:08+08:00">
-                2016-12-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/杂谈/" itemprop="url" rel="index">
-                    <span itemprop="name">杂谈</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2016/12/05/我的web前端面试经历/" class="leancloud_visitors" data-flag-title="我的web前端面试经历————百度">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
       </header>
     
-
-
-    <div class="post-body" itemprop="articleBody">
-
+    <div class="article-entry" itemprop="articleBody">
       
-      
-
-      
+        <h2 id="写在前面的话"><a href="#写在前面的话" class="headerlink" title="写在前面的话"></a>写在前面的话</h2><p>博主就读于电子科技大学，大三狗一枚！<br>面试是个漫长的过程，从海投到收获电话面试，一面、二面、三面，一个步骤出错那么后面就宣告终结。同时，面试过程中你也可能会遇到一些面试官的刁难，甚至部分面试官会说些比较打击你的话，但是大部分面试官都是很棒的！<br>
         
-          <h2 id="写在前面的话"><a href="#写在前面的话" class="headerlink" title="写在前面的话"></a>写在前面的话</h2><p>博主就读于电子科技大学，大三狗一枚！<br>面试是个漫长的过程，从海投到收获电话面试，一面、二面、三面，一个步骤出错那么后面就宣告终结。同时，面试过程中你也可能会遇到一些面试官的刁难，甚至部分面试官会说些比较打击你的话，但是大部分面试官都是很棒的！<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/12/05/我的web前端面试经历/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          <p class="article-more-link">
+            <a href="/2016/12/05/我的web前端面试经历/#more">Read More</a>
+          </p>
         
       
     </div>
+    <footer class="article-footer">
+      <a data-url="http://ShanaMaid.github.io/2016/12/05/我的web前端面试经历/" data-id="cj18oowca000ozsk7rb5es0bw" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面试/">面试</a></li></ul>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
     </footer>
-  </article>
+  </div>
+  
+</article>
 
 
+
+
+  
+    <article id="post-web前端面试问题总结" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/25/web前端面试问题总结/" class="article-date">
+  <time class="post-time" datetime="2016-11-25T12:27:04.000Z" itemprop="datePublished">
+    <span class="post-month">11月</span><br/>
+    <span class="post-day">25</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://ShanaMaid.github.io/2016/11/25/web前端面试问题总结/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ShanaMaid">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/20333903?v=3&s=460">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="娜酱骑士团">
-    </span>
-
     
-      <header class="post-header">
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/25/web前端面试问题总结/">web前端面试问题总结</a>
+    </h1>
+  
 
         
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/25/web前端面试问题总结/" itemprop="url">
-                  web前端面试问题总结
-                </a>
-              
-            
-          </h2>
-        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/学习笔记/">学习笔记</a>,<a class="article-category-link" href="/categories/学习笔记/web/">web</a>
+  </div>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-25T20:27:04+08:00">
-                2016-11-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">学习笔记</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/web/" itemprop="url" rel="index">
-                    <span itemprop="name">web</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2016/11/25/web前端面试问题总结/" class="leancloud_visitors" data-flag-title="web前端面试问题总结">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
       </header>
     
-
-
-    <div class="post-body" itemprop="articleBody">
-
+    <div class="article-entry" itemprop="articleBody">
       
-      
-
-      
+        <h2 id="面试"><a href="#面试" class="headerlink" title="面试"></a>面试</h2><p>2016年11月25日，参加2次百度远程电话面试，面试后深感自己web基础不够深，面试中暴漏出许多做项目中遗漏的问题，同时由于自身过于紧张，很多问题都没回答完全甚至有些明明知道答案却不知道考官问的问题指的是什么。特此写下笔记总结，鞭策提醒自己。</p>
         
-          <h2 id="面试"><a href="#面试" class="headerlink" title="面试"></a>面试</h2><p>2016年11月25日，参加2次百度远程电话面试，面试后深感自己web基础不够深，面试中暴漏出许多做项目中遗漏的问题，同时由于自身过于紧张，很多问题都没回答完全甚至有些明明知道答案却不知道考官问的问题指的是什么。特此写下笔记总结，鞭策提醒自己。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/11/25/web前端面试问题总结/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          <p class="article-more-link">
+            <a href="/2016/11/25/web前端面试问题总结/#more">Read More</a>
+          </p>
         
       
     </div>
+    <footer class="article-footer">
+      <a data-url="http://ShanaMaid.github.io/2016/11/25/web前端面试问题总结/" data-id="cj18oowbx000hzsk7gwwtq669" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/">HTML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面试/">面试</a></li></ul>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
     </footer>
-  </article>
+  </div>
+  
+</article>
 
 
+
+
+  
+    <article id="post-独立开发日记-剑网3那些事儿" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/23/独立开发日记-剑网3那些事儿/" class="article-date">
+  <time class="post-time" datetime="2016-11-23T06:37:25.000Z" itemprop="datePublished">
+    <span class="post-month">11月</span><br/>
+    <span class="post-day">23</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://ShanaMaid.github.io/2016/11/23/独立开发日记-剑网3那些事儿/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ShanaMaid">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/20333903?v=3&s=460">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="娜酱骑士团">
-    </span>
-
     
-      <header class="post-header">
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/23/独立开发日记-剑网3那些事儿/">独立开发日记-剑网3那些事儿</a>
+    </h1>
+  
 
         
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/23/独立开发日记-剑网3那些事儿/" itemprop="url">
-                  独立开发日记-剑网3那些事儿
-                </a>
-              
-            
-          </h2>
-        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/实战开发/">实战开发</a>,<a class="article-category-link" href="/categories/实战开发/web/">web</a>
+  </div>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-23T14:37:25+08:00">
-                2016-11-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/实战开发/" itemprop="url" rel="index">
-                    <span itemprop="name">实战开发</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/实战开发/web/" itemprop="url" rel="index">
-                    <span itemprop="name">web</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2016/11/23/独立开发日记-剑网3那些事儿/" class="leancloud_visitors" data-flag-title="独立开发日记-剑网3那些事儿">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
       </header>
     
-
-
-    <div class="post-body" itemprop="articleBody">
-
+    <div class="article-entry" itemprop="articleBody">
       
-      
-
-      
+        <h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>该项目前身其实于JX3Spider，由于贴吧的帖子出现具有不定时性，项目最初设置的8小时推送一次在时间上存在太大的间隔，如果缩短推送时间会导致Github出现很多无意义的commit，于是萌生了将该项目进行扩展，由简单的爬虫收录文件扩展为网站，并且提供在线评论、热门文章推送、今日更新、文章检索等功能，后续功能继续推中进。</p>
         
-          <h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>该项目前身其实于JX3Spider，由于贴吧的帖子出现具有不定时性，项目最初设置的8小时推送一次在时间上存在太大的间隔，如果缩短推送时间会导致Github出现很多无意义的commit，于是萌生了将该项目进行扩展，由简单的爬虫收录文件扩展为网站，并且提供在线评论、热门文章推送、今日更新、文章检索等功能，后续功能继续推中进。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/11/23/独立开发日记-剑网3那些事儿/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          <p class="article-more-link">
+            <a href="/2016/11/23/独立开发日记-剑网3那些事儿/#more">Read More</a>
+          </p>
         
       
     </div>
+    <footer class="article-footer">
+      <a data-url="http://ShanaMaid.github.io/2016/11/23/独立开发日记-剑网3那些事儿/" data-id="cj18oowcc000qzsk7y1r8kqu2" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nodejs/">Nodejs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ejs/">ejs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/express/">express</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/requirejs/">requirejs</a></li></ul>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
     </footer>
-  </article>
+  </div>
+  
+</article>
 
 
+
+
+  
+    <article id="post-剑侠情缘3网络版贴吧爬虫开发日记" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/10/31/剑侠情缘3网络版贴吧爬虫开发日记/" class="article-date">
+  <time class="post-time" datetime="2016-10-31T14:22:21.000Z" itemprop="datePublished">
+    <span class="post-month">10月</span><br/>
+    <span class="post-day">31</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://ShanaMaid.github.io/2016/10/31/剑侠情缘3网络版贴吧爬虫开发日记/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ShanaMaid">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/20333903?v=3&s=460">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="娜酱骑士团">
-    </span>
-
     
-      <header class="post-header">
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/31/剑侠情缘3网络版贴吧爬虫开发日记/">剑侠情缘3网络版贴吧爬虫开发日记</a>
+    </h1>
+  
 
         
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/31/剑侠情缘3网络版贴吧爬虫开发日记/" itemprop="url">
-                  剑侠情缘3网络版贴吧爬虫开发日记
-                </a>
-              
-            
-          </h2>
-        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/实战开发/">实战开发</a>,<a class="article-category-link" href="/categories/实战开发/PHP/">PHP</a>
+  </div>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-10-31T22:22:21+08:00">
-                2016-10-31
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/实战开发/" itemprop="url" rel="index">
-                    <span itemprop="name">实战开发</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/实战开发/PHP/" itemprop="url" rel="index">
-                    <span itemprop="name">PHP</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2016/10/31/剑侠情缘3网络版贴吧爬虫开发日记/" class="leancloud_visitors" data-flag-title="剑侠情缘3网络版贴吧爬虫开发日记">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
       </header>
     
-
-
-    <div class="post-body" itemprop="articleBody">
-
+    <div class="article-entry" itemprop="articleBody">
       
-      
-
-      
-        
-          <p>Github上项目地址:<a href="https://github.com/ShanaMaid/JX3Spider">JX3Spider</a></p>
+        <p>Github上项目地址:<a href="https://github.com/ShanaMaid/JX3Spider">JX3Spider</a></p>
 <h2 id="开发原因"><a href="#开发原因" class="headerlink" title="开发原因"></a>开发原因</h2><p>某段时间，博主沉迷剑3无法自拔，说到剑3就不得不提贴吧的818、树洞等帖子(这些帖子其实上讲的就是玩游戏的人因为这个游戏遇到的一些趣事，比如游戏中的情缘，也就是情侣，现实中奔现遇到的一些值得撕逼的事，又或者游戏中一些帮派的事情。反正这些事情基本上都可以当成小说来看了，看了后根本停不下来。)，而这些帖子的魅力实际上比游戏本身还要迷人，以至于到现在博主由于时间紧凑，已经弃坑剑3快4个月了，却依然在追贴吧818、树洞，但是不得不佩服贴吧的各位发帖实在太快了，据博主写的爬虫每天统计差不多，每天都有10个以上的相关类型帖子发布，多的时候甚至50多个都有可能，然而由于还有人发其余类型的帖子（交易、攻略等），导致很难观看到每日的所有818、树洞的帖子，往往看帖子的过程中大部分时间浪费在了找帖子上面。因此萌发了，开发爬虫记录自动抓取每日更新的帖子的原因。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/10/31/剑侠情缘3网络版贴吧爬虫开发日记/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+        
+          <p class="article-more-link">
+            <a href="/2016/10/31/剑侠情缘3网络版贴吧爬虫开发日记/#more">Read More</a>
+          </p>
         
       
     </div>
+    <footer class="article-footer">
+      <a data-url="http://ShanaMaid.github.io/2016/10/31/剑侠情缘3网络版贴吧爬虫开发日记/" data-id="cj18oowc7000lzsk7ithcd6kp" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hack/">hack</a></li></ul>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
     </footer>
-  </article>
+  </div>
+  
+</article>
 
 
-    
-  </section>
+
 
   
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+
+
+  <nav id="page-nav">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">next &raquo;</a>
   </nav>
-
-
-
-          </div>
-          
-
-
-          
-
-        </div>
+</section>
         
-          
+          <aside id="sidebar">
   
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">娜酱骑士团</h1>
+    <h2 class="blog-subtitle">死宅万岁，bilibili ( ゜- ゜)つロ 乾杯~</h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/about" title="About">
+            <li>关于</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+          <a href="/sponsor" title="Sponsor">
+            <li>投喂</li>
+          </a>
+        
+          <a href="https://github.com/ShanaMaid/cv" title="Cv">
+            <li>简历</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://avatars0.githubusercontent.com/u/20333903?v=3&amp;s=460">
+    <h2 class="author">ShanaMaid</h2>
+    
+    <div class="count-box">
+      <a href="/archives"><div><strong>13</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>12</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>19</strong><br>标签</div></a>
+    </div>
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="http://github.com/ShanaMaid" target="_blank" title="Github">
+          Github
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>友情链接</h2>
+      
+        <a class="hvr-bounce-in" href="https://blog.chionlab.moe/" target="_blank" title="Chion Tang">
+          Chion Tang
+        </a>
+      
+        <a class="hvr-bounce-in" href="https://uestcmao.github.io/" target="_blank" title="uestcmao">
+          uestcmao
+        </a>
+      
+        <a class="hvr-bounce-in" href="http://www.angryzhangzhe.cn/" target="_blank" title="Encounter">
+          Encounter
+        </a>
+      
     </div>
   </div>
+</div>
 
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2016 - 2017 ShanaMaid<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
       
-
+        |<script src="http://s11.cnzz.com/z_stat.php?id=1260644675&web_id=1260644675" language="JavaScript"></script>
       
-
-      <section class="site-overview sidebar-panel sidebar-panel-active">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="https://avatars0.githubusercontent.com/u/20333903?v=3&s=460"
-               alt="ShanaMaid" />
-          <p class="site-author-name" itemprop="name">ShanaMaid</p>
-           
-              <p class="site-description motion-element" itemprop="description"></p>
-           
-        </div>
-        <nav class="site-state motion-element">
-
-          
-            <div class="site-state-item site-state-posts">
-              <a href="/archives">
-                <span class="site-state-item-count">13</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-categories">
-              <a href="/categories/index.html">
-                <span class="site-state-item-count">10</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-tags">
-              <a href="/tags/index.html">
-                <span class="site-state-item-count">18</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/shanamaid" target="_blank" title="GitHub">
-                  
-                    <i class="fa fa-fw fa-github"></i>
-                  
-                  GitHub
-                </a>
-              </span>
-            
-          
-        </div>
-
-        
-        
-
-        
-        
-          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
-            <div class="links-of-blogroll-title">
-              <i class="fa  fa-fw fa-globe"></i>
-              友情链接
-            </div>
-            <ul class="links-of-blogroll-list">
-              
-                <li class="links-of-blogroll-item">
-                  <a href="https://blog.chionlab.moe/" title="Chion Tang" target="_blank">Chion Tang</a>
-                </li>
-              
-                <li class="links-of-blogroll-item">
-                  <a href="https://uestcmao.github.io/" title="uestcmao" target="_blank">uestcmao</a>
-                </li>
-              
-                <li class="links-of-blogroll-item">
-                  <a href="http://www.angryzhangzhe.cn/" title="Encounter" target="_blank">Encounter</a>
-                </li>
-              
-            </ul>
-          </div>
-        
-
-        
-
-
-      </section>
-
-      
-
-      
-
     </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy;  2016 - 
-  <span itemprop="copyrightYear">2017</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">ShanaMaid</span>
-</div>
-
-
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
-
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
-  </a>
-</div>
-
-
-        
-
-        
-      </div>
-    </footer>
-
     
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
   </div>
+</footer>
+    </div>
+    
 
-  
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
 
+
+  <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+  <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+  <script src="/plugin/galmenu/GalMenu.js"></script>
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title="" class="menuItem">首页</a>
+          
+            <a href="/about" title="" class="menuItem">关于</a>
+          
+            <a href="/sponsor" title="" class="menuItem">投喂</a>
+          
+            <a href="/archives" title="" class="menuItem">归档</a>
+          
+            <a href="https://github.com/ShanaMaid/cv" title="" class="menuItem">简历</a>
+          
+            <a href="https://github.com/shanamaid" title="" class="menuItem">Github</a>
+          
+        </div>
+        
+          <audio id="audio" src="#"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
 <script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
 </script>
 
-
-
-
-
-
-
-
-
-  
-
-
-
-
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
-
-
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
-
-
-
-  
-
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-    
-    <script>
-      var cloudTieConfig = {
-        url: document.location.href, 
-        sourceId: "",
-        productKey: "2217020738364b0fb365e919b0738383",
-        target: "cloud-tie-wrapper"
-      };
-    </script>
-    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
-  
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
-  <script>AV.initialize("4FWJbd67YPU36gbAiyAnl0lF-gzGzoHsz", "ofw0GRIkU9iBeevMnzhbTPAf");</script>
-  <script>
-    function showTime(Counter) {
-      var query = new AV.Query(Counter);
-      var entries = [];
-      var $visitors = $(".leancloud_visitors");
-
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
-      });
-
-      query.containedIn('url', entries);
-      query.find()
-        .done(function (results) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.get('url');
-            var time = item.get('time');
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for(var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
-              countSpan.text(0);
-            }
-          }
-        })
-        .fail(function (object, error) {
-          console.log("Error: " + error.code + " " + error.message);
-        });
-    }
-
-    function addCount(Counter) {
-      var $visitors = $(".leancloud_visitors");
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
-
-      query.equalTo("url", url);
-      query.find({
-        success: function(results) {
-          if (results.length > 0) {
-            var counter = results[0];
-            counter.fetchWhenSave(true);
-            counter.increment("time");
-            counter.save(null, {
-              success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
-              },
-              error: function(counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
-          } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
-          }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
-
-    $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
-      }
-    });
-  </script>
-
-
-
-  
-
-  
-
-  
-
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span>苟利</span></li> 
+    <li><span>国家</span></li> 
+    <li><span>生死以</span></li> 
+    <li><span>岂能</span></li> 
+    <li><span>祸福</span></li> 
+    <li><span>趋避之</span></li> 
+  </ul>
+</section>
+<script src="/js/script.js"></script>
+
+  </div>
 </body>
-
 </html>

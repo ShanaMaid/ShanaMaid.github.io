@@ -1,429 +1,68 @@
-<!doctype html>
-
-
-
-  
-
-
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  <meta charset="utf-8">
   
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="面试,JavaScript,CSS,HTML," />
-
-
-
-
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
-
-
-
-
-
-
-<meta name="description" content="面试2016年11月25日，参加2次百度远程电话面试，面试后深感自己web基础不够深，面试中暴漏出许多做项目中遗漏的问题，同时由于自身过于紧张，很多问题都没回答完全甚至有些明明知道答案却不知道考官问的问题指的是什么。特此写下笔记总结，鞭策提醒自己。">
+  <title>web前端面试问题总结 | 娜酱骑士团</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="面试2016年11月25日，参加2次百度远程电话面试，面试后深感自己web基础不够深，面试中暴漏出许多做项目中遗漏的问题，同时由于自身过于紧张，很多问题都没回答完全甚至有些明明知道答案却不知道考官问的问题指的是什么。特此写下笔记总结，鞭策提醒自己。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="web前端面试问题总结">
 <meta property="og:url" content="http://ShanaMaid.github.io/2016/11/25/web前端面试问题总结/index.html">
 <meta property="og:site_name" content="娜酱骑士团">
 <meta property="og:description" content="面试2016年11月25日，参加2次百度远程电话面试，面试后深感自己web基础不够深，面试中暴漏出许多做项目中遗漏的问题，同时由于自身过于紧张，很多问题都没回答完全甚至有些明明知道答案却不知道考官问的问题指的是什么。特此写下笔记总结，鞭策提醒自己。">
-<meta property="og:updated_time" content="2017-03-13T02:16:13.956Z">
+<meta property="og:updated_time" content="2016-11-27T12:22:26.858Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="web前端面试问题总结">
 <meta name="twitter:description" content="面试2016年11月25日，参加2次百度远程电话面试，面试后深感自己web基础不够深，面试中暴漏出许多做项目中遗漏的问题，同时由于自身过于紧张，很多问题都没回答完全甚至有些明明知道答案却不知道考官问的问题指的是什么。特此写下笔记总结，鞭策提醒自己。">
+  
+    <link rel="alternate" href="/atom.xml" title="娜酱骑士团" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/plugin/bganimation/bg.css">
+  
 
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
-    algolia: {
-      applicationID: 'N0EZBKJK5J',
-      apiKey: 'c562c46620d04651c72fb0751df111a9',
-      indexName: 'indexName',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-
-  <link rel="canonical" href="http://ShanaMaid.github.io/2016/11/25/web前端面试问题总结/"/>
-
-
-
-
-
-  <title> web前端面试问题总结 | 娜酱骑士团 </title>
 </head>
-<style type="text/css">
-  body{
-    cursor: url('/images/zhizhen.png'), default;
-  }
-</style>
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <section id="main"><article id="post-web前端面试问题总结" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/25/web前端面试问题总结/" class="article-date">
+  <time class="post-time" datetime="2016-11-25T12:27:04.000Z" itemprop="datePublished">
+    <span class="post-month">11月</span><br/>
+    <span class="post-day">25</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      web前端面试问题总结
+    </h1>
   
 
-
-
-
-
-
-
-
-
-
-
-  <div style="display: none;">
-    <script src="//s95.cnzz.com/z_stat.php?id=1260644675&web_id=1260644675" language="JavaScript"></script>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/学习笔记/">学习笔记</a>,<a class="article-category-link" href="/categories/学习笔记/web/">web</a>
   </div>
 
-
-
-
-
-
-  
-  
-    
-  
-
-  <div class="container sidebar-position-left page-post-detail ">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">娜酱骑士团</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-      
-        <h1 class="site-subtitle" itemprop="description">死宅万岁，bilibili ( ゜- ゜)つロ 乾杯~</h1>
-      
-  </div>
-
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-cv">
-          <a href="https://github.com/ShanaMaid/cv" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            个人简历
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-sponsor">
-          <a href="/sponsor" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-heart"></i> <br />
-            
-            投喂手册
-          </a>
-        </li>
-      
-
-      
-    </ul>
-  
-
-  
-</nav>
-
-
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
-    
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://ShanaMaid.github.io/2016/11/25/web前端面试问题总结/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ShanaMaid">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/20333903?v=3&s=460">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="娜酱骑士团">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                web前端面试问题总结
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-25T20:27:04+08:00">
-                2016-11-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">学习笔记</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/web/" itemprop="url" rel="index">
-                    <span itemprop="name">web</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a class="cloud-tie-join-count" href="/2016/11/25/web前端面试问题总结/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2016/11/25/web前端面试问题总结/" class="leancloud_visitors" data-flag-title="web前端面试问题总结">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
       </header>
     
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
+    <div class="article-entry" itemprop="articleBody">
       
         <h2 id="面试"><a href="#面试" class="headerlink" title="面试"></a>面试</h2><p>2016年11月25日，参加2次百度远程电话面试，面试后深感自己web基础不够深，面试中暴漏出许多做项目中遗漏的问题，同时由于自身过于紧张，很多问题都没回答完全甚至有些明明知道答案却不知道考官问的问题指的是什么。特此写下笔记总结，鞭策提醒自己。</p>
 <a id="more"></a>
@@ -564,536 +203,219 @@
 <h2 id="最后更新时间2016年11月27日"><a href="#最后更新时间2016年11月27日" class="headerlink" title="最后更新时间2016年11月27日"></a>最后更新时间2016年11月27日</h2>
       
     </div>
+    <footer class="article-footer">
+      <a data-url="http://ShanaMaid.github.io/2016/11/25/web前端面试问题总结/" data-id="cj18oowbx000hzsk7gwwtq669" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/">HTML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面试/">面试</a></li></ul>
 
-    <div>
-      
-        
-
-      
-    </div>
-
-    <div>
-      
-        
-  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
-    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
-      <span>赏</span>
-    </button>
-    <div id="QR" style="display: none;">
-      
-        <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="/images/weixin.png" alt="ShanaMaid WeChat Pay"/>
-          <p>微信打赏</p>
-        </div>
-      
-      
-        <div id="alipay" style="display: inline-block">
-          <img id="alipay_qr" src="/images/pay.jpg" alt="ShanaMaid Alipay"/>
-          <p>支付宝打赏</p>
-        </div>
-      
-    </div>
-  </div>
-
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/面试/" rel="tag"># 面试</a>
-          
-            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
-          
-            <a href="/tags/CSS/" rel="tag"># CSS</a>
-          
-            <a href="/tags/HTML/" rel="tag"># HTML</a>
-          
-        </div>
-      
-
-      
-        
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/11/23/独立开发日记-剑网3那些事儿/" rel="next" title="独立开发日记-剑网3那些事儿">
-                <i class="fa fa-chevron-left"></i> 独立开发日记-剑网3那些事儿
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/12/05/我的web前端面试经历/" rel="prev" title="我的web前端面试经历————百度">
-                我的web前端面试经历————百度 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
     </footer>
-  </article>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/12/05/我的web前端面试经历/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          我的web前端面试经历————百度
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/11/23/独立开发日记-剑网3那些事儿/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">独立开发日记-剑网3那些事儿</div>
+    </a>
+  
+</nav>
+
+  
+</article>
 
 
 
-    <div class="post-spread">
+
+<div id="comments" class="comments">
+</div>
+<script>
+  var cloudTieConfig = {
+    url: document.location.href, 
+    sourceId: "",
+    productKey: "2217020738364b0fb365e919b0738383",
+    target: "comments"
+  };
+</script>
+<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">娜酱骑士团</h1>
+    <h2 class="blog-subtitle">死宅万岁，bilibili ( ゜- ゜)つロ 乾杯~</h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/about" title="About">
+            <li>关于</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+          <a href="/sponsor" title="Sponsor">
+            <li>投喂</li>
+          </a>
+        
+          <a href="https://github.com/ShanaMaid/cv" title="Cv">
+            <li>简历</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://avatars0.githubusercontent.com/u/20333903?v=3&amp;s=460">
+    <h2 class="author">ShanaMaid</h2>
+    
+    <div class="count-box">
+      <a href="/archives"><div><strong>13</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>12</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>19</strong><br>标签</div></a>
+    </div>
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="http://github.com/ShanaMaid" target="_blank" title="Github">
+          Github
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>友情链接</h2>
+      
+        <a class="hvr-bounce-in" href="https://blog.chionlab.moe/" target="_blank" title="Chion Tang">
+          Chion Tang
+        </a>
+      
+        <a class="hvr-bounce-in" href="https://uestcmao.github.io/" target="_blank" title="uestcmao">
+          uestcmao
+        </a>
+      
+        <a class="hvr-bounce-in" href="http://www.angryzhangzhe.cn/" target="_blank" title="Encounter">
+          Encounter
+        </a>
       
     </div>
   </div>
+</div>
 
-
-          </div>
-          
-
-
-          
-  <div class="comments" id="comments">
-    
-      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
-    
-  </div>
-
-
-        </div>
-        
-          
   
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2016 - 2017 ShanaMaid<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
+      
+        |<script src="http://s11.cnzz.com/z_stat.php?id=1260644675&web_id=1260644675" language="JavaScript"></script>
+      
     </div>
+    
   </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="https://avatars0.githubusercontent.com/u/20333903?v=3&s=460"
-               alt="ShanaMaid" />
-          <p class="site-author-name" itemprop="name">ShanaMaid</p>
-           
-              <p class="site-description motion-element" itemprop="description"></p>
-           
-        </div>
-        <nav class="site-state motion-element">
-
-          
-            <div class="site-state-item site-state-posts">
-              <a href="/archives">
-                <span class="site-state-item-count">13</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-categories">
-              <a href="/categories/index.html">
-                <span class="site-state-item-count">10</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-tags">
-              <a href="/tags/index.html">
-                <span class="site-state-item-count">18</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/shanamaid" target="_blank" title="GitHub">
-                  
-                    <i class="fa fa-fw fa-github"></i>
-                  
-                  GitHub
-                </a>
-              </span>
-            
-          
-        </div>
-
-        
-        
-
-        
-        
-          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
-            <div class="links-of-blogroll-title">
-              <i class="fa  fa-fw fa-globe"></i>
-              友情链接
-            </div>
-            <ul class="links-of-blogroll-list">
-              
-                <li class="links-of-blogroll-item">
-                  <a href="https://blog.chionlab.moe/" title="Chion Tang" target="_blank">Chion Tang</a>
-                </li>
-              
-                <li class="links-of-blogroll-item">
-                  <a href="https://uestcmao.github.io/" title="uestcmao" target="_blank">uestcmao</a>
-                </li>
-              
-                <li class="links-of-blogroll-item">
-                  <a href="http://www.angryzhangzhe.cn/" title="Encounter" target="_blank">Encounter</a>
-                </li>
-              
-            </ul>
-          </div>
-        
-
-        
-
-
-      </section>
-
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#面试"><span class="nav-number">1.</span> <span class="nav-text">面试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML"><span class="nav-number">2.</span> <span class="nav-text">HTML</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML5中新增的语义化元素有哪些？"><span class="nav-number">2.1.</span> <span class="nav-text">HTML5中新增的语义化元素有哪些？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XHTML与HTML的区别"><span class="nav-number">2.2.</span> <span class="nav-text">XHTML与HTML的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript"><span class="nav-number">3.</span> <span class="nav-text">JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数组的操作方法有哪些？各自什么作用？"><span class="nav-number">3.1.</span> <span class="nav-text">数组的操作方法有哪些？各自什么作用？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ajax的优缺点"><span class="nav-number">3.2.</span> <span class="nav-text">ajax的优缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ajax工作原理"><span class="nav-number">3.3.</span> <span class="nav-text">ajax工作原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#严格模式的优缺点"><span class="nav-number">3.4.</span> <span class="nav-text">严格模式的优缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DOM操作有哪些？"><span class="nav-number">3.5.</span> <span class="nav-text">DOM操作有哪些？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建"><span class="nav-number">3.5.1.</span> <span class="nav-text">创建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加、移除、替换、插入"><span class="nav-number">3.5.2.</span> <span class="nav-text">添加、移除、替换、插入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查找"><span class="nav-number">3.5.3.</span> <span class="nav-text">查找</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JS组成"><span class="nav-number">3.6.</span> <span class="nav-text">JS组成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#判断数组"><span class="nav-number">3.7.</span> <span class="nav-text">判断数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JS值类型和引用类型"><span class="nav-number">3.8.</span> <span class="nav-text">JS值类型和引用类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量声明提升"><span class="nav-number">3.9.</span> <span class="nav-text">变量声明提升</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#document-load-与-document-DOMContentLoaded-区别"><span class="nav-number">3.10.</span> <span class="nav-text">document load 与 document DOMContentLoaded 区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS"><span class="nav-number">4.</span> <span class="nav-text">CSS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#书写高效CSS"><span class="nav-number">4.1.</span> <span class="nav-text">书写高效CSS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">5.</span> <span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GET与POST的区别"><span class="nav-number">5.1.</span> <span class="nav-text">GET与POST的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#跨域访问"><span class="nav-number">5.2.</span> <span class="nav-text">跨域访问</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多域名提供资源"><span class="nav-number">5.3.</span> <span class="nav-text">多域名提供资源</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最后更新时间2016年11月27日"><span class="nav-number">6.</span> <span class="nav-text">最后更新时间2016年11月27日</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
-
-      
-
+</footer>
     </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy;  2016 - 
-  <span itemprop="copyrightYear">2017</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">ShanaMaid</span>
-</div>
-
-
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
-
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
-  </a>
-</div>
-
-
-        
-
-        
-      </div>
-    </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
     
 
-  </div>
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
 
-  
 
+  <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+  <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+  <script src="/plugin/galmenu/GalMenu.js"></script>
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title="" class="menuItem">首页</a>
+          
+            <a href="/about" title="" class="menuItem">关于</a>
+          
+            <a href="/sponsor" title="" class="menuItem">投喂</a>
+          
+            <a href="/archives" title="" class="menuItem">归档</a>
+          
+            <a href="https://github.com/ShanaMaid/cv" title="" class="menuItem">简历</a>
+          
+            <a href="https://github.com/shanamaid" title="" class="menuItem">Github</a>
+          
+        </div>
+        
+          <audio id="audio" src="#"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
 <script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
 </script>
 
-
-
-
-
-
-
-
-
-  
-
-
-
-
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
-
-
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
-
-
-
-  
-
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-    
-    <script>
-      var cloudTieConfig = {
-        url: document.location.href, 
-        sourceId: "",
-        productKey: "2217020738364b0fb365e919b0738383",
-        target: "cloud-tie-wrapper"
-      };
-    </script>
-    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
-  
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
-  <script>AV.initialize("4FWJbd67YPU36gbAiyAnl0lF-gzGzoHsz", "ofw0GRIkU9iBeevMnzhbTPAf");</script>
-  <script>
-    function showTime(Counter) {
-      var query = new AV.Query(Counter);
-      var entries = [];
-      var $visitors = $(".leancloud_visitors");
-
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
-      });
-
-      query.containedIn('url', entries);
-      query.find()
-        .done(function (results) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.get('url');
-            var time = item.get('time');
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for(var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
-              countSpan.text(0);
-            }
-          }
-        })
-        .fail(function (object, error) {
-          console.log("Error: " + error.code + " " + error.message);
-        });
-    }
-
-    function addCount(Counter) {
-      var $visitors = $(".leancloud_visitors");
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
-
-      query.equalTo("url", url);
-      query.find({
-        success: function(results) {
-          if (results.length > 0) {
-            var counter = results[0];
-            counter.fetchWhenSave(true);
-            counter.increment("time");
-            counter.save(null, {
-              success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
-              },
-              error: function(counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
-          } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
-          }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
-
-    $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
-      }
-    });
-  </script>
-
-
-
-  
-
-  
-
-  
-
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span>苟利</span></li> 
+    <li><span>国家</span></li> 
+    <li><span>生死以</span></li> 
+    <li><span>岂能</span></li> 
+    <li><span>祸福</span></li> 
+    <li><span>趋避之</span></li> 
+  </ul>
+</section>
+<script src="/js/script.js"></script>
+
+  </div>
 </body>
-
 </html>
