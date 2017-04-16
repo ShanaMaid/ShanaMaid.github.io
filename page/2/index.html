@@ -61,6 +61,15 @@
     <a class="article-category-link" href="/categories/学习笔记/">学习笔记</a>,<a class="article-category-link" href="/categories/学习笔记/JavaScript/">JavaScript</a>
   </div>
 
+        
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2016/10/18/详解JavaScript中的-proto-与prototype(上)/" class="leancloud_visitors" data-flag-title="详解JavaScript中的__proto__与prototype（上）">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
       </header>
     
     <div class="article-entry" itemprop="articleBody">
@@ -74,7 +83,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://ShanaMaid.github.io/2016/10/18/详解JavaScript中的-proto-与prototype(上)/" data-id="cj18oowce000uzsk7bvrsfr5i" class="article-share-link">分享</a>
+      <a data-url="http://ShanaMaid.github.io/2016/10/18/详解JavaScript中的-proto-与prototype(上)/" data-id="cj1kjk5er000w3kk7uzof23j1" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -114,6 +123,15 @@
     <a class="article-category-link" href="/categories/实战开发/">实战开发</a>,<a class="article-category-link" href="/categories/实战开发/PHP/">PHP</a>
   </div>
 
+        
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2016/10/18/利用Php爬虫备份自己的CSDN博客/" class="leancloud_visitors" data-flag-title="利用Php爬虫备份自己的CSDN博客">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
       </header>
     
     <div class="article-entry" itemprop="articleBody">
@@ -127,7 +145,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://ShanaMaid.github.io/2016/10/18/利用Php爬虫备份自己的CSDN博客/" data-id="cj18oowbt000gzsk7si8f54pf" class="article-share-link">分享</a>
+      <a data-url="http://ShanaMaid.github.io/2016/10/18/利用Php爬虫备份自己的CSDN博客/" data-id="cj1kjk5e4000k3kk7aj056zhc" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spider/">Spider</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hack/">hack</a></li></ul>
@@ -167,6 +185,15 @@
     <a class="article-category-link" href="/categories/实战开发/">实战开发</a>,<a class="article-category-link" href="/categories/实战开发/PHP/">PHP</a>
   </div>
 
+        
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2016/10/16/PHP实战：利用Curl刷CSDN积分/" class="leancloud_visitors" data-flag-title="PHP实战：利用Curl刷CSDN积分">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
       </header>
     
     <div class="article-entry" itemprop="articleBody">
@@ -180,7 +207,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://ShanaMaid.github.io/2016/10/16/PHP实战：利用Curl刷CSDN积分/" data-id="cj18oowb70008zsk76xkag7ye" class="article-share-link">分享</a>
+      <a data-url="http://ShanaMaid.github.io/2016/10/16/PHP实战：利用Curl刷CSDN积分/" data-id="cj1kjk5dh00083kk7nvqpdgeh" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hack/">hack</a></li></ul>
@@ -251,8 +278,8 @@
     
     <div class="count-box">
       <a href="/archives"><div><strong>13</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>12</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>19</strong><br>标签</div></a>
+      <a href="/categories"><div><strong>10</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>18</strong><br>标签</div></a>
     </div>
 
     <div class="social-link">
@@ -365,6 +392,117 @@ new WOW().init();
   </ul>
 </section>
 <script src="/js/script.js"></script>
+
+
+
+
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("4FWJbd67YPU36gbAiyAnl0lF-gzGzoHsz", "ofw0GRIkU9iBeevMnzhbTPAf");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.article-title').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+
 
   </div>
 </body>
