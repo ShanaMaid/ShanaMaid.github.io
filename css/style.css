@@ -1271,6 +1271,7 @@ body {
   font-size: 1.4em;
 }
 .article-category {
+  display: inline-block;
   line-height: 1em;
   color: #000;
   text-shadow: 0 1px #fff;
@@ -2249,6 +2250,13 @@ pre .javascript .function {
 }
 .categories-box .category-list-child {
   margin-left: 20px;
+}
+.view-box {
+  display: inline-block;
+}
+.view-box span {
+  font-size: 0.6em;
+  text-shadow: 0 1px #fff;
 }
 @media screen and (min-width: 980px) {
   #sidebar {
