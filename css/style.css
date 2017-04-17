@@ -902,6 +902,9 @@ body {
 .mobile-nav-on #wrap {
   left: 280px;
 }
+.mobile-header {
+  display: none;
+}
 @media screen and (min-width: 980px) {
   #main {
     display: inline;
@@ -2103,6 +2106,9 @@ pre .javascript .function {
 @media screen and (max-width: 980px) {
   #sidebar {
     display: none;
+  }
+  .mobile-header {
+    display: block;
   }
 }
 .tag-box {
