@@ -1240,7 +1240,7 @@ body {
 }
 .article-inner {
   overflow: hidden;
-  background-color: rgba(255,255,255,0.7);
+  background-color: rgba(255,255,255,0.9);
   border-radius: 10px;
 }
 .article-meta {
@@ -1836,7 +1836,7 @@ a.article-title:hover {
 }
 #page-nav {
   margin: 50px auto;
-  background: rgba(255,255,255,0.8);
+  background: rgba(255,255,255,0.9);
   -webkit-box-shadow: 1px 2px 3px #ddd;
   box-shadow: 1px 2px 3px #ddd;
   border: 1px solid #ddd;
@@ -1889,7 +1889,7 @@ a.article-title:hover {
   color: #ddd;
 }
 #footer {
-  background: rgba(255,255,255,0.8);
+  background: rgba(255,255,255,0.9);
   padding: 50px 0;
   border-top: 1px solid #ddd;
   color: #999;
@@ -2278,7 +2278,7 @@ pre .javascript .function {
 .widget {
   color: #777;
   text-shadow: 0 1px #fff;
-  background: rgba(255,255,255,0.7);
+  background: rgba(255,255,255,0.9);
   -webkit-box-shadow: 0 -1px 4px #ccc inset;
   box-shadow: 0 -1px 4px #ccc inset;
   border: 1px solid #ccc;
