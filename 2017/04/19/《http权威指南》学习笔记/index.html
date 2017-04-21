@@ -5,16 +5,22 @@
   
   <title>《http权威指南》学习笔记 | 娜酱骑士团</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="开个坑！过段时间填">
+  <meta name="description" content="前言关于《http权威指南》，很早以前就想抱着啃了，由于时间段太零碎了，一直没能好好看过。近来公司业务不是很重，同时找暑期实习的时候面试官也聊到了关于http的一些问题，抽空把《http权威指南》前五章看了一下。整理了一些知识点，写成笔记作为备忘的同时也分享给大家。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《http权威指南》学习笔记">
 <meta property="og:url" content="http://ShanaMaid.github.io/2017/04/19/《http权威指南》学习笔记/index.html">
 <meta property="og:site_name" content="娜酱骑士团">
-<meta property="og:description" content="开个坑！过段时间填">
-<meta property="og:updated_time" content="2017-04-19T08:39:05.498Z">
+<meta property="og:description" content="前言关于《http权威指南》，很早以前就想抱着啃了，由于时间段太零碎了，一直没能好好看过。近来公司业务不是很重，同时找暑期实习的时候面试官也聊到了关于http的一些问题，抽空把《http权威指南》前五章看了一下。整理了一些知识点，写成笔记作为备忘的同时也分享给大家。">
+<meta property="og:image" content="http://ShanaMaid.github.io/2017/04/19/《http权威指南》学习笔记/1.png">
+<meta property="og:image" content="http://ShanaMaid.github.io/2017/04/19/《http权威指南》学习笔记/2.png">
+<meta property="og:image" content="http://ShanaMaid.github.io/2017/04/19/《http权威指南》学习笔记/3.png">
+<meta property="og:image" content="http://ShanaMaid.github.io/2017/04/19/《http权威指南》学习笔记/4.png">
+<meta property="og:image" content="http://ShanaMaid.github.io/2017/04/19/《http权威指南》学习笔记/5.png">
+<meta property="og:updated_time" content="2017-04-21T08:36:43.632Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《http权威指南》学习笔记">
-<meta name="twitter:description" content="开个坑！过段时间填">
+<meta name="twitter:description" content="前言关于《http权威指南》，很早以前就想抱着啃了，由于时间段太零碎了，一直没能好好看过。近来公司业务不是很重，同时找暑期实习的时候面试官也聊到了关于http的一些问题，抽空把《http权威指南》前五章看了一下。整理了一些知识点，写成笔记作为备忘的同时也分享给大家。">
+<meta name="twitter:image" content="http://ShanaMaid.github.io/2017/04/19/《http权威指南》学习笔记/1.png">
   
     <link rel="alternate" href="/atom.xml" title="娜酱骑士团" type="application/atom+xml">
   
@@ -122,7 +128,34 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>开个坑！过段时间填</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关于<code>《http权威指南》</code>，很早以前就想抱着啃了，由于时间段太零碎了，一直没能好好看过。近来公司业务不是很重，同时找暑期实习的时候面试官也聊到了关于<code>http</code>的一些问题，抽空把<code>《http权威指南》</code>前五章看了一下。整理了一些知识点，写成笔记作为备忘的同时也分享给大家。<br><a id="more"></a></p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h3><p>HTTP协议是超文本传输协议（HTTP，HyperText Transfer Protocol)的缩写，简单来讲就是对传输数据的文本格式的一种规范。遵循过HTTP协议的文本称之为<code>报文</code>，按照发送方与接受收方的不同分为两种，客户端发送给服务器端的为<code>请求报文</code>，服务器端发送给客户端的为<code>相应报文</code>。同时HTTP报文是纯文本的形式，不是二进制代码，开发者可以非常方便地进行读写。如下图就是一个GET事务实例中请求报文和响应报文：<br><img src="/2017/04/19/《http权威指南》学习笔记/1.png" alt="GET事务实例" title="GET事务实例"><br>报文由三部门组成，分别是起始行、首部、主体。</p>
+<p>请求报文中的请求起始行: <code>GET /tools.html HTTP/1.0</code>，意思为发起向<code>host</code>主机发起<code>GET</code>请求，请求<code>tools.html</code>文件，使用的是<code>HTTP1.0</code>协议。请求首部意思为，客户端的代理是<code>Mozilla/4.75 [en] (Win98;U)</code>，请求的对象(服务端)主机地址为<code>www.joes-hardware.com</code>，同时表明客户端只接受文本格式为<code>html</code>的文本文件，图片格式为<code>git</code>或者<code>jpeg</code>的图片，告诉服务器浏览器支持的语言为<code>en</code>。</p>
+<p>响应报文中的请求起始行: <code>HTTP/1.0 200 OK</code>，意思为<code>HTTP/1.0</code>请求响应成功，<code>200</code>是状态码，<code>OK</code>是<code>200</code>状态码对应<code>原因短语</code>。响应首部中，<code>Date</code>对应报文的响应时间，<code>Server</code>是指服务器端的服务器配置，<code>Last-modified</code>代表请求的数据的最后一次的修改日期，<code>Content-length</code>是指响应主体的长度，<code>Content-type</code>代表响应主题的文件格式。响应主体就是客户端所请求的内容。</p>
+<h3 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h3><p>URL是统一资源定位符(Uniform Resource Locator)的缩写，对于URL的认识大多停留在所谓的<code>网址</code>的层面上。实际上URL并不只是应用在<code>http</code>中，<code>ftp://user:password@ftp.prep.ai.edu.cn/pub/gnu</code>也是<code>URL</code>，大多数的URL方案的语法都建立在这个由9部分构成的通用格式上</p>
+<p><code>&lt;scheme&gt;://&lt;user&gt;:&lt;password&gt;@&lt;host&gt;:&lt;port&gt;/path;&lt;params&gt;?&lt;query&gt;#&lt;frag&gt;</code></p>
+<p>但是并非一定会包含上面所有组件。URL中常使用的起始也就三个组件，即方案(scheme)、主机(host)和路径(path),例如<code>http://www.myhost.com/file/test.html</code>，<code>http</code> =&gt; 方案，<code>www.myhost.com</code> =&gt; 主机，<code>/file/test.html</code> =&gt; 路径。<br>当然<code>www.myhost.com</code>并不是我们真正的主机地址，它只是一个域名，通过DNS解析以后会得到主机的真正IP地址。<br>通用组件中各自的对应关系如下表：</p>
+<img src="/2017/04/19/《http权威指南》学习笔记/2.png" alt="通用URL组件" title="通用URL组件">
+<h3 id="HTTP、TCP与IP"><a href="#HTTP、TCP与IP" class="headerlink" title="HTTP、TCP与IP"></a>HTTP、TCP与IP</h3><p>计算机网络协议按照不同分法有不同层数，这里以五层模型举例，HTTP、TCP、IP的关系如下图。<br><img src="/2017/04/19/《http权威指南》学习笔记/3.png" alt="HTTP网络协议栈" title="HTTP网络协议栈"></p>
+<p>这张图说明了层次关系，但并没有说明他们之间相互的联系，这里我画了一个示意图大致解释一下。</p>
+<img src="/2017/04/19/《http权威指南》学习笔记/4.png" alt="HTTP、TCP、IP关系图解" title="HTTP、TCP、IP关系图解">
+<p>三者关系大致可以通过货物的运送来解释，我需要发送的内容称之为<code>content</code>，可以看作一个物品，在运输货物的时候会对货物进行打包，这层包装我们可以理解为<code>http</code>。物品包装好了肯定需要货车进行运送，而货车可以看作<code>TCP</code>传输协议。货车行驶在高速路上，我们可以把高速路看作<code>IP</code>，而各个收费站我们可以理解为特定的<code>IP地址</code>。</p>
+<h3 id="HTTP的方法"><a href="#HTTP的方法" class="headerlink" title="HTTP的方法"></a>HTTP的方法</h3><p>值得一提的是HTTP的方法并非只有<code>GET</code>与<code>POST</code>，事实上只是因为这两种方法被使用得广泛，导致大家只知道这两种。<br>实际上，HTTP的方法有：</p>
+<ul>
+<li>GET</li>
+<li>POST</li>
+<li>PUT</li>
+<li>HEAD</li>
+<li>DELETE</li>
+<li>TRACE</li>
+<li>OPTIONS</li>
+</ul>
+<p>同时由于HTTP本身是被设计成字段可扩展的，所以新的特性并不会使老的软件失效。而所谓的扩展方法就是指没有在HTTP/1.1规范中定义的方法，而这些方法有助于通过HTTP将web内容发布到web服务器上。<br><img src="/2017/04/19/《http权威指南》学习笔记/5.png" alt="web发布扩展方法实例" title="web发布扩展方法实例"></p>
+<h3 id="HTTP性能"><a href="#HTTP性能" class="headerlink" title="HTTP性能"></a>HTTP性能</h3><p>在不考虑的持久连接的情况，我们每次的http请求都会产生一次TCP连接，而每次TCP的连接与关闭都会经历<code>三次握手</code>与<code>四次挥手</code>的过程，当产生大量的http请求的时候，大量的时间会浪费在TCP的连接与关闭上，造成性能损耗，当按最坏的情况考虑的时候甚至会出现<code>端口耗尽</code>的情况。</p>
+<p>因为客户端每次连接服务端的时候，都会获得一个新的端口，以实现连接的唯一性，但是由于可用端口有限(一个IP地址的端口可以有65536，其中注册端是口1024到49151，分配给用户进程或应用程序。这些进程主要是用户选择安装的一些应用程序，而不是已经分配好了公认端口的常用程序。这些端口在没有被服务器资源占用的时候，可以用用户端动态选用为源端口)。同时TCP端点在关闭TCP连接的时候，会在内存中维护一个小的控制块，用来记录最近关闭连接的IP地址后端口号，而在这段时间内，该端口号无法被重用。一旦TCP的连接频率超过了某个值，会出现无法连接的问题，也就是<code>TIMEM_WAIT</code>端口耗尽。</p>
+<p>当然，使用持久连接，可以减少端口耗尽出现的可能，但是对于持久连接也应该进行合理的维护，当不再使用的时候应该关闭，避免长时间的无意义占用，否则长时间的堆积依然可能会出现端口耗尽的状况。</p>
+<p>同时即使没有遇到端口耗尽的问题，也要特别小心有大量连接打开或为处于等待状态的连接分配了大量控制块的情况。因为在有大量打开连接或控制块的情况下，有些操作系统的速度会严重减缓。</p>
+<h3 id="《HTTP权威指南下载连接》"><a href="#《HTTP权威指南下载连接》" class="headerlink" title="《HTTP权威指南下载连接》"></a>《HTTP权威指南下载连接》</h3><p><a href="http://download.csdn.net/download/jobsen123/7253727" target="_blank" rel="external">CSDN免费下载-《HTTP权威指南》</a></p>
 
       
     </div>
