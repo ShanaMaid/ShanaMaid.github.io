@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="娜酱骑士团">
 <meta property="og:description" content="项目介绍基于websocket的一个简单的聊天室技术栈 express+socket.io+animate.css+angular关于websocket不了解的点我,而socket.io是对websocket进行封装，提供通用接口。Github项目地址">
 <meta property="og:image" content="http://ShanaMaid.github.io/2017/02/14/200行代码实现web在线聊天室/show.gif">
-<meta property="og:updated_time" content="2017-02-15T11:54:13.764Z">
+<meta property="og:updated_time" content="2017-05-01T10:02:21.958Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="200行代码实现web在线聊天室">
 <meta name="twitter:description" content="项目介绍基于websocket的一个简单的聊天室技术栈 express+socket.io+animate.css+angular关于websocket不了解的点我,而socket.io是对websocket进行封装，提供通用接口。Github项目地址">
@@ -134,7 +134,7 @@
 <li>服务器端信息备份</li>
 </ul>
 <h3 id="动态GIF"><a href="#动态GIF" class="headerlink" title="动态GIF"></a>动态GIF</h3><img src="/2017/02/14/200行代码实现web在线聊天室/show.gif" alt="聊天室" title="聊天室">
-<h3 id="在线聊天室Demo"><a href="#在线聊天室Demo" class="headerlink" title="在线聊天室Demo"></a>在线聊天室Demo</h3><p>手机与电脑均可访问，<a href="http://www.shanamaid.top:7777/" target="_blank" rel="external">点我进入在线版</a></p>
+<h3 id="在线聊天室Demo"><a href="#在线聊天室Demo" class="headerlink" title="在线聊天室Demo"></a>在线聊天室Demo</h3><p>手机与电脑均可访问，<a href="http://webchat.shanamaid.top/" target="_blank" rel="external">点我进入在线版</a></p>
 <h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>利用on绑定事件，emit触发绑定事件，服务器端与客户端进行交互<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">socket.on(eventName,callBack)  #绑定事件，eventName可以自定义</div><div class="line">socket.emit(eventName,data) #触发事件，发送data</div></pre></td></tr></table></figure></p>
 <p>更多关于socket.io的详细信息请移步官方文档,<a href="http://socket.io/docs/" target="_blank" rel="external">点我</a>。</p>
 <h3 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h3><p>首先添加我们需要使用的模块<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var express = require(&apos;express&apos;);</div><div class="line">var socket = require(&apos;socket.io&apos;);</div><div class="line">var fs = require(&apos;fs&apos;);</div></pre></td></tr></table></figure></p>
