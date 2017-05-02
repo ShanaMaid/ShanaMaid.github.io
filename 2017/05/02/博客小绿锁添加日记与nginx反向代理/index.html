@@ -20,7 +20,7 @@
 <meta property="og:image" content="http://ShanaMaid.github.io/2017/05/02/博客小绿锁添加日记与nginx反向代理/7.png">
 <meta property="og:image" content="http://ShanaMaid.github.io/2017/05/02/博客小绿锁添加日记与nginx反向代理/8.png">
 <meta property="og:image" content="http://ShanaMaid.github.io/2017/05/02/博客小绿锁添加日记与nginx反向代理/9.png">
-<meta property="og:updated_time" content="2017-05-02T07:12:24.646Z">
+<meta property="og:updated_time" content="2017-05-02T07:18:10.415Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="博客小绿锁添加日记与nginx反向代理">
 <meta name="twitter:description" content="关于https小绿锁的加持小绿锁加持计划拖了有一段时间额，趁着五一假期终于搞定了，中间也是一波三折。">
@@ -149,6 +149,7 @@
 <p>这里有个坑的地方就是在<code>Active Certificate</code>未激活前，也就是在你没收到官方的通知邮件前，你会发现你的路由规则中是没<code>Always use https</code>这个选项的。</p>
 <h3 id="加持完毕"><a href="#加持完毕" class="headerlink" title="加持完毕"></a>加持完毕</h3><p>此时<code>ping</code>一下博客域名发现已经成功，同时无论通过<code>http</code>还是<code>https</code>访问你的博客，都带上优雅的小♂绿♀锁，只是初次访问速度上会慢上许多。<br><img src="/2017/05/02/博客小绿锁添加日记与nginx反向代理/7.png" alt="ping博客域名" title="ping博客域名"></p>
 <p>╮(￣▽￣”)╭，反正免费的也就这样吧！</p>
+<p>以上大部分参照于我朋友<a href="https://blog.chionlab.moe/" target="_blank" rel="external">@Choin Tang</a>的<a href="https://blog.chionlab.moe/2016/01/28/github-pages-with-https/" target="_blank" rel="external">在GitHub Pages上使用CloudFlare https CDN</a></p>
 <h2 id="cloudflare带来的遗留问题"><a href="#cloudflare带来的遗留问题" class="headerlink" title="cloudflare带来的遗留问题"></a>cloudflare带来的遗留问题</h2><p>博客加上小绿锁了后一段时间，收到开源项目的使用者的邮件，告知github上开源的三个项目的在线版都无法使用了。<br>看了下,三个开源项目的网址如下</p>
 <table>
 <thead>
@@ -178,14 +179,36 @@
 <p>正好最近在看<code>《nginx高性能web服务器详解》</code>，为了解决问题那只有上<code>nginx</code>进行反向代理咯~</p>
 <p>先在cf中追加dns records，把域名全部解析到<code>119.29.159.156</code>。<br><img src="/2017/05/02/博客小绿锁添加日记与nginx反向代理/9.png" alt="dns records" title="dns records"></p>
 <p>然后在<code>nginx</code>的配置文件中添加下列几行代码，然后<code>./nginx -s reload</code>重新加载一下配置文件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">server &#123;</div><div class="line">  listen  80;</div><div class="line">  server_name oho.shanamaid.top;</div><div class="line">  location / &#123;</div><div class="line">     proxy_pass http://119.29.159.156:3001;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">server &#123;</div><div class="line">  listen  80;</div><div class="line">  server_name 163music.shanamaid.top;</div><div class="line">  location / &#123;</div><div class="line">     proxy_pass http://119.29.159.156:3000;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">server &#123;</div><div class="line">  listen  80;</div><div class="line">  server_name webchat.shanamaid.top;</div><div class="line">  location / &#123;</div><div class="line">     proxy_pass http://119.29.159.156:7777;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>将其分别解析到<code>3001</code>、<code>3000</code>、<code>7777</code>端口，此时就可以通过域名重新访问了。<br>|项目|地址|<br>|—-|—-|<br>|oho阅读|<a href="http://oho.shanamaid.top/|" target="_blank" rel="external">http://oho.shanamaid.top/|</a><br>|163music|<a href="http://163music.shanamaid.top/|" target="_blank" rel="external">http://163music.shanamaid.top/|</a><br>|webchat|<a href="http://webchat.shanamaid.top/|" target="_blank" rel="external">http://webchat.shanamaid.top/|</a></p>
+<p>将其分别解析到<code>3001</code>、<code>3000</code>、<code>7777</code>端口，此时就可以通过域名重新访问了。</p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>地址</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>oho阅读</td>
+<td><a href="http://oho.shanamaid.top/" target="_blank" rel="external">http://oho.shanamaid.top/</a></td>
+</tr>
+<tr>
+<td>163music</td>
+<td><a href="http://163music.shanamaid.top/" target="_blank" rel="external">http://163music.shanamaid.top/</a></td>
+</tr>
+<tr>
+<td>webchat</td>
+<td><a href="http://webchat.shanamaid.top/" target="_blank" rel="external">http://webchat.shanamaid.top/</a></td>
+</tr>
+</tbody>
+</table>
 <h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>通过cf后，开源项目的在线版访问速度变得异常慢，即使开启了gzip还是很难受，过段时间也许会考虑换个域名专门挂开源项目在线版？或者说弃用<code>cf</code>？</p>
 <p>暂时就这样吧~~！↖(^ω^)↗</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://ShanaMaid.github.io/2017/05/02/博客小绿锁添加日记与nginx反向代理/" data-id="cj277vjwh0000esjg20umw5u2" class="article-share-link">分享</a>
+      <a data-url="http://ShanaMaid.github.io/2017/05/02/博客小绿锁添加日记与nginx反向代理/" data-id="cj277pbj8003un0jgbazsxo4r" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/https/">https</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/反向代理/">反向代理</a></li></ul>
