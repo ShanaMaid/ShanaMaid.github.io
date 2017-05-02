@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>博客小绿锁添加日记与nginx反向代理 | 娜酱骑士团</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="关于https小绿锁的加持小绿锁加持计划拖了有一段时间额，趁着五一假期终于搞定了，中间也是一波三折。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="博客小绿锁添加日记与nginx反向代理">
+<meta property="og:url" content="http://ShanaMaid.github.io/2017/05/02/博客小绿锁添加日记与nginx反向代理/index.html">
+<meta property="og:site_name" content="娜酱骑士团">
+<meta property="og:description" content="关于https小绿锁的加持小绿锁加持计划拖了有一段时间额，趁着五一假期终于搞定了，中间也是一波三折。">
+<meta property="og:image" content="http://ShanaMaid.github.io/2017/05/02/博客小绿锁添加日记与nginx反向代理/1.png">
+<meta property="og:image" content="http://ShanaMaid.github.io/2017/05/02/博客小绿锁添加日记与nginx反向代理/2.png">
+<meta property="og:image" content="http://ShanaMaid.github.io/2017/05/02/博客小绿锁添加日记与nginx反向代理/5.png">
+<meta property="og:image" content="http://ShanaMaid.github.io/2017/05/02/博客小绿锁添加日记与nginx反向代理/3.png">
+<meta property="og:image" content="http://ShanaMaid.github.io/2017/05/02/博客小绿锁添加日记与nginx反向代理/4.png">
+<meta property="og:image" content="http://ShanaMaid.github.io/2017/05/02/博客小绿锁添加日记与nginx反向代理/6.png">
+<meta property="og:image" content="http://ShanaMaid.github.io/2017/05/02/博客小绿锁添加日记与nginx反向代理/7.png">
+<meta property="og:image" content="http://ShanaMaid.github.io/2017/05/02/博客小绿锁添加日记与nginx反向代理/8.png">
+<meta property="og:image" content="http://ShanaMaid.github.io/2017/05/02/博客小绿锁添加日记与nginx反向代理/9.png">
+<meta property="og:updated_time" content="2017-05-02T07:12:24.646Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="博客小绿锁添加日记与nginx反向代理">
+<meta name="twitter:description" content="关于https小绿锁的加持小绿锁加持计划拖了有一段时间额，趁着五一假期终于搞定了，中间也是一波三折。">
+<meta name="twitter:image" content="http://ShanaMaid.github.io/2017/05/02/博客小绿锁添加日记与nginx反向代理/1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="娜酱骑士团" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/plugin/bganimation/bg.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://avatars0.githubusercontent.com/u/20333903?v=3&amp;s=460">
+    <h2 class="author">ShanaMaid</h2>
+    <h3 class="description">前端狗</h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>15</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>10</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>23</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/about" title="About">
+            <li>关于</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+          <a href="/sponsor" title="Sponsor">
+            <li>投喂</li>
+          </a>
+        
+          <a href="/cv" title="Cv">
+            <li>简历</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main"><article id="post-博客小绿锁添加日记与nginx反向代理" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/02/博客小绿锁添加日记与nginx反向代理/" class="article-date">
+  <time class="post-time" datetime="2017-05-02T06:10:22.000Z" itemprop="datePublished">
+    <span class="post-month">5月</span><br/>
+    <span class="post-day">02</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      博客小绿锁添加日记与nginx反向代理
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/博客开发/">博客开发</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2017/05/02/博客小绿锁添加日记与nginx反向代理/" class="leancloud_visitors" data-flag-title="博客小绿锁添加日记与nginx反向代理">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="关于https小绿锁的加持"><a href="#关于https小绿锁的加持" class="headerlink" title="关于https小绿锁的加持"></a>关于<code>https</code>小绿锁的加持</h2><p>小绿锁加持计划拖了有一段时间额，趁着五一假期终于搞定了，中间也是一波三折。<br><a id="more"></a></p>
+<h3 id="配置dns"><a href="#配置dns" class="headerlink" title="配置dns"></a>配置dns</h3><p>首先小绿锁的加持使用的是国外的<code>cloudflare</code>(以下简称cf)免费提供的<code>SSL</code>。在<a href="https://www.cloudflare.com/" target="_blank" rel="external">cf官网</a>注册一个账号，添加你的域名站点，选择免费计划。</p>
+<p>一切完成了以后点击上方一排中的<code>dns</code>图标，你可以看到<code>cf</code>为你提供了两个<code>ns</code><br><img src="/2017/05/02/博客小绿锁添加日记与nginx反向代理/1.png" alt="cf免费ns" title="cf免费ns"></p>
+<p>用这两个<code>ns</code>去替换掉你域名的dns，博主的域名是在新网购买的，替换如下图<br><img src="/2017/05/02/博客小绿锁添加日记与nginx反向代理/2.png" alt="替换dns" title="替换dns"></p>
+<p>在<code>cf</code>的<code>dns</code>页面添加一条<code>DNS Records</code>，如下图<br><img src="/2017/05/02/博客小绿锁添加日记与nginx反向代理/5.png" alt="添加dns记录" title="添加dns记录"></p>
+<h3 id="使用https"><a href="#使用https" class="headerlink" title="使用https"></a>使用https</h3><p>在<code>cf</code>的<code>Crypto</code>页面，将<code>SSL</code>设置为<code>flexible</code><br><img src="/2017/05/02/博客小绿锁添加日记与nginx反向代理/3.png" alt="SSL设置为flexible" title="SSL设置为flexible"></p>
+<p>注意，此时你的博客并不能通过<code>https</code>，此时用<code>https</code>访问会提示无效证书。<br>因为刚设置完的时<code>flexiable</code>候其实没有绿色<code>Active Certificate</code>，官方在左侧已经说明了</p>
+<blockquote>
+<p>It may take up to 24 hours after the site becomes active on Cloudflare for new certificates to issue.</p>
+</blockquote>
+<p>这句话的大概意思就是说需要一段时间去激活证书，大概是24小时。</p>
+<p>实际上其实用不了那么久，大概12小时左右博主邮箱就收到了一封激活邮件，告诉博主已经激活了。此时便可以使用<code>https</code>去访问你的网站了。<br><img src="/2017/05/02/博客小绿锁添加日记与nginx反向代理/4.png" alt="激活邮件" title="激活邮件"></p>
+<h3 id="强制https"><a href="#强制https" class="headerlink" title="强制https"></a>强制https</h3><p><code>cf</code>的<code>Page Rules</code>页面，添加路由规则。通过规则中的<code>Always use https</code>选项，可以将<code>http</code>访问的用户强制跳转到https。设置如下：</p>
+<img src="/2017/05/02/博客小绿锁添加日记与nginx反向代理/6.png" alt="配置页面规则" title="配置页面规则">
+<p>这里有个坑的地方就是在<code>Active Certificate</code>未激活前，也就是在你没收到官方的通知邮件前，你会发现你的路由规则中是没<code>Always use https</code>这个选项的。</p>
+<h3 id="加持完毕"><a href="#加持完毕" class="headerlink" title="加持完毕"></a>加持完毕</h3><p>此时<code>ping</code>一下博客域名发现已经成功，同时无论通过<code>http</code>还是<code>https</code>访问你的博客，都带上优雅的小♂绿♀锁，只是初次访问速度上会慢上许多。<br><img src="/2017/05/02/博客小绿锁添加日记与nginx反向代理/7.png" alt="ping博客域名" title="ping博客域名"></p>
+<p>╮(￣▽￣”)╭，反正免费的也就这样吧！</p>
+<h2 id="cloudflare带来的遗留问题"><a href="#cloudflare带来的遗留问题" class="headerlink" title="cloudflare带来的遗留问题"></a>cloudflare带来的遗留问题</h2><p>博客加上小绿锁了后一段时间，收到开源项目的使用者的邮件，告知github上开源的三个项目的在线版都无法使用了。<br>看了下,三个开源项目的网址如下</p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>地址</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>oho阅读</td>
+<td><a href="http://www.shanamaid.top:3001/" target="_blank" rel="external">http://www.shanamaid.top:3001/</a></td>
+</tr>
+<tr>
+<td>163music</td>
+<td><a href="http://www.shanamaid.top:3000/" target="_blank" rel="external">http://www.shanamaid.top:3000/</a></td>
+</tr>
+<tr>
+<td>webchat</td>
+<td><a href="http://www.shanamaid.top:7777/" target="_blank" rel="external">http://www.shanamaid.top:7777/</a></td>
+</tr>
+</tbody>
+</table>
+<p>想了想应该是自己在cf上面忘记添加根域名的A记录了，所以在cf上补上了<br><img src="/2017/05/02/博客小绿锁添加日记与nginx反向代理/8.png" alt="添加dns records" title="添加dns records"></p>
+<p>过了一段时间，ping了一下<code>www.shanamaid.top</code>，毫无意外，ping通了，感觉没有问题了，然后打开网页带上端口号访问的时候页面死活进不去→_→ 。</p>
+<p>翻来覆去查了下，果然是<code>cf</code>的锅，添加的dns记录只能解析到80端口。</p>
+<p>正好最近在看<code>《nginx高性能web服务器详解》</code>，为了解决问题那只有上<code>nginx</code>进行反向代理咯~</p>
+<p>先在cf中追加dns records，把域名全部解析到<code>119.29.159.156</code>。<br><img src="/2017/05/02/博客小绿锁添加日记与nginx反向代理/9.png" alt="dns records" title="dns records"></p>
+<p>然后在<code>nginx</code>的配置文件中添加下列几行代码，然后<code>./nginx -s reload</code>重新加载一下配置文件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">server &#123;</div><div class="line">  listen  80;</div><div class="line">  server_name oho.shanamaid.top;</div><div class="line">  location / &#123;</div><div class="line">     proxy_pass http://119.29.159.156:3001;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">server &#123;</div><div class="line">  listen  80;</div><div class="line">  server_name 163music.shanamaid.top;</div><div class="line">  location / &#123;</div><div class="line">     proxy_pass http://119.29.159.156:3000;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">server &#123;</div><div class="line">  listen  80;</div><div class="line">  server_name webchat.shanamaid.top;</div><div class="line">  location / &#123;</div><div class="line">     proxy_pass http://119.29.159.156:7777;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>将其分别解析到<code>3001</code>、<code>3000</code>、<code>7777</code>端口，此时就可以通过域名重新访问了。<br>|项目|地址|<br>|—-|—-|<br>|oho阅读|<a href="http://oho.shanamaid.top/|" target="_blank" rel="external">http://oho.shanamaid.top/|</a><br>|163music|<a href="http://163music.shanamaid.top/|" target="_blank" rel="external">http://163music.shanamaid.top/|</a><br>|webchat|<a href="http://webchat.shanamaid.top/|" target="_blank" rel="external">http://webchat.shanamaid.top/|</a></p>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>通过cf后，开源项目的在线版访问速度变得异常慢，即使开启了gzip还是很难受，过段时间也许会考虑换个域名专门挂开源项目在线版？或者说弃用<code>cf</code>？</p>
+<p>暂时就这样吧~~！↖(^ω^)↗</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://ShanaMaid.github.io/2017/05/02/博客小绿锁添加日记与nginx反向代理/" data-id="cj277vjwh0000esjg20umw5u2" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/https/">https</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/反向代理/">反向代理</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/04/19/《http权威指南》学习笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">《http权威指南》学习笔记</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+<div id="comments" class="comments">
+</div>
+<script>
+  var cloudTieConfig = {
+    url: document.location.href, 
+    sourceId: "",
+    productKey: "2217020738364b0fb365e919b0738383",
+    target: "comments"
+  };
+</script>
+<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">娜酱骑士团</h1>
+    <h2 class="blog-subtitle">死宅万岁，bilibili ( ゜- ゜)つロ 乾杯~</h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/about" title="About">
+            <li>关于</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+          <a href="/sponsor" title="Sponsor">
+            <li>投喂</li>
+          </a>
+        
+          <a href="/cv" title="Cv">
+            <li>简历</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://avatars0.githubusercontent.com/u/20333903?v=3&amp;s=460">
+    <h2 class="author">ShanaMaid</h2>
+    <h3 class="description">前端狗</h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>15</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>10</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>23</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="http://github.com/ShanaMaid" target="_blank" title="Github">
+          Github
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>友情链接</h2>
+      
+        <a class="hvr-bounce-in" href="https://blog.chionlab.moe/" target="_blank" title="Chion Tang">
+          Chion Tang
+        </a>
+      
+        <a class="hvr-bounce-in" href="https://uestcmao.github.io/" target="_blank" title="uestcmao">
+          uestcmao
+        </a>
+      
+        <a class="hvr-bounce-in" href="http://www.angryzhangzhe.cn/" target="_blank" title="Encounter">
+          Encounter
+        </a>
+      
+        <a class="hvr-bounce-in" href="http://chuangzaoshi.com/" target="_blank" title="创造狮">
+          创造狮
+        </a>
+      
+        <a class="hvr-bounce-in" href="https://calpa.me/" target="_blank" title="Calpa">
+          Calpa
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2016 - 2017 ShanaMaid<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
+      
+        |<script src="https://s11.cnzz.com/z_stat.php?id=1260644675&web_id=1260644675" language="JavaScript"></script>
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+  <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+  <script src="/plugin/galmenu/GalMenu.js"></script>
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title="" class="menuItem">首页</a>
+          
+            <a href="/about" title="" class="menuItem">关于</a>
+          
+            <a href="/sponsor" title="" class="menuItem">投喂</a>
+          
+            <a href="/archives" title="" class="menuItem">归档</a>
+          
+            <a href="https://github.com/ShanaMaid/cv" title="" class="menuItem">简历</a>
+          
+            <a href="https://github.com/shanamaid" title="" class="menuItem">Github</a>
+          
+        </div>
+        
+          <audio id="audio" src="#"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
+</script>
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span>苟利</span></li> 
+    <li><span>国家</span></li> 
+    <li><span>生死以</span></li> 
+    <li><span>岂能</span></li> 
+    <li><span>祸福</span></li> 
+    <li><span>趋避之</span></li> 
+  </ul>
+</section>
+<script src="/js/script.js"></script>
+
+
+
+
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("4FWJbd67YPU36gbAiyAnl0lF-gzGzoHsz", "ofw0GRIkU9iBeevMnzhbTPAf");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.article-title').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+
+
+  </div>
+</body>
+</html>
