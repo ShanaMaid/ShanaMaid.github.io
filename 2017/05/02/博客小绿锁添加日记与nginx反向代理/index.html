@@ -20,7 +20,7 @@
 <meta property="og:image" content="http://ShanaMaid.github.io/2017/05/02/博客小绿锁添加日记与nginx反向代理/7.png">
 <meta property="og:image" content="http://ShanaMaid.github.io/2017/05/02/博客小绿锁添加日记与nginx反向代理/8.png">
 <meta property="og:image" content="http://ShanaMaid.github.io/2017/05/02/博客小绿锁添加日记与nginx反向代理/9.png">
-<meta property="og:updated_time" content="2017-05-02T07:18:10.415Z">
+<meta property="og:updated_time" content="2017-05-03T12:44:21.233Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="博客小绿锁添加日记与nginx反向代理">
 <meta name="twitter:description" content="关于https小绿锁的加持小绿锁加持计划拖了有一段时间额，趁着五一假期终于搞定了，中间也是一波三折。">
@@ -204,6 +204,31 @@
 </table>
 <h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>通过cf后，开源项目的在线版访问速度变得异常慢，即使开启了gzip还是很难受，过段时间也许会考虑换个域名专门挂开源项目在线版？或者说弃用<code>cf</code>？</p>
 <p>暂时就这样吧~~！↖(^ω^)↗</p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>经过cf转发后速度开源项目在线版的读取速度实在惨不忍睹，于是新注册了一个shanalab域名用作挂开源项目的。项目地址改为</p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>地址</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>oho阅读</td>
+<td><a href="http://oho.shanalab.top/" target="_blank" rel="external">http://oho.shanalab.top/</a></td>
+</tr>
+<tr>
+<td>163music</td>
+<td><a href="http://163music.shanalab.top/" target="_blank" rel="external">http://163music.shanalab.top/</a></td>
+</tr>
+<tr>
+<td>webchat</td>
+<td><a href="http://webchat.shanalab.top/" target="_blank" rel="external">http://webchat.shanalab.top/</a></td>
+</tr>
+</tbody>
+</table>
+<p>nginx转发配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">```</div><div class="line">server &#123;</div><div class="line">  listen  80;</div><div class="line">  server_name oho.shanalab.top;</div><div class="line">  location / &#123;</div><div class="line">     proxy_pass http://119.29.159.156:3001;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">server &#123;</div><div class="line">  listen  80;</div><div class="line">  server_name 163music.shanalab.top;</div><div class="line">  location / &#123;</div><div class="line">     proxy_pass http://119.29.159.156:3000;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">server &#123;</div><div class="line">  listen  80;</div><div class="line">  server_name webchat.shanalab.top;</div><div class="line">  location / &#123;</div><div class="line">     proxy_pass http://119.29.159.156:7777;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>```</p>
 
       
     </div>
