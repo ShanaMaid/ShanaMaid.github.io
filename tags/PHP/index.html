@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: PHP | 娜酱骑士团</title>
+  <title>Tag: php | 娜酱骑士团</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="前端狗">
 <meta property="og:type" content="website">
 <meta property="og:title" content="娜酱骑士团">
-<meta property="og:url" content="http://ShanaMaid.github.io/tags/PHP/index.html">
+<meta property="og:url" content="http://ShanaMaid.github.io/tags/php/index.html">
 <meta property="og:site_name" content="娜酱骑士团">
 <meta property="og:description" content="前端狗">
 <meta name="twitter:card" content="summary">
@@ -42,7 +42,7 @@
     <div class="count-box">
       <a href="/archives"><div><strong>17</strong><br>文章</div></a>
       <a href="/categories"><div><strong>11</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>23</strong><br>标签</div></a>
+      <a href="/tags"><div><strong>24</strong><br>标签</div></a>
     </div>
     <ul class="blog-link">
      
@@ -83,89 +83,23 @@
       
       <section class="archives-wrap animated rubberBand">
         <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
+          <a href="/archives/2017" class="archive-year">2017</a>
         </div>
         <div class="archives">
     
     <article class="archive-article archive-type-post">
   <div class="archive-article-inner">
     <header class="archive-article-header">
-      <a href="/2016/11/23/独立开发日记-剑网3那些事儿/" class="archive-article-date">
-  <time class="post-time" datetime="2016-11-23T06:37:25.000Z" itemprop="datePublished">
-    <span class="post-month">11月</span><br/>
-    <span class="post-day">23</span>
+      <a href="/2017/06/07/轮询机制解决后端任务回调问题/" class="archive-article-date">
+  <time class="post-time" datetime="2017-06-07T03:35:23.000Z" itemprop="datePublished">
+    <span class="post-month">6月</span><br/>
+    <span class="post-day">07</span>
   </time>
 </a>
       
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/11/23/独立开发日记-剑网3那些事儿/">独立开发日记-剑网3那些事儿</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/10/31/剑侠情缘3网络版贴吧爬虫开发日记/" class="archive-article-date">
-  <time class="post-time" datetime="2016-10-31T14:22:21.000Z" itemprop="datePublished">
-    <span class="post-month">10月</span><br/>
-    <span class="post-day">31</span>
-  </time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/10/31/剑侠情缘3网络版贴吧爬虫开发日记/">剑侠情缘3网络版贴吧爬虫开发日记</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/10/18/利用Php爬虫备份自己的CSDN博客/" class="archive-article-date">
-  <time class="post-time" datetime="2016-10-18T06:15:46.000Z" itemprop="datePublished">
-    <span class="post-month">10月</span><br/>
-    <span class="post-day">18</span>
-  </time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/10/18/利用Php爬虫备份自己的CSDN博客/">利用Php爬虫备份自己的CSDN博客</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/10/16/PHP实战：利用Curl刷CSDN积分/" class="archive-article-date">
-  <time class="post-time" datetime="2016-10-16T14:28:16.000Z" itemprop="datePublished">
-    <span class="post-month">10月</span><br/>
-    <span class="post-day">16</span>
-  </time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/10/16/PHP实战：利用Curl刷CSDN积分/">PHP实战：利用Curl刷CSDN积分</a>
+      <a class="archive-article-title" href="/2017/06/07/轮询机制解决后端任务回调问题/">轮询机制解决后端任务回调问题</a>
     </h1>
   
 
@@ -226,7 +160,7 @@
     <div class="count-box">
       <a href="/archives"><div><strong>17</strong><br>文章</div></a>
       <a href="/categories"><div><strong>11</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>23</strong><br>标签</div></a>
+      <a href="/tags"><div><strong>24</strong><br>标签</div></a>
     </div>
 
 
@@ -400,6 +334,70 @@ new WOW().init();
     function addCount(Counter) {
       var $visitors = $(".leancloud_visitors");
       var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.article-title').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+
+
+  </div>
+</body>
+</html>.trim();
       var title = $visitors.attr('data-flag-title').trim();
       var query = new AV.Query(Counter);
 
