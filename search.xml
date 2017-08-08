@@ -58,9 +58,9 @@
         <category>React</category>
       </categories>
       <tags>
+        <tag>javascript</tag>
         <tag>express</tag>
         <tag>React</tag>
-        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -72,8 +72,8 @@
         <category>vue</category>
       </categories>
       <tags>
-        <tag>javascript</tag>
         <tag>vue</tag>
+        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -98,8 +98,8 @@
         <category>vue</category>
       </categories>
       <tags>
-        <tag>javascript</tag>
         <tag>vue</tag>
+        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -162,8 +162,8 @@
         <category>web</category>
       </categories>
       <tags>
-        <tag>express</tag>
         <tag>PHP</tag>
+        <tag>express</tag>
         <tag>Nodejs</tag>
         <tag>ejs</tag>
         <tag>requirejs</tag>
